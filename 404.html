@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sayfa bulunamadı | Europe Gayrimenkul</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles.css" />
+  <script>
+    try {
+      var l = localStorage.getItem("europe-lang");
+      if (l === "fa") { document.documentElement.lang = "fa"; document.documentElement.dir = "rtl"; }
+      if (l === "en" || l === "fa") document.documentElement.classList.add("i18n-pending");
+    } catch (e) {}
+  </script>
+</head>
+<body data-page="404" data-title-key="meta.notFoundTitle">
+  <header class="site-header">
+    <a class="brand" href="./index.html">
+      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true"><rect x="1" y="1" width="46" height="46" rx="6" fill="#101820"/><path d="M10 31.5V19.2L24 10l14 9.2v12.3" stroke="#C6A15A" stroke-width="1.7" fill="none"/><path d="M18 31.5v-8h12v8" stroke="#F4EFE6" stroke-width="1.6" fill="none"/><path d="M22 31.5v-4h4v4" stroke="#C6A15A" stroke-width="1.4" fill="none"/></svg>
+      <span class="brand__text"><span class="brand__name">Europe</span><span class="brand__sub" data-i18n="brand.sub">Gayrimenkul</span></span>
+    </a>
+    <div class="tools">
+      <div class="langs" role="group" aria-label="Language">
+        <button type="button" data-lang="tr" aria-pressed="true">TR</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="fa">فا</button>
+      </div>
+    </div>
+  </header>
+  <main id="main" class="page-hero">
+    <div class="wrap">
+      <p class="kicker">404</p>
+      <h1 data-i18n="notFound.title">Bu sayfa yok.</h1>
+      <p class="lede" data-i18n="notFound.text">Adres değişmiş olabilir. Ana sayfadan devam edin.</p>
+      <div class="actions">
+        <a class="btn btn--primary" href="./index.html" data-i18n="notFound.cta">Ana sayfa</a>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
