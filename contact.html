@@ -3,17 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>İletişim | Europe Gayrimenkul</title>
-  <meta name="description" content="Kağıthane ofis, telefon ve WhatsApp. Europe Gayrimenkul ve FX Guard için yazın." data-i18n-content="meta.contactDesc" />
-  <meta name="theme-color" content="#101820" />
+  <title>İletişim | ERST</title>
+  <meta name="description" content="Esenyurt ofisi ve FX Guard satışı." data-i18n-content="meta.contactDesc" />
+  <meta name="theme-color" content="#141414" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Syne:wght@600;700&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/src/styles.css" />
   <script>
     try {
-      var l = localStorage.getItem("europe-lang");
+      var l = localStorage.getItem("erst-lang");
       if (l === "fa") { document.documentElement.lang = "fa"; document.documentElement.dir = "rtl"; }
       if (l === "en" || l === "fa") document.documentElement.classList.add("i18n-pending");
     } catch (e) {}
@@ -22,15 +27,11 @@
 <body data-page="contact" data-title-key="meta.contactTitle">
   <a class="skip" href="#main" data-i18n="skip">İçeriğe geç</a>
   <header class="site-header">
-    <a class="brand" href="./index.html">
-      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true"><rect x="1" y="1" width="46" height="46" rx="6" fill="#101820"/><path d="M10 31.5V19.2L24 10l14 9.2v12.3" stroke="#C6A15A" stroke-width="1.7" fill="none"/><path d="M18 31.5v-8h12v8" stroke="#F4EFE6" stroke-width="1.6" fill="none"/><path d="M22 31.5v-4h4v4" stroke="#C6A15A" stroke-width="1.4" fill="none"/></svg>
-      <span class="brand__text"><span class="brand__name">Europe</span><span class="brand__sub" data-i18n="brand.sub">Gayrimenkul</span></span>
-    </a>
+    <a class="brand" href="./index.html"><img class="brand__logo" src="/assets/mark.svg" alt="" width="28" height="28" /><span class="brand__name">ERST <span class="brand__it">IT</span></span></a>
     <nav class="nav" data-i18n-aria="nav.primary" aria-label="Ana menü">
+      <a href="./work.html" data-nav="work" data-i18n="nav.work">İş</a>
+      <a href="./products.html" data-nav="products" data-i18n="nav.products">Ürünler</a>
       <a href="./about.html" data-nav="about" data-i18n="nav.about">Şirket</a>
-      <a href="./portfolio.html" data-nav="portfolio" data-i18n="nav.portfolio">Portföy</a>
-      <a href="./services.html" data-nav="services" data-i18n="nav.services">Hizmetler</a>
-      <a href="./fxguard.html" data-nav="fxguard" data-i18n="nav.fx">FX Guard</a>
       <a href="./contact.html" data-nav="contact" data-i18n="nav.contact">İletişim</a>
     </nav>
     <div class="tools">
@@ -39,92 +40,63 @@
         <button type="button" data-lang="en">EN</button>
         <button type="button" data-lang="fa">فا</button>
       </div>
-      <a class="btn btn--primary btn--small" href="https://wa.me/905010676486" data-i18n="cta.whatsapp">WhatsApp</a>
+      <a class="btn btn--primary btn--small" href="https://fxguard.io/" target="_blank" rel="noopener">fxguard.io</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="menu-toggle__bars" aria-hidden="true"></span><span class="sr-only" data-i18n="nav.menu">Menü</span></button>
     </div>
   </header>
   <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="./work.html" data-nav="work" data-i18n="nav.work">İş</a>
+    <a href="./products.html" data-nav="products" data-i18n="nav.products">Ürünler</a>
     <a href="./about.html" data-nav="about" data-i18n="nav.about">Şirket</a>
-    <a href="./portfolio.html" data-nav="portfolio" data-i18n="nav.portfolio">Portföy</a>
-    <a href="./services.html" data-nav="services" data-i18n="nav.services">Hizmetler</a>
-    <a href="./fxguard.html" data-nav="fxguard" data-i18n="nav.fx">FX Guard</a>
     <a href="./contact.html" data-nav="contact" data-i18n="nav.contact">İletişim</a>
   </div>
   <main id="main">
     <section class="page-hero">
       <div class="wrap">
         <p class="kicker" data-i18n="contact.kicker">İletişim</p>
-        <h1 data-i18n="contact.title">Kağıthane’den yazın.</h1>
-        <p class="lede" data-i18n="contact.lede">Satılık, konaklama, şirket dosyası veya FX Guard. Form bir sunucuya gitmez.</p>
+        <h1 data-i18n="contact.title">İşi veya ürünü yazın.</h1>
+        <p class="lede" data-i18n="contact.lede">Stüdyo için Esenyurt hattı. FX Guard satışı için ürün sitesindeki hat.</p>
       </div>
     </section>
-    <section class="section" style="padding-top:8px">
+    <section class="section">
       <div class="wrap contact-grid">
-        <article class="card contact-card">
-          <h2 data-i18n="contact.formTitle">WhatsApp mesajı</h2>
+        <article class="card">
+          <h2 data-i18n="contact.formTitle">E-posta</h2>
           <form data-contact-form>
-            <label>
-              <span data-i18n="contact.name">Ad</span>
-              <input name="name" required autocomplete="name" data-i18n-placeholder="contact.namePh" placeholder="Adınız" />
-            </label>
-            <label>
-              <span data-i18n="contact.phoneField">Telefon</span>
-              <input name="phone" autocomplete="tel" data-i18n-placeholder="contact.phonePh" placeholder="+90 …" />
-            </label>
+            <label><span data-i18n="contact.name">Ad</span><input name="name" required autocomplete="name" data-i18n-placeholder="contact.namePh" placeholder="Adınız" /></label>
+            <label><span data-i18n="contact.phoneField">Telefon</span><input name="phone" autocomplete="tel" data-i18n-placeholder="contact.phonePh" placeholder="+90 …" /></label>
             <label>
               <span data-i18n="contact.interest">Konu</span>
               <select name="interest">
-                <option value="opt.sale" data-i18n="opt.sale">Satılık / yatırım</option>
-                <option value="opt.stay" data-i18n="opt.stay">Günlük veya aylık</option>
-                <option value="opt.company" data-i18n="opt.company">Şirket kuruluşu</option>
-                <option value="opt.residence" data-i18n="opt.residence">İkamet evrakı</option>
-                <option value="opt.fx" data-i18n="opt.fx">FX Guard</option>
+                <option value="opt.site" data-i18n="opt.site">FX Guard sitesi</option>
+                <option value="opt.panel" data-i18n="opt.panel">WhatsApp paneli</option>
+                <option value="opt.books" data-i18n="opt.books">Muhasebe</option>
+                <option value="opt.web" data-i18n="opt.web">Döviz sitesi</option>
+                <option value="opt.studio" data-i18n="opt.studio">Yeni iş</option>
               </select>
             </label>
-            <label>
-              <span data-i18n="contact.message">Mesaj</span>
-              <textarea name="message" required data-i18n-placeholder="contact.messagePh" placeholder="Bütçe, semt, tarih veya şube sayısı"></textarea>
-            </label>
+            <label><span data-i18n="contact.message">Mesaj</span><textarea name="message" required data-i18n-placeholder="contact.messagePh" placeholder="Site, panel veya teklif"></textarea></label>
             <p class="form-error" role="alert"></p>
-            <button class="btn btn--primary" type="submit" data-i18n="contact.submit">WhatsApp’ta aç</button>
-            <p class="note" data-i18n="contact.hint">Gönder’e basınca WhatsApp açılır. Mesaj bu sitede kaydedilmez.</p>
+            <button class="btn btn--primary" type="submit" data-i18n="contact.submit">E-postayı aç</button>
+            <p class="note" data-i18n="contact.hint">Mesaj bu sitede kaydedilmez.</p>
           </form>
         </article>
         <article class="card">
           <ul class="contact-list">
-            <li>
-              <span data-i18n="contact.address">Adres</span>
-              Merkez Mah. Sardunya Sk. No: 4 İç Kapı No: 25, Kağıthane / İstanbul
-            </li>
-            <li>
-              <span data-i18n="contact.phone">Telefon</span>
-              <a href="tel:+905010676486">+90 501 067 64 86</a>
-            </li>
-            <li>
-              <span data-i18n="contact.email">E-posta</span>
-              <a href="mailto:info@europegayrimenkul.com">info@europegayrimenkul.com</a>
-            </li>
-            <li>
-              <span data-i18n="contact.fxmail">FX Guard satış</span>
-              <a href="mailto:sales@fxguard.io">sales@fxguard.io</a>
-            </li>
-            <li>
-              <span>FX Guard</span>
-              <a href="https://fxguard.io/" target="_blank" rel="noopener">fxguard.io</a>
-            </li>
+            <li><span data-i18n="contact.address">Adres</span>Gökevler Mah. 2312. Sk. Burç İstanbul 18 Blok No: 18 J İç Kapı No: 199, Esenyurt / İstanbul</li>
+            <li><span data-i18n="contact.phone">Stüdyo</span><a href="tel:+902125160983">+90 212 516 09 83</a></li>
+            <li><span data-i18n="contact.email">E-posta</span><a href="mailto:info@erstitsolutions.com">info@erstitsolutions.com</a></li>
+            <li><span data-i18n="contact.fx">FX Guard satış</span><a href="mailto:sales@fxguard.io">sales@fxguard.io</a><br /><a href="https://wa.me/905010676486">+90 501 067 64 86</a></li>
           </ul>
           <div class="actions">
-            <a class="btn btn--ghost" href="https://maps.google.com/?q=Merkez+Mah.+Sardunya+Sk.+No+4+Kagithane+Istanbul" target="_blank" rel="noopener" data-i18n="contact.map">Haritada aç</a>
+            <a class="btn btn--ghost" href="https://maps.google.com/?q=Gokevler+Mahallesi+2312.+Sokak+Burc+Istanbul+Esenyurt" target="_blank" rel="noopener" data-i18n="contact.map">Haritada aç</a>
           </div>
         </article>
       </div>
     </section>
   </main>
   <footer class="site-footer">
-    <div class="wrap legal-line">
-      <p class="fine" data-i18n="footer.privacy">İletişim formu sunucuda saklanmaz; mesaj WhatsApp’ta açılır. Dil seçimi yalnızca bu cihazda durur.</p>
-      <p class="fine">© <span data-year>2026</span> Europe Gayrimenkul. <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
-    </div>
+    <div class="wrap legal-line"><p class="fine" data-i18n="footer.privacy">Form sunucuda saklanmaz.</p></div>
   </footer>
   <script type="module" src="/src/main.js"></script>
 </body>

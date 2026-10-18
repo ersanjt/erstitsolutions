@@ -1,0 +1,22 @@
+{
+  "name": "ERST IT Solutions",
+  "short_name": "ERST IT",
+  "icons": [
+    {
+      "src": "/assets/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#141414",
+  "background_color": "#efece6",
+  "display": "standalone",
+  "start_url": "/"
+}

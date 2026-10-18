@@ -3,59 +3,35 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Europe Gayrimenkul | İstanbul satış, kiralama ve FX Guard</title>
-  <meta name="description" content="Kağıthane merkezli Europe Gayrimenkul: seçili İstanbul rezidansları, günlük ve aylık konaklama, şirket dosyası ve FX Guard yazılımı." data-i18n-content="meta.homeDesc" />
-  <meta name="theme-color" content="#101820" />
+  <title>ERST | Yazılım ve site</title>
+  <meta name="description" content="ERST yazılımı ve onu anlatan siteyi kurar. Piyasadaki iş FX Guard." data-i18n-content="meta.homeDesc" />
+  <meta name="theme-color" content="#141414" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Syne:wght@600;700&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/src/styles.css" />
   <script>
     try {
-      var l = localStorage.getItem("europe-lang");
+      var l = localStorage.getItem("erst-lang");
       if (l === "fa") { document.documentElement.lang = "fa"; document.documentElement.dir = "rtl"; }
       if (l === "en" || l === "fa") document.documentElement.classList.add("i18n-pending");
     } catch (e) {}
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "RealEstateAgent",
-    "name": "Europe Gayrimenkul Satış ve Kiralama Ticaret Ltd. Şti.",
-    "telephone": "+905010676486",
-    "email": "info@europegayrimenkul.com",
-    "foundingDate": "2023-01-30",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Merkez Mah. Sardunya Sk. No: 4 İç Kapı No: 25",
-      "addressLocality": "Kağıthane",
-      "addressRegion": "İstanbul",
-      "addressCountry": "TR"
-    }
-  }
   </script>
 </head>
 <body data-page="home" data-title-key="meta.homeTitle">
   <a class="skip" href="#main" data-i18n="skip">İçeriğe geç</a>
   <header class="site-header">
-    <a class="brand" href="./index.html">
-      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
-        <rect x="1" y="1" width="46" height="46" rx="6" fill="#101820"/>
-        <path d="M10 31.5V19.2L24 10l14 9.2v12.3" stroke="#C6A15A" stroke-width="1.7" fill="none"/>
-        <path d="M18 31.5v-8h12v8" stroke="#F4EFE6" stroke-width="1.6" fill="none"/>
-        <path d="M22 31.5v-4h4v4" stroke="#C6A15A" stroke-width="1.4" fill="none"/>
-      </svg>
-      <span class="brand__text">
-        <span class="brand__name">Europe</span>
-        <span class="brand__sub" data-i18n="brand.sub">Gayrimenkul</span>
-      </span>
-    </a>
+    <a class="brand" href="./index.html"><img class="brand__logo" src="/assets/mark.svg" alt="" width="28" height="28" /><span class="brand__name">ERST <span class="brand__it">IT</span></span></a>
     <nav class="nav" data-i18n-aria="nav.primary" aria-label="Ana menü">
+      <a href="./work.html" data-nav="work" data-i18n="nav.work">İş</a>
+      <a href="./products.html" data-nav="products" data-i18n="nav.products">Ürünler</a>
       <a href="./about.html" data-nav="about" data-i18n="nav.about">Şirket</a>
-      <a href="./portfolio.html" data-nav="portfolio" data-i18n="nav.portfolio">Portföy</a>
-      <a href="./services.html" data-nav="services" data-i18n="nav.services">Hizmetler</a>
-      <a href="./fxguard.html" data-nav="fxguard" data-i18n="nav.fx">FX Guard</a>
       <a href="./contact.html" data-nav="contact" data-i18n="nav.contact">İletişim</a>
     </nav>
     <div class="tools">
@@ -64,212 +40,111 @@
         <button type="button" data-lang="en">EN</button>
         <button type="button" data-lang="fa">فا</button>
       </div>
-      <a class="btn btn--primary btn--small" href="https://wa.me/905010676486" data-i18n="cta.whatsapp">WhatsApp</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">
-        <span class="menu-toggle__bars" aria-hidden="true"></span>
-        <span class="sr-only" data-i18n="nav.menu">Menü</span>
-      </button>
+      <a class="btn btn--primary btn--small" href="https://fxguard.io/" target="_blank" rel="noopener">fxguard.io</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="menu-toggle__bars" aria-hidden="true"></span><span class="sr-only" data-i18n="nav.menu">Menü</span></button>
     </div>
   </header>
   <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="./work.html" data-nav="work" data-i18n="nav.work">İş</a>
+    <a href="./products.html" data-nav="products" data-i18n="nav.products">Ürünler</a>
     <a href="./about.html" data-nav="about" data-i18n="nav.about">Şirket</a>
-    <a href="./portfolio.html" data-nav="portfolio" data-i18n="nav.portfolio">Portföy</a>
-    <a href="./services.html" data-nav="services" data-i18n="nav.services">Hizmetler</a>
-    <a href="./fxguard.html" data-nav="fxguard" data-i18n="nav.fx">FX Guard</a>
     <a href="./contact.html" data-nav="contact" data-i18n="nav.contact">İletişim</a>
   </div>
-
   <main id="main">
     <section class="hero">
-      <div class="wrap hero__grid">
-        <div>
-          <p class="kicker" data-i18n="hero.kicker">Kağıthane · İstanbul · Sicil 440497-5</p>
-          <h1 data-i18n="hero.title">Seçili rezidans. Düzenli dosya. Açık yazılım.</h1>
-          <p class="lede" data-i18n="hero.lede">Europe Gayrimenkul Satış ve Kiralama Ticaret Ltd. Şti., 30 Ocak 2023’te tescil edilmiş bir gayrimenkul aracılık şirketidir. Satılık ve kiralık dosyalar ile dijital ürün FX Guard aynı masadadır.</p>
-          <div class="actions">
-            <a class="btn btn--primary" href="./portfolio.html" data-i18n="cta.portfolio">Portföyü gör</a>
-            <a class="btn btn--ghost" href="./fxguard.html" data-i18n="cta.fxPage">Ürün sayfası</a>
-          </div>
-          <div class="facts">
-            <div><strong dir="ltr">30.01.2023</strong><span data-i18n="fact.founded">Kuruluş</span></div>
-            <div><strong dir="ltr">440497-5</strong><span data-i18n="fact.registry">Ticaret sicili</span></div>
-            <div><strong dir="ltr">68.31.01</strong><span data-i18n="fact.nace">NACE</span></div>
-            <div><strong dir="ltr">50.000 TL</strong><span data-i18n="fact.capital">Sermaye</span></div>
-          </div>
-        </div>
-        <aside class="hero-card">
-          <small>İSTANBUL TİCARET ODASI</small>
-          <div>
-            <strong>Kağıthane</strong>
-            <p data-i18n="legal.naceValue">68.31.01 — Gayrimenkul faaliyetleri için aracılık</p>
-          </div>
-          <a href="./about.html" data-i18n="about.legalTitle">Kimlik</a>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section">
       <div class="wrap">
-        <div class="section__head">
-          <div>
-            <p class="kicker" data-i18n="products.kicker">İki iş</p>
-            <h2 data-i18n="products.title">Taşınmaz dosyası ve şirket paneli.</h2>
-          </div>
-        </div>
-        <div class="split">
-          <a class="panel" href="./portfolio.html">
-            <p class="kicker" data-i18n="product.property.kicker">Gayrimenkul</p>
-            <h3 data-i18n="product.property.title">Satılık ve kiralık seçki</h3>
-            <p data-i18n="product.property.text">Levent, Taksim, Kağıthane, Edirnekapı ve Zeytinburnu. Fiyatı yazılmayan daireyi fiyatlı gibi göstermeyiz. Fotoğraf, müsaitlik netleşince gönderilir.</p>
-            <span class="panel__go" data-i18n="cta.portfolio">Portföyü gör</span>
-          </a>
-          <a class="panel panel--sea" href="./fxguard.html">
-            <p class="kicker" data-i18n="product.fx.kicker">Yazılım</p>
-            <h3 data-i18n="product.fx.title">FX Guard</h3>
-            <p data-i18n="product.fx.text">Müşteri WhatsApp’ta yazar; defter şirkette kalır. Ortak gelen kutusu, roller, 2FA. Döviz kuru modülü Business planındadır.</p>
-            <span class="panel__go" data-i18n="cta.fx">FX Guard’ı aç</span>
-          </a>
+        <p class="kicker" data-i18n="hero.kicker">Yazılım stüdyosu</p>
+        <h1 data-i18n="hero.title">Ürünü de yazarız, sitesini de.</h1>
+        <p class="lede" data-i18n="hero.lede">ERST, yazılımı ve onu satan yüzeyi aynı masada kurar. Şu an pazardaki iş FX Guard: işletmenin WhatsApp masası, personel paneli ve fxguard.io.</p>
+        <div class="actions">
+          <a class="btn btn--primary" href="./work.html" data-i18n="cta.work">İşi aç</a>
+          <a class="btn btn--ghost" href="./products.html" data-i18n="cta.products">Ürünler</a>
         </div>
       </div>
     </section>
-
+    <section class="section" style="padding-top:12px">
+      <div class="wrap">
+        <a class="case" href="https://fxguard.io/" target="_blank" rel="noopener">
+          <div class="case__top">
+            <span data-i18n="case.index">01 — Seçili iş</span>
+            <span>fxguard.io</span>
+          </div>
+          <h2 data-i18n="case.title">FX Guard</h2>
+          <p data-i18n="case.text">Müşteri WhatsApp’ta yazar. Defter şirkette kalır. Site beş dilde anlatır; panel masayı tutar.</p>
+          <div class="screen" aria-hidden="true">
+            <div class="screen__bar"><i></i><i></i><i></i></div>
+            <div class="screen__side">
+              <span data-i18n="screen.inbox">Gelen kutusu</span>
+              <span data-i18n="screen.customers">Müşteriler</span>
+              <span data-i18n="screen.rates">Kurlar</span>
+              <span data-i18n="screen.roles">Roller</span>
+            </div>
+            <div class="screen__main">
+              <div class="chips">
+                <b data-i18n="chip.chats">Açık sohbet</b>
+                <b data-i18n="chip.rates">Alış / satış</b>
+                <b data-i18n="chip.staff">2FA</b>
+              </div>
+            </div>
+          </div>
+          <div class="case__foot"><span data-i18n="case.open">Canlı siteyi aç</span><span>app.fxguard.io</span></div>
+        </a>
+      </div>
+    </section>
     <section class="section" style="padding-top:0">
       <div class="wrap">
         <div class="section__head">
-          <div>
-            <p class="kicker">01</p>
-            <h2 data-i18n="section.portfolio">Seçili dosyalar</h2>
-          </div>
-          <p data-i18n="section.portfolioText">Yayındaki projeler. Yanlış bina fotoğrafı yok.</p>
+          <p class="kicker" data-i18n="products.kicker">Ürün ailesi</p>
+          <h2 data-i18n="products.title">Aynı işin üç yüzü.</h2>
         </div>
         <div class="cards">
-          <article class="card">
-            <div class="num">01 · <span data-i18n="prop.istova.place">Levent</span></div>
-            <h3 data-i18n="prop.istova.title">İstova Levent — 2+1</h3>
-            <p class="meta" data-i18n="prop.istova.meta">113 m² brüt · 71 m² net · kapalı otopark</p>
-            <p data-i18n="prop.istova.text">Levent aksına yakın 2+1. Merkezi ısıtma ve site güvenliği. Oturum veya uzun dönem kira için sorulur.</p>
-            <div class="tags"><span class="tag" data-i18n="status.sale">Satılık</span><span class="tag tag--price">250.000 USD</span></div>
-          </article>
-          <article class="card">
-            <div class="num">02 · <span data-i18n="prop.elysium.place">Taksim</span></div>
-            <h3 data-i18n="prop.elysium.title">Elysium Residence</h3>
-            <p class="meta" data-i18n="prop.elysium.meta">91 bağımsız bölüm · stüdyo, 1+1, 2+1, dubleks</p>
-            <p data-i18n="prop.elysium.text">Taksim’e yürüme mesafesi. Kapalı havuz, sauna, buhar odası ve fitness. Satış, günlük ve aylık.</p>
-            <div class="tags"><span class="tag" data-i18n="status.sale">Satılık</span><span class="tag" data-i18n="status.stay">Günlük / aylık</span></div>
-          </article>
-          <article class="card">
-            <div class="num">03 · <span data-i18n="prop.academia.place">Kağıthane</span></div>
-            <h3 data-i18n="prop.academia.title">Academia Residence</h3>
-            <p class="meta" data-i18n="prop.academia.meta">Sardunya Sk. No: 4 · suit ve 1+1</p>
-            <p data-i18n="prop.academia.text">Şirket adresindeki bina. Satılık, günlük ve aylık. İnternet, elektrik, su, ısınma ve temizlik kiraya dahildir.</p>
-            <div class="tags"><span class="tag" data-i18n="status.sale">Satılık</span><span class="tag" data-i18n="status.stay">Günlük / aylık</span></div>
-          </article>
-        </div>
-        <div class="actions">
-          <a class="btn btn--ghost" href="./portfolio.html" data-i18n="cta.portfolio">Portföyü gör</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" style="padding-top:0">
-      <div class="wrap">
-        <div class="section__head">
-          <div>
-            <p class="kicker">02</p>
-            <h2 data-i18n="section.process">Üç adım</h2>
-          </div>
-        </div>
-        <div class="steps">
-          <article class="step"><span>01</span><h3 data-i18n="process.1.title">İhtiyacı yazın</h3><p data-i18n="process.1.text">Bütçe, semt, konaklama tarihi veya panel ihtiyacını WhatsApp’tan gönderin.</p></article>
-          <article class="step"><span>02</span><h3 data-i18n="process.2.title">Dosyayı açalım</h3><p data-i18n="process.2.text">Eldeki daireyi, kuruluş adımını veya FX Guard paketini kapsamıyla paylaşırız.</p></article>
-          <article class="step"><span>03</span><h3 data-i18n="process.3.title">Sırayı kuralım</h3><p data-i18n="process.3.text">Sözleşme, tapu, sicil veya panel kurulumu ilgili kuruma ve ürüne göre ilerler.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" style="padding-top:0">
-      <div class="wrap">
-        <div class="section__head">
-          <div>
-            <p class="kicker">03</p>
-            <h2 data-i18n="section.faq">Kısa yanıtlar</h2>
-          </div>
-        </div>
-        <div class="faq">
-          <details>
-            <summary data-i18n="faq.1.q">Yabancı İstanbul’da tapu alabilir mi?</summary>
-            <p data-i18n="faq.1.a">Evet. Askeri yasak bölge kontrolü, vergi numarası ve tapu harcı sürecin parçasıdır. Tescil tapu müdürlüğünün işidir.</p>
-          </details>
-          <details>
-            <summary data-i18n="faq.2.q">Günlük kiralama nerede?</summary>
-            <p data-i18n="faq.2.a">Taksim’de Elysium ve Petek, Kağıthane’de Academia (Sardunya Sk. No: 4). Müsait daireyi fotoğrafla göndeririz.</p>
-          </details>
-          <details>
-            <summary data-i18n="faq.3.q">Limited şirket için Türkiye’ye gelmek gerekir mi?</summary>
-            <p data-i18n="faq.3.a">Birçok dosya apostilli vekâletle uzaktan yürür. Bu şirketin sermayesi 50.000 TL’dir. Tescil kararı ticaret sicilinindir.</p>
-          </details>
-          <details>
-            <summary data-i18n="faq.4.q">FX Guard bu şirkete mi ait?</summary>
-            <p data-i18n="faq.4.a">Evet. Ürün sitesi fxguard.io adresindedir. Cloud Start aylık 49 ABD dolarıdır ve döviz modülünü içermez. Business aylık 249 ABD dolarından başlar.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" style="padding-top:0">
-      <div class="wrap">
-        <div class="cta-band">
-          <div>
-            <h2 data-i18n="ctaBand.title">Bütçeyi veya tarihi yazın.</h2>
-            <p data-i18n="ctaBand.text">Kısa bir mesaj yeter. Satış, konaklama, şirket dosyası veya FX Guard.</p>
-          </div>
-          <a class="btn btn--light" href="https://wa.me/905010676486" data-i18n="cta.whatsapp">WhatsApp</a>
+          <a class="card" href="https://fxguard.io/" target="_blank" rel="noopener">
+            <div class="index" data-i18n="prod.crm.k">Yayında</div>
+            <h3 data-i18n="prod.crm.title">WhatsApp CRM</h3>
+            <p data-i18n="prod.crm.text">Ortak gelen kutusu, müşteri defteri, roller, şubeler ve 2FA. Döviz masası için kur modülü Business planında.</p>
+          </a>
+          <a class="card" href="https://fxguard.io/" target="_blank" rel="noopener">
+            <div class="index" data-i18n="prod.books.k">Yayında</div>
+            <h3 data-i18n="prod.books.title">Muhasebe</h3>
+            <p data-i18n="prod.books.text">Tahsilat, ödeme, kur ve havale için defter. Açık demo CRM’den ayrıdır ve sıfırlanır.</p>
+          </a>
+          <a class="card" href="https://exchange.fxguard.io/" target="_blank" rel="noopener">
+            <div class="index" data-i18n="prod.web.k">Ayrıca teklif</div>
+            <h3 data-i18n="prod.web.title">Döviz siteleri</h3>
+            <p data-i18n="prod.web.text">Kur, sipariş ve takip taşıyan markalı site. Canlı örnek exchange.fxguard.io. CRM’den ayrı fiyatlanır.</p>
+          </a>
         </div>
       </div>
     </section>
   </main>
-
   <footer class="site-footer">
     <div class="wrap footer-grid">
       <div>
-        <a class="brand" href="./index.html">
-          <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true">
-            <rect x="1" y="1" width="46" height="46" rx="6" fill="#172430"/>
-            <path d="M10 31.5V19.2L24 10l14 9.2v12.3" stroke="#C6A15A" stroke-width="1.7" fill="none"/>
-            <path d="M18 31.5v-8h12v8" stroke="#F4EFE6" stroke-width="1.6" fill="none"/>
-            <path d="M22 31.5v-4h4v4" stroke="#C6A15A" stroke-width="1.4" fill="none"/>
-          </svg>
-          <span class="brand__text">
-            <span class="brand__name">Europe</span>
-            <span class="brand__sub" data-i18n="brand.sub">Gayrimenkul</span>
-          </span>
-        </a>
-        <p style="margin-top:14px">Europe Gayrimenkul Satış ve Kiralama Ticaret Ltd. Şti.</p>
-        <p>Merkez Mah. Sardunya Sk. No: 4 İç Kapı No: 25<br />Kağıthane / İstanbul</p>
+        <a class="brand" href="./index.html"><img class="brand__logo" src="/assets/mark-on-dark.svg" alt="" width="28" height="28" /><span class="brand__name">ERST <span class="brand__it">IT</span></span></a>
+        <p style="margin-top:14px">ERST IT Solutions Bilişim Teknolojileri Sanayi ve Ticaret Ltd. Şti.</p>
+        <p>Gökevler Mah. 2312. Sk. Burç İstanbul, Esenyurt / İstanbul</p>
       </div>
       <div>
-        <h2 data-i18n="nav.portfolio">Portföy</h2>
+        <h2 data-i18n="nav.work">İş</h2>
         <ul>
-          <li><a href="./portfolio.html" data-i18n="nav.portfolio">Portföy</a></li>
-          <li><a href="./services.html" data-i18n="nav.services">Hizmetler</a></li>
-          <li><a href="./fxguard.html" data-i18n="nav.fx">FX Guard</a></li>
-          <li><a href="./about.html" data-i18n="nav.about">Şirket</a></li>
+          <li><a href="./work.html">FX Guard</a></li>
+          <li><a href="https://fxguard.io/" target="_blank" rel="noopener">fxguard.io</a></li>
+          <li><a href="https://app.fxguard.io/" target="_blank" rel="noopener">app.fxguard.io</a></li>
         </ul>
       </div>
       <div>
         <h2 data-i18n="nav.contact">İletişim</h2>
         <ul>
-          <li><a href="tel:+905010676486">+90 501 067 64 86</a></li>
-          <li><a href="mailto:info@europegayrimenkul.com">info@europegayrimenkul.com</a></li>
-          <li><a href="https://fxguard.io/" target="_blank" rel="noopener">fxguard.io</a></li>
+          <li><a href="tel:+902125160983">+90 212 516 09 83</a></li>
+          <li><a href="mailto:info@erstitsolutions.com">info@erstitsolutions.com</a></li>
+          <li><a href="mailto:sales@fxguard.io">sales@fxguard.io</a></li>
         </ul>
       </div>
     </div>
     <div class="wrap legal-line">
-      <p>MERSİS 0381103139500001 · Sicil 440497-5 · VKN 3811031395 · NACE 68.31.01</p>
-      <p class="fine" data-i18n="footer.disclaimer">İlanlar bilgi amaçlıdır. Tapu, vergi ve ikamet kararları ilgili kuruma aittir. FX Guard fiyatları fxguard.io üzerinde yayımlandığı gibidir.</p>
-      <p class="fine" data-i18n="footer.privacy">İletişim formu sunucuda saklanmaz; mesaj WhatsApp’ta açılır. Dil seçimi yalnızca bu cihazda durur.</p>
-      <p class="fine">© <span data-year>2026</span> Europe Gayrimenkul. <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
+      <p>MERSİS 0370043020200001 · Sicil 129956-5 · VKN 3700430202</p>
+      <p class="fine" data-i18n="footer.privacy">Form sunucuda saklanmaz.</p>
+      <p class="fine">© <span data-year>2026</span> ERST. <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
     </div>
   </footer>
   <script type="module" src="/src/main.js"></script>

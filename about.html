@@ -3,17 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Şirket | Europe Gayrimenkul</title>
-  <meta name="description" content="Europe Gayrimenkul Satış ve Kiralama Ticaret Ltd. Şti. sicil, MERSİS, adres ve kayıtlı faaliyet özeti." data-i18n-content="meta.aboutDesc" />
-  <meta name="theme-color" content="#101820" />
+  <title>Şirket | ERST IT Solutions</title>
+  <meta name="description" content="ERST IT Solutions Bilişim Teknolojileri Sanayi ve Ticaret Ltd. Şti. Esenyurt. Sicil 129956-5." data-i18n-content="meta.aboutDesc" />
+  <meta name="theme-color" content="#141414" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&family=Vazirmatn:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Syne:wght@600;700&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/src/styles.css" />
   <script>
     try {
-      var l = localStorage.getItem("europe-lang");
+      var l = localStorage.getItem("erst-lang");
       if (l === "fa") { document.documentElement.lang = "fa"; document.documentElement.dir = "rtl"; }
       if (l === "en" || l === "fa") document.documentElement.classList.add("i18n-pending");
     } catch (e) {}
@@ -22,15 +27,11 @@
 <body data-page="about" data-title-key="meta.aboutTitle">
   <a class="skip" href="#main" data-i18n="skip">İçeriğe geç</a>
   <header class="site-header">
-    <a class="brand" href="./index.html">
-      <svg class="brand__mark" viewBox="0 0 48 48" aria-hidden="true"><rect x="1" y="1" width="46" height="46" rx="6" fill="#101820"/><path d="M10 31.5V19.2L24 10l14 9.2v12.3" stroke="#C6A15A" stroke-width="1.7" fill="none"/><path d="M18 31.5v-8h12v8" stroke="#F4EFE6" stroke-width="1.6" fill="none"/><path d="M22 31.5v-4h4v4" stroke="#C6A15A" stroke-width="1.4" fill="none"/></svg>
-      <span class="brand__text"><span class="brand__name">Europe</span><span class="brand__sub" data-i18n="brand.sub">Gayrimenkul</span></span>
-    </a>
+    <a class="brand" href="./index.html"><img class="brand__logo" src="/assets/mark.svg" alt="" width="28" height="28" /><span class="brand__name">ERST <span class="brand__it">IT</span></span></a>
     <nav class="nav" data-i18n-aria="nav.primary" aria-label="Ana menü">
+      <a href="./work.html" data-nav="work" data-i18n="nav.work">İş</a>
+      <a href="./products.html" data-nav="products" data-i18n="nav.products">Ürünler</a>
       <a href="./about.html" data-nav="about" data-i18n="nav.about">Şirket</a>
-      <a href="./portfolio.html" data-nav="portfolio" data-i18n="nav.portfolio">Portföy</a>
-      <a href="./services.html" data-nav="services" data-i18n="nav.services">Hizmetler</a>
-      <a href="./fxguard.html" data-nav="fxguard" data-i18n="nav.fx">FX Guard</a>
       <a href="./contact.html" data-nav="contact" data-i18n="nav.contact">İletişim</a>
     </nav>
     <div class="tools">
@@ -39,23 +40,22 @@
         <button type="button" data-lang="en">EN</button>
         <button type="button" data-lang="fa">فا</button>
       </div>
-      <a class="btn btn--primary btn--small" href="https://wa.me/905010676486" data-i18n="cta.whatsapp">WhatsApp</a>
+      <a class="btn btn--primary btn--small" href="https://fxguard.io/" target="_blank" rel="noopener">fxguard.io</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="menu-toggle__bars" aria-hidden="true"></span><span class="sr-only" data-i18n="nav.menu">Menü</span></button>
     </div>
   </header>
   <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="./work.html" data-nav="work" data-i18n="nav.work">İş</a>
+    <a href="./products.html" data-nav="products" data-i18n="nav.products">Ürünler</a>
     <a href="./about.html" data-nav="about" data-i18n="nav.about">Şirket</a>
-    <a href="./portfolio.html" data-nav="portfolio" data-i18n="nav.portfolio">Portföy</a>
-    <a href="./services.html" data-nav="services" data-i18n="nav.services">Hizmetler</a>
-    <a href="./fxguard.html" data-nav="fxguard" data-i18n="nav.fx">FX Guard</a>
     <a href="./contact.html" data-nav="contact" data-i18n="nav.contact">İletişim</a>
   </div>
   <main id="main">
     <section class="page-hero">
       <div class="wrap">
-        <p class="kicker" data-i18n="about.kicker">Sicil 440497-5</p>
-        <h1 data-i18n="about.title">Tek ortaklı limited şirket.</h1>
-        <p class="lede" data-i18n="about.lede">Merkez Kağıthane’dedir. Meslek grubu gayrimenkul hizmetleri, ana faaliyet kodu taşınmaz aracılığıdır. Müdür, şirketi tek başına temsil eder.</p>
+        <p class="kicker" data-i18n="about.kicker">Sicil 129956-5</p>
+        <h1 data-i18n="about.title">Stüdyonun tüzel kişiliği.</h1>
+        <p class="lede" data-i18n="about.lede">ERST IT Solutions Bilişim Teknolojileri Sanayi ve Ticaret Ltd. Şti. 19 Mart 2018’de işe başladı. Unvan 16 Aralık 2020’de tescil edildi. Eski unvan ERST Kuyumculuk’tur.</p>
       </div>
     </section>
     <section class="section">
@@ -64,66 +64,33 @@
           <h2 data-i18n="about.legalTitle">Kimlik</h2>
           <article class="manager">
             <p class="kicker" data-i18n="about.managerTitle">Temsil</p>
-            <strong>Ersan Jahed Tabrizi</strong>
+            <strong>Ali Aksu</strong>
             <p data-i18n="about.managerRole">Müdür</p>
-            <p class="note" data-i18n="about.managerAuth">Münferiden temsile yetkilidir. Yetki, ticaret sicilindeki kayıt esas alınarak yazılmıştır.</p>
+            <p class="note" data-i18n="about.managerAuth">2025 beyannamesinde pay oranı yüzde 100.</p>
           </article>
         </div>
         <dl class="identity">
-          <div><dt data-i18n="legal.name">Unvan</dt><dd>Europe Gayrimenkul Satış ve Kiralama Ticaret Ltd. Şti.</dd></div>
-          <div><dt data-i18n="legal.type">Şirket türü</dt><dd data-i18n="legal.typeValue">Tek ortaklı limited şirket</dd></div>
-          <div><dt data-i18n="legal.mersis">MERSİS</dt><dd dir="ltr">0381103139500001</dd></div>
-          <div><dt data-i18n="legal.registry">Ticaret sicil no</dt><dd dir="ltr">440497-5</dd></div>
-          <div><dt data-i18n="legal.tax">Vergi dairesi</dt><dd>Kağıthane</dd></div>
-          <div><dt data-i18n="legal.vkn">Vergi kimlik no</dt><dd dir="ltr">3811031395</dd></div>
-          <div><dt data-i18n="legal.start">İşe başlama</dt><dd dir="ltr">30.01.2023</dd></div>
-          <div><dt data-i18n="legal.capital">Sermaye</dt><dd dir="ltr">50.000 TL</dd></div>
-          <div><dt data-i18n="legal.nace">Ana faaliyet</dt><dd data-i18n="legal.naceValue">68.31.01 — Gayrimenkul faaliyetleri için aracılık</dd></div>
-          <div><dt data-i18n="legal.group">İTO meslek grubu</dt><dd data-i18n="legal.groupValue">21 — Gayrimenkul hizmetleri</dd></div>
-          <div><dt data-i18n="legal.address">Adres</dt><dd>Merkez Mah. Sardunya Sk. No: 4 İç Kapı No: 25, Kağıthane / İstanbul</dd></div>
+          <div><dt data-i18n="legal.name">Unvan</dt><dd>ERST IT Solutions Bilişim Teknolojileri Sanayi ve Ticaret Ltd. Şti.</dd></div>
+          <div><dt data-i18n="legal.former">Eski unvan</dt><dd data-i18n="legal.formerValue">ERST Kuyumculuk Sanayi ve Ticaret Ltd. Şti.</dd></div>
+          <div><dt data-i18n="legal.mersis">MERSİS</dt><dd dir="ltr">0370043020200001</dd></div>
+          <div><dt data-i18n="legal.registry">Ticaret sicil</dt><dd dir="ltr">129956-5</dd></div>
+          <div><dt data-i18n="legal.tax">Vergi dairesi</dt><dd>Esenyurt</dd></div>
+          <div><dt data-i18n="legal.vkn">Vergi no</dt><dd dir="ltr">3700430202</dd></div>
+          <div><dt data-i18n="legal.start">İşe başlama</dt><dd dir="ltr">19.03.2018</dd></div>
+          <div><dt data-i18n="legal.rename">Unvan tescili</dt><dd dir="ltr">16.12.2020</dd></div>
+          <div><dt data-i18n="legal.capital">Ödenmiş sermaye</dt><dd dir="ltr" data-i18n="legal.capitalValue">1.000.000 TL</dd></div>
+          <div><dt data-i18n="legal.nace">Ana faaliyet</dt><dd data-i18n="legal.naceValue">62.20.00 — Bilgisayar danışmanlığı ve sistem yönetimi, siber güvenlik danışmanlığı dahil</dd></div>
+          <div><dt data-i18n="legal.address">İş yeri</dt><dd>Gökevler Mah. 2312. Sk. Burç İstanbul 18 Blok No: 18 J İç Kapı No: 199, Esenyurt / İstanbul</dd></div>
         </dl>
       </div>
-    </section>
-    <section class="section" style="padding-top:0">
       <div class="wrap">
-        <h2 data-i18n="about.scopeTitle">Kayıtlı çerçeve</h2>
-        <ul class="scope">
-          <li data-i18n="scope.1">Konut, işyeri, arsa ve tesislerin alımı, satımı ve kiralanması.</li>
-          <li data-i18n="scope.2">Apart otel ve benzeri turistik tesislerle ilgili işler.</li>
-          <li data-i18n="scope.3">Amaca bağlı ithalat, ihracat, temsil ve danışmanlık.</li>
-          <li data-i18n="scope.4">Tapuda ifraz, tevhit ve kat mülkiyetiyle ilgili başvuruların hazırlanması.</li>
-        </ul>
-        <p class="note" data-i18n="about.note">Ana sözlemede gıda ve yiyecek-içecek tesisleri de yazar. Bugün sitede yayında olan iş, gayrimenkul aracılığı ve FX Guard’dır.</p>
+        <p class="note" data-i18n="about.note">Satıştaki ürün FX Guard’dır. Müşteri defteri ve fatura tutarları bu sitede yoktur.</p>
       </div>
     </section>
   </main>
   <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <div>
-        <p>Europe Gayrimenkul Satış ve Kiralama Ticaret Ltd. Şti.</p>
-        <p>Merkez Mah. Sardunya Sk. No: 4 İç Kapı No: 25<br />Kağıthane / İstanbul</p>
-      </div>
-      <div>
-        <h2 data-i18n="nav.portfolio">Portföy</h2>
-        <ul>
-          <li><a href="./portfolio.html" data-i18n="nav.portfolio">Portföy</a></li>
-          <li><a href="./services.html" data-i18n="nav.services">Hizmetler</a></li>
-          <li><a href="./fxguard.html" data-i18n="nav.fx">FX Guard</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2 data-i18n="nav.contact">İletişim</h2>
-        <ul>
-          <li><a href="tel:+905010676486">+90 501 067 64 86</a></li>
-          <li><a href="mailto:info@europegayrimenkul.com">info@europegayrimenkul.com</a></li>
-          <li><a href="https://fxguard.io/" target="_blank" rel="noopener">fxguard.io</a></li>
-        </ul>
-      </div>
-    </div>
     <div class="wrap legal-line">
-      <p>MERSİS 0381103139500001 · Sicil 440497-5 · VKN 3811031395</p>
-      <p class="fine" data-i18n="footer.disclaimer">İlanlar bilgi amaçlıdır.</p>
-      <p class="fine">© <span data-year>2026</span> Europe Gayrimenkul. <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
+      <p>© <span data-year>2026</span> ERST IT Solutions</p>
     </div>
   </footer>
   <script type="module" src="/src/main.js"></script>

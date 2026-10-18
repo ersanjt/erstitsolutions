@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ürünler | ERST</title>
+  <meta name="description" content="WhatsApp CRM, muhasebe ve döviz siteleri." data-i18n-content="meta.productsDesc" />
+  <meta name="theme-color" content="#141414" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Syne:wght@600;700&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles.css" />
+  <script>
+    try {
+      var l = localStorage.getItem("erst-lang");
+      if (l === "fa") { document.documentElement.lang = "fa"; document.documentElement.dir = "rtl"; }
+      if (l === "en" || l === "fa") document.documentElement.classList.add("i18n-pending");
+    } catch (e) {}
+  </script>
+</head>
+<body data-page="products" data-title-key="meta.productsTitle">
+  <a class="skip" href="#main" data-i18n="skip">İçeriğe geç</a>
+  <header class="site-header">
+    <a class="brand" href="./index.html"><img class="brand__logo" src="/assets/mark.svg" alt="" width="28" height="28" /><span class="brand__name">ERST <span class="brand__it">IT</span></span></a>
+    <nav class="nav" data-i18n-aria="nav.primary" aria-label="Ana menü">
+      <a href="./work.html" data-nav="work" data-i18n="nav.work">İş</a>
+      <a href="./products.html" data-nav="products" data-i18n="nav.products">Ürünler</a>
+      <a href="./about.html" data-nav="about" data-i18n="nav.about">Şirket</a>
+      <a href="./contact.html" data-nav="contact" data-i18n="nav.contact">İletişim</a>
+    </nav>
+    <div class="tools">
+      <div class="langs" role="group" aria-label="Language">
+        <button type="button" data-lang="tr" aria-pressed="true">TR</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="fa">فا</button>
+      </div>
+      <a class="btn btn--primary btn--small" href="https://fxguard.io/" target="_blank" rel="noopener">fxguard.io</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="menu-toggle__bars" aria-hidden="true"></span><span class="sr-only" data-i18n="nav.menu">Menü</span></button>
+    </div>
+  </header>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="./work.html" data-nav="work" data-i18n="nav.work">İş</a>
+    <a href="./products.html" data-nav="products" data-i18n="nav.products">Ürünler</a>
+    <a href="./about.html" data-nav="about" data-i18n="nav.about">Şirket</a>
+    <a href="./contact.html" data-nav="contact" data-i18n="nav.contact">İletişim</a>
+  </div>
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="kicker" data-i18n="products.kicker">Ürün ailesi</p>
+        <h1 data-i18n="products.title">Aynı işin üç yüzü.</h1>
+        <p class="lede" data-i18n="price.note">Taban fiyatlar fxguard.io üzerindeki kamu duyurusudur.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap cards">
+        <a class="card" href="https://fxguard.io/" target="_blank" rel="noopener">
+          <div class="index" data-i18n="prod.crm.k">Yayında</div>
+          <h3 data-i18n="prod.crm.title">WhatsApp CRM</h3>
+          <p data-i18n="prod.crm.text">Ortak gelen kutusu, müşteri defteri, roller, şubeler ve 2FA. Döviz masası için kur modülü Business planında.</p>
+        </a>
+        <a class="card" href="https://fxguard.io/" target="_blank" rel="noopener">
+          <div class="index" data-i18n="prod.books.k">Yayında</div>
+          <h3 data-i18n="prod.books.title">Muhasebe</h3>
+          <p data-i18n="prod.books.text">Tahsilat, ödeme, kur ve havale için defter. Açık demo CRM’den ayrıdır ve sıfırlanır.</p>
+        </a>
+        <a class="card" href="https://exchange.fxguard.io/" target="_blank" rel="noopener">
+          <div class="index" data-i18n="prod.web.k">Ayrıca teklif</div>
+          <h3 data-i18n="prod.web.title">Döviz siteleri</h3>
+          <p data-i18n="prod.web.text">Kur, sipariş ve takip taşıyan markalı site. Canlı örnek exchange.fxguard.io. CRM’den ayrı fiyatlanır.</p>
+        </a>
+      </div>
+    </section>
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="plans">
+          <article class="plan">
+            <h3 data-i18n="plan.start">Cloud Start</h3>
+            <p data-i18n="plan.startText">1 şube, en çok 3 kişi. Gelen kutusu. Döviz modülü yok. İlk ay 7 gün iade.</p>
+            <p class="price" data-i18n="plan.startPrice">49 USD / ay</p>
+          </article>
+          <article class="plan plan--lead">
+            <h3 data-i18n="plan.business">Cloud Business</h3>
+            <p data-i18n="plan.businessText">3 şube, 10 kişi. Kur, grafik, döviz hizmetleri. Rol ve 2FA.</p>
+            <p class="price" data-i18n="plan.businessPrice">249 USD / ay’dan</p>
+          </article>
+          <article class="plan">
+            <h3 data-i18n="plan.multi">Çok şube</h3>
+            <p data-i18n="plan.multiText">Daha fazla lokasyon ve yazılı destek.</p>
+            <p class="price" data-i18n="plan.multiPrice">499 USD / ay’dan</p>
+          </article>
+          <article class="plan">
+            <h3 data-i18n="plan.license">Lisans</h3>
+            <p data-i18n="plan.licenseText">Tek sefer. Yazılım şirketin sunucusuna kurulur.</p>
+            <p class="price" data-i18n="plan.licensePrice">4.000 USD’den</p>
+          </article>
+          <article class="plan">
+            <h3 data-i18n="plan.managed">Yönetilen kopya</h3>
+            <p data-i18n="plan.managedText">Size ait kopya. Yedek ve bakım işletilir.</p>
+            <p class="price" data-i18n="plan.managedPrice">800 USD / ay’dan</p>
+          </article>
+        </div>
+        <h2 style="margin-top:36px" data-i18n="ind.title">Kayıtta seçilen iş</h2>
+        <div class="industries">
+          <span data-i18n="ind.fx">Döviz</span>
+          <span data-i18n="ind.clinic">Klinik</span>
+          <span data-i18n="ind.travel">Seyahat</span>
+          <span data-i18n="ind.factory">Üretim</span>
+          <span data-i18n="ind.food">Gıda dağıtımı</span>
+          <span data-i18n="ind.estate">Emlak</span>
+          <span data-i18n="ind.other">Diğer</span>
+        </div>
+        <div class="actions">
+          <a class="btn btn--signal" href="https://fxguard.io/" target="_blank" rel="noopener">fxguard.io</a>
+          <a class="btn btn--ghost" href="https://wa.me/905010676486" target="_blank" rel="noopener">+90 501 067 64 86</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap legal-line">
+      <p>© <span data-year>2026</span> ERST · <a href="mailto:sales@fxguard.io">sales@fxguard.io</a></p>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://europegayrimenkul.com/sitemap.xml
+Sitemap: https://erstitsolutions.com/sitemap.xml

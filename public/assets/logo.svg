@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 48">
+  <rect width="48" height="48" rx="12" fill="#141414"/>
+  <path fill="#efece6" d="M11 11h26v6H17v4h10v6H17v4h20v6H11z"/>
+  <text x="60" y="33" fill="#141414" font-family="Syne, Outfit, sans-serif" font-size="26" font-weight="700" letter-spacing="1.5">ERST</text>
+  <text x="152" y="33" fill="#0f7a45" font-family="Syne, Outfit, sans-serif" font-size="26" font-weight="700" letter-spacing="1.5">IT</text>
+</svg>

@@ -7,9 +7,8 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, "index.html"),
         about: resolve(__dirname, "about.html"),
-        portfolio: resolve(__dirname, "portfolio.html"),
-        services: resolve(__dirname, "services.html"),
-        fxguard: resolve(__dirname, "fxguard.html"),
+        work: resolve(__dirname, "work.html"),
+        products: resolve(__dirname, "products.html"),
         contact: resolve(__dirname, "contact.html"),
         notFound: resolve(__dirname, "404.html"),
       },

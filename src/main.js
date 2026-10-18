@@ -123,7 +123,9 @@ function bindForm() {
       interestLabel,
       message,
     ].join("\n");
-    window.open(`${site.whatsapp}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+    const subject = encodeURIComponent(site.legalName);
+    const body = encodeURIComponent(text);
+    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
   });
 }
 
