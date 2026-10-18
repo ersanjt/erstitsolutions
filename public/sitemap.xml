@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://erstitsolutions.com/</loc></url>
-  <url><loc>https://erstitsolutions.com/work.html</loc></url>
-  <url><loc>https://erstitsolutions.com/products.html</loc></url>
-  <url><loc>https://erstitsolutions.com/about.html</loc></url>
-  <url><loc>https://erstitsolutions.com/contact.html</loc></url>
+  <url><loc>https://erstitsolutions.com/</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://erstitsolutions.com/work.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://erstitsolutions.com/products.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://erstitsolutions.com/blog.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://erstitsolutions.com/blog-whatsapp.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://erstitsolutions.com/blog-qr.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://erstitsolutions.com/blog-exchange.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://erstitsolutions.com/about.html</loc><lastmod>2026-10-18</lastmod></url>
+  <url><loc>https://erstitsolutions.com/contact.html</loc><lastmod>2026-10-18</lastmod></url>
 </urlset>

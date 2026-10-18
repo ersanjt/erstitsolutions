@@ -41,6 +41,18 @@ function apply(lang) {
   const titleKey = document.body.dataset.titleKey;
   if (titleKey) document.title = t(lang, titleKey);
 
+  document.querySelectorAll("[data-prose]").forEach((el) => {
+    el.hidden = el.dataset.prose !== lang;
+  });
+
+  const desc = document.querySelector('meta[name="description"]');
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  const ogLocale = document.querySelector('meta[property="og:locale"]');
+  if (ogTitle) ogTitle.setAttribute("content", document.title);
+  if (ogDesc && desc) ogDesc.setAttribute("content", desc.getAttribute("content") || "");
+  if (ogLocale) ogLocale.setAttribute("content", lang === "fa" ? "fa_IR" : lang === "en" ? "en_US" : "tr_TR");
+
   document.querySelectorAll("[data-lang]").forEach((btn) => {
     btn.setAttribute("aria-pressed", btn.dataset.lang === lang ? "true" : "false");
   });
