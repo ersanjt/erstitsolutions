@@ -2,64 +2,15 @@ import { LANGS, STORAGE_KEY, site } from "./config.js";
 import { t } from "./i18n.js";
 
 const page = document.body.dataset.page || "home";
+const lang = LANGS.includes(document.documentElement.lang) ? document.documentElement.lang : "tr";
 
-function readLang() {
+function remember(value) {
   try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (LANGS.includes(saved)) return saved;
+    localStorage.setItem(STORAGE_KEY, value);
+    document.cookie = `${STORAGE_KEY}=${value}; Path=/; Max-Age=31536000; SameSite=Lax`;
   } catch {
     /* private mode */
   }
-  return "tr";
-}
-
-function remember(lang) {
-  try {
-    localStorage.setItem(STORAGE_KEY, lang);
-  } catch {
-    /* ignore */
-  }
-}
-
-function apply(lang) {
-  document.documentElement.lang = lang === "fa" ? "fa" : lang === "en" ? "en" : "tr";
-  document.documentElement.dir = lang === "fa" ? "rtl" : "ltr";
-
-  document.querySelectorAll("[data-i18n]").forEach((el) => {
-    el.textContent = t(lang, el.dataset.i18n);
-  });
-  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
-    el.placeholder = t(lang, el.dataset.i18nPlaceholder);
-  });
-  document.querySelectorAll("[data-i18n-content]").forEach((el) => {
-    el.setAttribute("content", t(lang, el.dataset.i18nContent));
-  });
-  document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
-    el.setAttribute("aria-label", t(lang, el.dataset.i18nAria));
-  });
-
-  const titleKey = document.body.dataset.titleKey;
-  if (titleKey) document.title = t(lang, titleKey);
-
-  document.querySelectorAll("[data-prose]").forEach((el) => {
-    el.hidden = el.dataset.prose !== lang;
-  });
-
-  const desc = document.querySelector('meta[name="description"]');
-  const ogTitle = document.querySelector('meta[property="og:title"]');
-  const ogDesc = document.querySelector('meta[property="og:description"]');
-  const ogLocale = document.querySelector('meta[property="og:locale"]');
-  if (ogTitle) ogTitle.setAttribute("content", document.title);
-  if (ogDesc && desc) ogDesc.setAttribute("content", desc.getAttribute("content") || "");
-  if (ogLocale) ogLocale.setAttribute("content", lang === "fa" ? "fa_IR" : lang === "en" ? "en_US" : "tr_TR");
-
-  document.querySelectorAll("[data-lang]").forEach((btn) => {
-    btn.setAttribute("aria-pressed", btn.dataset.lang === lang ? "true" : "false");
-  });
-
-  document.documentElement.classList.remove("i18n-pending");
-  document.documentElement.classList.add("i18n-ready");
-  document.body.dataset.lang = lang;
 }
 
 function markNav() {
@@ -70,12 +21,31 @@ function markNav() {
 }
 
 function bindLanguage() {
-  document.querySelectorAll("[data-lang]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const lang = btn.dataset.lang;
-      remember(lang);
-      apply(lang);
-    });
+  const root = document.querySelector(".langs");
+  if (!root) return;
+  const panel = root.querySelector(".langs__panel");
+  const current = root.querySelector("[data-lang-current]");
+  const active = root.querySelector(`[data-lang="${lang}"]`);
+  if (current && active) {
+    current.textContent = active.textContent.trim();
+    current.lang = lang;
+  }
+  const sync = () => {
+    if (!panel) return;
+    if (root.open) panel.removeAttribute("inert");
+    else panel.setAttribute("inert", "");
+  };
+  sync();
+  root.addEventListener("toggle", sync);
+  document.addEventListener("click", (event) => {
+    if (!root.open || root.contains(event.target)) return;
+    root.open = false;
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && root.open) root.open = false;
+  });
+  root.querySelectorAll("[data-lang]").forEach((link) => {
+    link.addEventListener("click", () => remember(link.dataset.lang));
   });
 }
 
@@ -87,6 +57,7 @@ function bindMenu() {
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
     panel.classList.toggle("is-open", open);
     panel.hidden = !open;
+    document.documentElement.classList.toggle("menu-open", open);
   };
   toggle.addEventListener("click", () => {
     setOpen(toggle.getAttribute("aria-expanded") !== "true");
@@ -95,6 +66,10 @@ function bindMenu() {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") setOpen(false);
   });
+  const desktop = window.matchMedia("(min-width: 981px)");
+  const onDesktop = () => { if (desktop.matches) setOpen(false); };
+  if (desktop.addEventListener) desktop.addEventListener("change", onDesktop);
+  else desktop.addListener(onDesktop);
 }
 
 function bindFilters() {
@@ -117,7 +92,6 @@ function bindForm() {
   const error = form.querySelector(".form-error");
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const lang = document.body.dataset.lang || "tr";
     const data = new FormData(form);
     const name = String(data.get("name") || "").trim();
     const phone = String(data.get("phone") || "").trim();
@@ -145,9 +119,11 @@ document.querySelectorAll("[data-year]").forEach((el) => {
   el.textContent = String(new Date().getFullYear());
 });
 
-apply(readLang());
+document.body.dataset.lang = lang;
+if (document.referrer.startsWith(`${location.origin}/`)) remember(lang);
 markNav();
 bindLanguage();
 bindMenu();
 bindFilters();
 bindForm();
+import("./motion.js");

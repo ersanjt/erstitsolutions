@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hizmetler: ajan, mobil, CRM, sunucu | ERST</title>
+  <meta name="description" content="AI ajan, web sitesi, mobil uygulama, CRM, ERP ve otomasyon. Linux sunucu, WHM, cPanel, DirectAdmin, Cloudflare, DNS, kurumsal e-posta ve mevcut sitenin bakımı." data-i18n-content="meta.servicesDesc" />
+  <!--seo-->
+  <meta name="theme-color" content="#05060a" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Space+Grotesk:wght@300..700&family=Geist+Mono:wght@400;500&family=Unbounded:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/styles.css" />
+  <script>
+    try {
+      var s = localStorage.getItem("erst-lang"), p = location.pathname, inside = document.referrer.indexOf(location.origin + "/") === 0;
+      if (s === "tr" || s === "en" || s === "fa") document.cookie = "erst-lang=" + s + "; Path=/; Max-Age=31536000; SameSite=Lax";
+      if (!inside && (s === "en" || s === "fa") && !/^\/(en|fa)(\/|$)/.test(p)) location.replace("/" + s + (p === "/" ? "/" : p) + location.search + location.hash);
+    } catch (e) {}
+  </script>
+</head>
+<body data-page="services" data-title-key="meta.servicesTitle">
+  <a class="skip" href="#main" data-i18n="skip">İçeriğe geç</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="ERST IT"><img class="brand__logo" src="/assets/logo.svg" alt="ERST IT" width="101" height="20" /></a>
+    <nav class="nav" data-i18n-aria="nav.primary" aria-label="Ana menü">
+      <a href="/services" data-nav="services" data-i18n="nav.services">Hizmetler</a>
+      <a href="/work" data-nav="work" data-i18n="nav.work">Çalışmalar</a>
+      <a href="/products" data-nav="products" data-i18n="nav.products">Ürünler</a>
+      <a href="/blog" data-nav="blog" data-i18n="nav.blog">Blog</a>
+      <a href="/about" data-nav="about" data-i18n="nav.about">Hakkımızda</a>
+      <a href="/contact" data-nav="contact" data-i18n="nav.contact">İletişim</a>
+    </nav>
+    <div class="tools">
+      <details class="langs">
+        <summary class="langs__btn">
+          <span class="sr-only">Dil · Language · زبان</span>
+          <span data-lang-current lang="tr">TR</span>
+          <span class="langs__chev" aria-hidden="true"></span>
+        </summary>
+        <div class="langs__panel">
+          <nav class="langs__list" aria-label="Dil · Language · زبان">
+          <a href="/services" hreflang="tr" lang="tr" data-lang="tr" aria-current="true">TR</a>
+          <a href="/en/services" hreflang="en" lang="en" data-lang="en">EN</a>
+          <a href="/fa/services" hreflang="fa" lang="fa" data-lang="fa">فا</a>
+          </nav>
+        </div>
+      </details>
+      <a class="btn btn--ion btn--small" href="/contact" data-i18n="cta.start">Proje başlat</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="menu-toggle__bars" aria-hidden="true"></span><span class="sr-only" data-i18n="nav.menu">Menü</span></button>
+    </div>
+  </header>
+  <div class="mobile-nav" id="mobile-nav" data-lenis-prevent hidden>
+    <a href="/services" data-nav="services" data-i18n="nav.services">Hizmetler</a>
+    <a href="/work" data-nav="work" data-i18n="nav.work">Çalışmalar</a>
+    <a href="/products" data-nav="products" data-i18n="nav.products">Ürünler</a>
+    <a href="/blog" data-nav="blog" data-i18n="nav.blog">Blog</a>
+    <a href="/about" data-nav="about" data-i18n="nav.about">Hakkımızda</a>
+    <a href="/contact" data-nav="contact" data-i18n="nav.contact">İletişim</a>
+  </div>
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <nav class="crumbs" data-i18n-aria="crumbs.label" aria-label="Sayfa yolu">
+          <a href="/" data-i18n="crumbs.home">Ana sayfa</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page" data-i18n="nav.services">Hizmetler</span>
+        </nav>
+        <p class="kicker" data-i18n="svc.kicker">Hizmetler</p>
+        <h1 data-split data-i18n="svc.title">Ajan, site, sunucu.</h1>
+        <p class="lede" data-fade data-i18n="svc.lede">Ajan, kurumsal uygulama, mobil, CRM, ERP ve otomasyon. Linux sunucu, WHM, cPanel, DirectAdmin, Cloudflare, DNS ve kurumsal e-posta. Yayındaki siteyi de günceller, geliştirir ve hatasını ayıklarız.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <nav class="offer" data-i18n-aria="svc.index" aria-label="Hizmet listesi">
+          <a href="#ai" data-i18n="offer.ai">AI ajanları</a>
+          <a href="#prod" data-i18n="offer.prod">Kurumsal uygulama</a>
+          <a href="#web" data-i18n="offer.web">Web sitesi</a>
+          <a href="#mobile" data-i18n="offer.mobile">Mobil uygulama</a>
+          <a href="#auto" data-i18n="offer.auto">Otomasyon</a>
+          <a href="#crm" data-i18n="offer.crm">CRM</a>
+          <a href="#erp" data-i18n="offer.erp">ERP</a>
+          <a href="#server" data-i18n="offer.server">Sunucu ve panel</a>
+          <a href="#net" data-i18n="offer.net">DNS ve e-posta</a>
+          <a href="#care" data-i18n="offer.care">Güncelleme ve hata</a>
+        </nav>
+        <div class="services">
+        <article class="service" id="ai" data-reveal data-glow>
+          <div class="service__head">
+            <span class="service__no mono">01</span>
+            <h2 data-i18n="svc.ai.title">AI ajan geliştirme</h2>
+          </div>
+          <p class="service__text" data-i18n="svc.ai.text">Gelen mesajı okuyan, ne istendiğini anlayan ve sistemlerinizde işi yapan ajanlar: satış, destek, randevu ve operasyon. Kritik adımlarda onayı bir insana bırakır, yaptığı her işi kayda geçirir.</p>
+          <ul class="service__list">
+            <li data-i18n="svc.ai.l1">WhatsApp, web ve şirket içi yazışma ajanları</li>
+            <li data-i18n="svc.ai.l2">Satış, destek, randevu ve operasyon ajanları</li>
+            <li data-i18n="svc.ai.l3">İnsan onayı, yetkilendirme ve işlem kaydı</li>
+            <li data-i18n="svc.ai.l4">Kendi geliştirme sürecimizde ajanlarla kod, test ve kod incelemesi</li>
+          </ul>
+          <p class="service__proof"><span class="mono" data-i18n="svc.proof">Canlı örnek</span> <a href="/blog-whatsapp" data-i18n="post.wa.title">WhatsApp tek telefonda kalmasın.</a></p>
+        </article>
+        <article class="service" id="prod" data-reveal data-glow>
+          <div class="service__head">
+            <span class="service__no mono">02</span>
+            <h2 data-i18n="svc.prod.title">Kurumsal uygulama ve SaaS</h2>
+          </div>
+          <p class="service__text" data-i18n="svc.prod.text">Şirketin kendi işini taşıyan uygulamalar. Şube, rol, iki adımlı doğrulama, API ve veri modeli. Bulut, lisans veya size özel kurulum olarak teslim edilir.</p>
+          <ul class="service__list">
+            <li data-i18n="svc.prod.l1">Şirket içi uygulamalar ve çok şubeli paneller</li>
+            <li data-i18n="svc.prod.l2">API tasarımı ve veri modeli</li>
+            <li data-i18n="svc.prod.l3">Bulut, lisans veya yönetilen kurulum</li>
+            <li data-i18n="svc.prod.l4">Bakım, izleme ve sürüm yönetimi</li>
+          </ul>
+          <p class="service__proof"><span class="mono" data-i18n="svc.proof">Canlı örnek</span> <a href="/work" data-i18n="work.title">Kendi ürünümüzü baştan sona biz geliştirdik.</a></p>
+        </article>
+        <article class="service" id="web" data-reveal data-glow>
+          <div class="service__head">
+            <span class="service__no mono">03</span>
+            <h2 data-i18n="svc.web.title">Web tasarım ve geliştirme</h2>
+          </div>
+          <p class="service__text" data-i18n="svc.web.text">Ürününüzü satan vitrin: hızlı, erişilebilir, çok dilli ve arama motorlarının kolayca okuduğu siteler. Arapça ve Farsça gibi sağdan sola yazılan diller dahil. Yayındaki siteyi de devralır, günceller ve yeni bölüm ekleriz.</p>
+          <ul class="service__list">
+            <li data-i18n="svc.web.l1">Çok dilli ve sağdan sola (RTL) destekli siteler</li>
+            <li data-i18n="svc.web.l2">Teknik SEO, hreflang ve yapılandırılmış veri</li>
+            <li data-i18n="svc.web.l3">Animasyon, marka ve arayüz tasarımı</li>
+            <li data-i18n="svc.web.l4">Hız ve erişilebilirlik ölçümü</li>
+            <li data-i18n="svc.web.l5">Yayındaki sitenin güncellenmesi ve yeni bölümler</li>
+          </ul>
+          <p class="service__proof"><span class="mono" data-i18n="svc.proof">Canlı örnek</span> <a href="/" data-i18n="svc.proofSite">Bu site: sağdan sola yazım dahil üç dil</a></p>
+        </article>
+        <article class="service" id="mobile" data-reveal data-glow>
+          <div class="service__head">
+            <span class="service__no mono">04</span>
+            <h2 data-i18n="svc.mobile.title">Mobil uygulama</h2>
+          </div>
+          <p class="service__text" data-i18n="svc.mobile.text">Şirketin paneline, CRM’ine ve sahadaki ekibe bağlı mobil uygulamalar. Mağaza yayını ve sonraki sürümler dahil.</p>
+          <ul class="service__list">
+            <li data-i18n="svc.mobile.l1">iOS ve Android</li>
+            <li data-i18n="svc.mobile.l2">Panel, CRM ve ERP ile aynı hesap</li>
+            <li data-i18n="svc.mobile.l3">Saha ekibi, bildirim ve çevrimdışı kayıt</li>
+            <li data-i18n="svc.mobile.l4">Mağaza yayını ve sürüm takibi</li>
+          </ul>
+        </article>
+        <article class="service" id="auto" data-reveal data-glow>
+          <div class="service__head">
+            <span class="service__no mono">05</span>
+            <h2 data-i18n="svc.auto.title">Otomasyon</h2>
+          </div>
+          <p class="service__text" data-i18n="svc.auto.text">Tekrar eden işi akışa bağlarız. Form, gelen kutusu, muhasebe, WhatsApp ve takvim birbirine iş devreder.</p>
+          <ul class="service__list">
+            <li data-i18n="svc.auto.l1">Form, e-posta ve WhatsApp tetikleri</li>
+            <li data-i18n="svc.auto.l2">Onay, hatırlatma ve görev akışları</li>
+            <li data-i18n="svc.auto.l3">Muhasebe, CRM ve ERP arasında veri aktarımı</li>
+            <li data-i18n="svc.auto.l4">Zamanlanmış iş ve hata uyarısı</li>
+          </ul>
+        </article>
+        <article class="service" id="crm" data-reveal data-glow>
+          <div class="service__head">
+            <span class="service__no mono">06</span>
+            <h2 data-i18n="svc.crm.title">CRM</h2>
+          </div>
+          <p class="service__text" data-i18n="svc.crm.text">Müşteri kaydı, satış hattı ve ortak gelen kutusu. Şube ve rol ile. WhatsApp ve web formu aynı kayda düşer.</p>
+          <ul class="service__list">
+            <li data-i18n="svc.crm.l1">Müşteri kartı, not ve satış hattı</li>
+            <li data-i18n="svc.crm.l2">Ortak gelen kutusu ve şube rolleri</li>
+            <li data-i18n="svc.crm.l3">WhatsApp, form ve telefon kaydı</li>
+            <li data-i18n="svc.crm.l4">Rapor ve mevcut CRM’den taşıma</li>
+          </ul>
+        </article>
+        <article class="service" id="erp" data-reveal data-glow>
+          <div class="service__head">
+            <span class="service__no mono">07</span>
+            <h2 data-i18n="svc.erp.title">ERP</h2>
+          </div>
+          <p class="service__text" data-i18n="svc.erp.text">Sipariş, stok, fatura, şube ve satın alma. Hazır kutuyu zorla oturtmayız; modülü işinize göre kurarız.</p>
+          <ul class="service__list">
+            <li data-i18n="svc.erp.l1">Sipariş, stok ve depo</li>
+            <li data-i18n="svc.erp.l2">Fatura, tahsilat ve satın alma</li>
+            <li data-i18n="svc.erp.l3">Şube, rol ve onay zinciri</li>
+            <li data-i18n="svc.erp.l4">Muhasebe ve CRM bağlantısı</li>
+          </ul>
+        </article>
+        <article class="service" id="server" data-reveal data-glow>
+          <div class="service__head">
+            <span class="service__no mono">08</span>
+            <h2 data-i18n="svc.server.title">Sunucu ve panel</h2>
+          </div>
+          <p class="service__text" data-i18n="svc.server.text">Site ve uygulamayı Linux sunucuya alırız. WHM, cPanel veya DirectAdmin’i kurar; kullanıcıyı, yedeği ve sertifikayı ayarlarız.</p>
+          <ul class="service__list">
+            <li data-i18n="svc.server.l1">Linux üzerinde site ve uygulama kurulumu</li>
+            <li data-i18n="svc.server.l2">WHM ve cPanel</li>
+            <li data-i18n="svc.server.l3">DirectAdmin</li>
+            <li data-i18n="svc.server.l4">SSL, yedek, kullanıcı ve çalışma zamanı</li>
+          </ul>
+        </article>
+        <article class="service" id="net" data-reveal data-glow>
+          <div class="service__head">
+            <span class="service__no mono">09</span>
+            <h2 data-i18n="svc.net.title">DNS, Cloudflare ve e-posta</h2>
+          </div>
+          <p class="service__text" data-i18n="svc.net.text">Alan adının kaydı, Cloudflare önü ve şirketin posta kutusu. Gitmeyen postayı SPF, DKIM ve DMARC üzerinden ayıklarız.</p>
+          <ul class="service__list">
+            <li data-i18n="svc.net.l1">DNS kayıtları: A, AAAA, CNAME, MX, TXT</li>
+            <li data-i18n="svc.net.l2">Cloudflare: proxy, SSL ve önbellek</li>
+            <li data-i18n="svc.net.l3">Kurumsal e-posta kutuları ve yönlendirme</li>
+            <li data-i18n="svc.net.l4">Posta hata ayıklama: SPF, DKIM, DMARC</li>
+          </ul>
+        </article>
+        <article class="service" id="care" data-reveal data-glow>
+          <div class="service__head">
+            <span class="service__no mono">10</span>
+            <h2 data-i18n="svc.care.title">Güncelleme ve hata ayıklama</h2>
+          </div>
+          <p class="service__text" data-i18n="svc.care.text">Başkasının kurduğu siteyi ve uygulamayı devralırız. Günceller, yeni bölüm ekler; bozulan sayfayı, formu, postayı ve paneli ayıklarız.</p>
+          <ul class="service__list">
+            <li data-i18n="svc.care.l1">Mevcut web sitesini güncelleme ve geliştirme</li>
+            <li data-i18n="svc.care.l2">Uygulama ve panel hata ayıklama</li>
+            <li data-i18n="svc.care.l3">E-posta, DNS ve panel ayarı</li>
+            <li data-i18n="svc.care.l4">Devralma, yedek ve yayın</li>
+          </ul>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="kicker" data-i18n="pipe.kicker">Süreç</p>
+          <h2 data-split data-i18n="pipe.title">Fikirden yayına altı adım.</h2>
+        </div>
+        <ol class="steps">
+          <li data-reveal><span class="mono">01</span><h3 data-i18n="pipe.1.t">Keşif</h3><p><b data-i18n="pipe.agent">Ajan</b> <span data-i18n="pipe.1.a">Görüşmeleri ve dokümanları özetler, açık soruları listeler.</span></p><p><b data-i18n="pipe.human">Mühendis</b> <span data-i18n="pipe.1.h">Kapsamı ve başarı ölçütünü belirler.</span></p></li>
+          <li data-reveal><span class="mono">02</span><h3 data-i18n="pipe.2.t">Plan</h3><p><b data-i18n="pipe.agent">Ajan</b> <span data-i18n="pipe.2.a">İşi görevlere böler, aralarındaki bağımlılıkları çıkarır.</span></p><p><b data-i18n="pipe.human">Mühendis</b> <span data-i18n="pipe.2.h">Mimariyi seçer, planı onaylar.</span></p></li>
+          <li data-reveal><span class="mono">03</span><h3 data-i18n="pipe.3.t">Geliştirme</h3><p><b data-i18n="pipe.agent">Ajan</b> <span data-i18n="pipe.3.a">Kodu, testleri ve veri taşıma betiklerini yazar.</span></p><p><b data-i18n="pipe.human">Mühendis</b> <span data-i18n="pipe.3.h">Kritik bölümleri kendisi yazar, her değişikliği inceler.</span></p></li>
+          <li data-reveal><span class="mono">04</span><h3 data-i18n="pipe.4.t">Doğrulama</h3><p><b data-i18n="pipe.agent">Ajan</b> <span data-i18n="pipe.4.a">Uçtan uca senaryoları çalıştırır, hataları raporlar.</span></p><p><b data-i18n="pipe.human">Mühendis</b> <span data-i18n="pipe.4.h">Gerçek cihazlarda ve gerçek verilerle dener.</span></p></li>
+          <li data-reveal><span class="mono">05</span><h3 data-i18n="pipe.5.t">Yayın</h3><p><b data-i18n="pipe.agent">Ajan</b> <span data-i18n="pipe.5.a">Sürüm notlarını ve geri alma adımlarını hazırlar.</span></p><p><b data-i18n="pipe.human">Mühendis</b> <span data-i18n="pipe.5.h">Yayına alır.</span></p></li>
+          <li data-reveal><span class="mono">06</span><h3 data-i18n="pipe.6.t">İzleme ve destek</h3><p><b data-i18n="pipe.agent">Ajan</b> <span data-i18n="pipe.6.a">Kayıtları izler, olağandışı durumları haber verir.</span></p><p><b data-i18n="pipe.human">Mühendis</b> <span data-i18n="pipe.6.h">Müşteriyle görüşür, sıradaki işi belirler.</span></p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap faq">
+        <h2 data-split data-i18n="svc.faqTitle">Sık sorulan sorular</h2>
+        <div class="faq__list">
+          <details data-reveal><summary data-i18n="faq.1.q">AI ajanı tam olarak ne yapar?</summary><p data-i18n="faq.1.a">Gelen mesajı okur, ne istendiğini anlar ve bağlı olduğu sistemde işi yapar: kayıt açar, bilgi gönderir, randevu ayırır. Ödeme, yetki veya müşteriye verilecek söz gibi kritik adımlarda onayı bir insana bırakır.</p></details>
+          <details data-reveal><summary data-i18n="faq.2.q">Ajanlarla yazılan koda güvenilebilir mi?</summary><p data-i18n="faq.2.a">Ajan hız kazandırır; sorumluluk mühendistedir. Mimariyi mühendis seçer, kritik bölümleri mühendis yazar. Hiçbir değişiklik incelenip test edilmeden yayına alınmaz.</p></details>
+          <details data-reveal><summary data-i18n="faq.3.q">Hangi sistemlerle entegrasyon yapıyorsunuz?</summary><p data-i18n="faq.3.a">WhatsApp, CRM, ERP, muhasebe, web formları, mobil uygulama ve API’si olan iç sistemler. Sunucu, DNS ve kurumsal e-posta da aynı işin parçasıdır.</p></details>
+          <details data-reveal><summary data-i18n="faq.4.q">Bir proje nasıl başlar?</summary><p data-i18n="faq.4.a">Bize işinizi ve nerede zorlandığınızı yazarsınız. Kısa bir görüşmenin ardından kapsamı, başarı ölçütünü ve ilk planı yazılı olarak hazırlarız.</p></details>
+          <details data-reveal><summary data-i18n="faq.5.q">Çok dilli site yapıyor musunuz?</summary><p data-i18n="faq.5.a">Evet. Arapça ve Farsça gibi sağdan sola yazılan diller dahil çok dilli siteler kuruyoruz. Bu site üç dilde, kendi ürün sitemiz ise beş dilde yayında.</p></details>
+          <details data-reveal><summary data-i18n="faq.6.q">Sunucu, panel ve e-postayı da kuruyor musunuz?</summary><p data-i18n="faq.6.a">Evet. Linux üzerinde site ve uygulama, WHM, cPanel, DirectAdmin, Cloudflare, DNS ve kurumsal e-posta. Gitmeyen postayı SPF, DKIM ve DMARC kayıtları üzerinden ayıklarız.</p></details>
+          <details data-reveal><summary data-i18n="faq.7.q">Başkasının yaptığı siteyi devralır mısınız?</summary><p data-i18n="faq.7.a">Evet. Yayındaki siteyi ve uygulamayı günceller, yeni bölüm ekler; bozulan formu, postayı, DNS’i ve paneli ayıklarız.</p></details>
+        </div>
+      </div>
+      <div class="wrap">
+        <nav class="next" aria-labelledby="next-services">
+          <p class="kicker" id="next-services" data-i18n="next.title">Sıradaki adım</p>
+          <a href="/work" data-i18n="work.title">Kendi ürünümüzü baştan sona biz geliştirdik.</a>
+          <a href="/products" data-i18n="products.title">Satıştaki üç ürünümüz.</a>
+          <a href="/blog" data-i18n="blog.title">Sahada öğrendiklerimiz.</a>
+          <a href="/contact" data-i18n="contact.title">Projenizi veya ihtiyacınızı yazın.</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="end">
+      <div class="end__glow" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="kicker" data-i18n="end.kicker">Başlayalım</p>
+        <h2 class="end__title" data-split data-i18n="svc.endTitle">İşinizi anlatın, planı birlikte çıkaralım.</h2>
+        <div class="actions" data-fade>
+          <a class="btn btn--ion btn--xl" href="/contact" data-magnetic><span data-i18n="cta.start">Proje başlat</span><i aria-hidden="true">↗</i></a>
+          <a class="btn btn--ghost btn--xl" href="/work" data-magnetic data-i18n="cta.see">Çalışmaları gör</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="ERST IT"><img class="brand__logo" src="/assets/logo.svg" alt="" width="101" height="20" /></a>
+        <p>ERST IT Solutions Bilişim Teknolojileri Sanayi ve Ticaret Ltd. Şti.</p>
+        <address><a href="https://www.google.com/maps/search/?api=1&amp;query=41.0213,28.631" target="_blank" rel="noopener">Gökevler Mah. 2312. Sk. Burç İstanbul No: 18 J, 34522 Esenyurt / İstanbul</a></address>
+      </div>
+      <div>
+        <h2 data-i18n="footer.pages">Sayfalar</h2>
+        <ul>
+          <li><a href="/services" data-i18n="nav.services">Hizmetler</a></li>
+          <li><a href="/work" data-i18n="nav.work">Çalışmalar</a></li>
+          <li><a href="/products" data-i18n="nav.products">Ürünler</a></li>
+          <li><a href="/blog" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="/about" data-i18n="nav.about">Hakkımızda</a></li>
+          <li><a href="/contact" data-i18n="nav.contact">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2><a href="/blog" data-i18n="nav.blog">Blog</a></h2>
+        <ul>
+          <li><a href="/blog-whatsapp" data-i18n="post.wa.title">WhatsApp tek telefonda kalmasın.</a></li>
+          <li><a href="/blog-qr" data-i18n="post.qr.title">QR hızlı başlar; toplu mesajın yolu başkadır.</a></li>
+          <li><a href="/blog-exchange" data-i18n="post.ex.title">Döviz bürosu sitesi panelden ayrı bir üründür.</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 data-i18n="nav.contact">İletişim</h2>
+        <ul>
+          <li><a href="tel:+902125160983" dir="ltr">+90 212 516 09 83</a></li>
+          <li><a href="mailto:info@erstitsolutions.com">info@erstitsolutions.com</a></li>
+          <li><a href="https://wa.me/905010676486" target="_blank" rel="noopener"><span dir="ltr">WhatsApp +90 501 067 64 86</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap legal-line">
+      <p>MERSİS 0370043020200001 · Sicil 129956-5 · VKN 3700430202</p>
+      <p class="fine" data-i18n="footer.privacy">Form verileri sunucuda saklanmaz; düğme e-posta programınızı açar. Dil tercihiniz yalnızca bu cihazda kaydedilir.</p>
+      <p class="fine">© <span data-year>2026</span> ERST. <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
+    </div>
+    <div class="footer-word" aria-hidden="true">ERST<span>_</span></div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

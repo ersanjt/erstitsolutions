@@ -1,0 +1,34 @@
+# ERST IT Solutions
+
+> ERST IT Solutions Bilişim Teknolojileri Sanayi ve Ticaret Ltd. Şti. is an AI-native software studio in Esenyurt, Istanbul, Türkiye. It builds software with AI agents under engineer supervision, and it also delivers the rest of a software company’s work: company applications, mobile apps, CRM, ERP, automation, multilingual websites, and care for sites that are already live. On the infrastructure side it sets up Linux servers, WHM, cPanel and DirectAdmin, Cloudflare, DNS and company email, and it debugs mail delivery. It also sells three products of its own: a WhatsApp CRM with a shared inbox, accounting software, and branded websites for exchange offices.
+
+Key facts:
+- Founded: 19 March 2018. Current legal name registered 16 December 2020.
+- Address: Gökevler Mah. 2312. Sk. Burç İstanbul 18 Blok No: 18 J İç Kapı No: 199, 34522 Esenyurt / İstanbul, Türkiye.
+- MERSİS: 0370043020200001 · Trade registry: 129956-5 · NACE 62.20.00.
+- Contact: +90 212 516 09 83 · info@erstitsolutions.com · Product sales on WhatsApp: +90 501 067 64 86.
+- Languages, each with its own URL: Turkish (Türkiye, /), English (everywhere else, /en/), Persian (Iran and Afghanistan, /fa/).
+- Geo IP sends people to that URL with a temporary redirect. Crawlers are not redirected, so all three versions stay indexed. hreflang: tr, tr-TR, en, fa, fa-IR, fa-AF, x-default (English).
+- Working model: agents plan, write and test; an engineer chooses the architecture, writes critical parts, reviews every change and ships.
+
+## Pages
+
+Turkish, then English, then Persian:
+
+- [Home](https://erstitsolutions.com/) · [EN](https://erstitsolutions.com/en/) · [FA](https://erstitsolutions.com/fa/)
+- [Services](https://erstitsolutions.com/services) · [EN](https://erstitsolutions.com/en/services) · [FA](https://erstitsolutions.com/fa/services)
+- [Case study: our own product](https://erstitsolutions.com/work) · [EN](https://erstitsolutions.com/en/work) · [FA](https://erstitsolutions.com/fa/work)
+- [Products](https://erstitsolutions.com/products) · [EN](https://erstitsolutions.com/en/products) · [FA](https://erstitsolutions.com/fa/products)
+- [About](https://erstitsolutions.com/about) · [EN](https://erstitsolutions.com/en/about) · [FA](https://erstitsolutions.com/fa/about)
+- [Contact](https://erstitsolutions.com/contact) · [EN](https://erstitsolutions.com/en/contact) · [FA](https://erstitsolutions.com/fa/contact)
+- [Blog](https://erstitsolutions.com/blog) · [EN](https://erstitsolutions.com/en/blog) · [FA](https://erstitsolutions.com/fa/blog)
+
+## Blog
+
+- [WhatsApp shared inbox](https://erstitsolutions.com/blog-whatsapp) · [EN](https://erstitsolutions.com/en/blog-whatsapp) · [FA](https://erstitsolutions.com/fa/blog-whatsapp)
+- [WhatsApp QR or Meta Cloud API](https://erstitsolutions.com/blog-qr) · [EN](https://erstitsolutions.com/en/blog-qr) · [FA](https://erstitsolutions.com/fa/blog-qr)
+- [Why an exchange office website is separate from the panel](https://erstitsolutions.com/blog-exchange) · [EN](https://erstitsolutions.com/en/blog-exchange) · [FA](https://erstitsolutions.com/fa/blog-exchange)
+
+## Optional
+
+- [Sitemap](https://erstitsolutions.com/sitemap.xml)

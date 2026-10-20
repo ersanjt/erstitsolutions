@@ -3,47 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ERST | Yazılım ve site</title>
-  <meta name="description" content="ERST yazılımı ve onu anlatan siteyi kurar. Piyasadaki iş FX Guard: WhatsApp paneli, muhasebe ve döviz siteleri." data-i18n-content="meta.homeDesc" />
-  <link rel="canonical" href="https://erstitsolutions.com/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="ERST IT Solutions" />
-  <meta property="og:locale" content="tr_TR" />
-  <meta property="og:title" content="ERST | Yazılım ve site" />
-  <meta property="og:description" content="ERST yazılımı ve onu anlatan siteyi kurar. Piyasadaki iş FX Guard: WhatsApp paneli, muhasebe ve döviz siteleri." />
-  <meta property="og:url" content="https://erstitsolutions.com/" />
-  <meta property="og:image" content="https://erstitsolutions.com/assets/android-chrome-512x512.png" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="theme-color" content="#141414" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "name": "ERST IT Solutions Bilişim Teknolojileri Sanayi ve Ticaret Ltd. Şti.",
-        "url": "https://erstitsolutions.com/",
-        "logo": "https://erstitsolutions.com/assets/android-chrome-512x512.png",
-        "email": "info@erstitsolutions.com",
-        "telephone": "+902125160983",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Gökevler Mah. 2312. Sk. Burç İstanbul 18 Blok No: 18 J İç Kapı No: 199",
-          "addressLocality": "Esenyurt",
-          "addressRegion": "İstanbul",
-          "addressCountry": "TR"
-        }
-      },
-      {
-        "@type": "WebSite",
-        "name": "ERST IT Solutions",
-        "url": "https://erstitsolutions.com/",
-        "inLanguage": ["tr", "en", "fa"],
-        "publisher": { "@type": "Organization", "name": "ERST IT Solutions" }
-      }
-    ]
-  }
-  </script>
+  <title>ERST | Ajan hızında yazılım · İstanbul AI yazılım stüdyosu</title>
+  <meta name="description" content="ERST IT Solutions, İstanbul’da ajan, web, mobil, CRM, ERP ve otomasyon kurar. Linux sunucu, cPanel, Cloudflare ve kurumsal e-posta da aynı masadadır." data-i18n-content="meta.homeDesc" />
+  <!--seo-->
+  <meta name="theme-color" content="#05060a" />
+  <meta name="color-scheme" content="dark" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/favicon.ico" sizes="32x32" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
@@ -52,181 +16,329 @@
   <link rel="manifest" href="/assets/site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Syne:wght@600;700&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Space+Grotesk:wght@300..700&family=Geist+Mono:wght@400;500&family=Unbounded:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/src/styles.css" />
   <script>
     try {
-      var l = localStorage.getItem("erst-lang");
-      if (l === "fa") { document.documentElement.lang = "fa"; document.documentElement.dir = "rtl"; }
-      if (l === "en" || l === "fa") document.documentElement.classList.add("i18n-pending");
+      var s = localStorage.getItem("erst-lang"), p = location.pathname, inside = document.referrer.indexOf(location.origin + "/") === 0;
+      if (s === "tr" || s === "en" || s === "fa") document.cookie = "erst-lang=" + s + "; Path=/; Max-Age=31536000; SameSite=Lax";
+      if (!inside && (s === "en" || s === "fa") && !/^\/(en|fa)(\/|$)/.test(p)) location.replace("/" + s + (p === "/" ? "/" : p) + location.search + location.hash);
     } catch (e) {}
   </script>
 </head>
 <body data-page="home" data-title-key="meta.homeTitle">
   <a class="skip" href="#main" data-i18n="skip">İçeriğe geç</a>
+  <div class="boot" data-boot aria-hidden="true">
+    <img src="/assets/logo.svg" alt="" width="152" height="30" />
+    <span class="boot__count mono" data-boot-count>000</span>
+  </div>
   <header class="site-header">
-    <a class="brand" href="./index.html"><img class="brand__logo" src="/assets/mark.svg" alt="" width="28" height="28" /><span class="brand__name">ERST <span class="brand__it">IT</span></span></a>
+    <a class="brand" href="/" aria-label="ERST IT"><img class="brand__logo" src="/assets/logo.svg" alt="ERST IT" width="101" height="20" /></a>
     <nav class="nav" data-i18n-aria="nav.primary" aria-label="Ana menü">
-      <a href="./work.html" data-nav="work" data-i18n="nav.work">İş</a>
-      <a href="./products.html" data-nav="products" data-i18n="nav.products">Ürünler</a>
-      <a href="./blog.html" data-nav="blog" data-i18n="nav.blog">Notlar</a>
-      <a href="./about.html" data-nav="about" data-i18n="nav.about">Şirket</a>
-      <a href="./contact.html" data-nav="contact" data-i18n="nav.contact">İletişim</a>
+      <a href="/services" data-nav="services" data-i18n="nav.services">Hizmetler</a>
+      <a href="/work" data-nav="work" data-i18n="nav.work">Çalışmalar</a>
+      <a href="/products" data-nav="products" data-i18n="nav.products">Ürünler</a>
+      <a href="/blog" data-nav="blog" data-i18n="nav.blog">Blog</a>
+      <a href="/about" data-nav="about" data-i18n="nav.about">Hakkımızda</a>
+      <a href="/contact" data-nav="contact" data-i18n="nav.contact">İletişim</a>
     </nav>
     <div class="tools">
-      <div class="langs" role="group" aria-label="Language">
-        <button type="button" data-lang="tr" aria-pressed="true">TR</button>
-        <button type="button" data-lang="en">EN</button>
-        <button type="button" data-lang="fa">فا</button>
-      </div>
-      <a class="btn btn--primary btn--small" href="https://fxguard.io/" target="_blank" rel="noopener noreferrer">fxguard.io</a>
+      <details class="langs">
+        <summary class="langs__btn">
+          <span class="sr-only">Dil · Language · زبان</span>
+          <span data-lang-current lang="tr">TR</span>
+          <span class="langs__chev" aria-hidden="true"></span>
+        </summary>
+        <div class="langs__panel">
+          <nav class="langs__list" aria-label="Dil · Language · زبان">
+          <a href="/" hreflang="tr" lang="tr" data-lang="tr" aria-current="true">TR</a>
+          <a href="/en/" hreflang="en" lang="en" data-lang="en">EN</a>
+          <a href="/fa/" hreflang="fa" lang="fa" data-lang="fa">فا</a>
+          </nav>
+        </div>
+      </details>
+      <a class="btn btn--ion btn--small" href="/contact" data-i18n="cta.start">Proje başlat</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="menu-toggle__bars" aria-hidden="true"></span><span class="sr-only" data-i18n="nav.menu">Menü</span></button>
     </div>
   </header>
-  <div class="mobile-nav" id="mobile-nav" hidden>
-    <a href="./work.html" data-nav="work" data-i18n="nav.work">İş</a>
-    <a href="./products.html" data-nav="products" data-i18n="nav.products">Ürünler</a>
-    <a href="./blog.html" data-nav="blog" data-i18n="nav.blog">Notlar</a>
-    <a href="./about.html" data-nav="about" data-i18n="nav.about">Şirket</a>
-    <a href="./contact.html" data-nav="contact" data-i18n="nav.contact">İletişim</a>
+  <div class="mobile-nav" id="mobile-nav" data-lenis-prevent hidden>
+    <a href="/services" data-nav="services" data-i18n="nav.services">Hizmetler</a>
+    <a href="/work" data-nav="work" data-i18n="nav.work">Çalışmalar</a>
+    <a href="/products" data-nav="products" data-i18n="nav.products">Ürünler</a>
+    <a href="/blog" data-nav="blog" data-i18n="nav.blog">Blog</a>
+    <a href="/about" data-nav="about" data-i18n="nav.about">Hakkımızda</a>
+    <a href="/contact" data-nav="contact" data-i18n="nav.contact">İletişim</a>
   </div>
   <main id="main">
-    <section class="hero">
+    <section class="hero" data-hero>
+      <canvas class="hero__canvas" data-core aria-hidden="true"></canvas>
+      <div class="hero__veil" aria-hidden="true"></div>
+      <div class="wrap hero__inner">
+        <p class="kicker"><span class="pulse" aria-hidden="true"></span><span data-i18n="hero.kicker">Yapay zekâ odaklı yazılım stüdyosu</span></p>
+        <h1 class="hero__title" data-split data-i18n="hero.title">Ajan hızında yazılım.</h1>
+        <div class="hero__row">
+          <div class="hero__copy">
+            <p class="lede" data-fade data-i18n="hero.lede">ERST, yapay zekâ ajanlarını hem kendi geliştirme sürecinde hem de müşterilerinin ürünlerinde çalıştırır. Mimari ve son karar her zaman mühendiste kalır.</p>
+            <div class="actions" data-fade>
+              <a class="btn btn--ion" href="/contact" data-magnetic><span data-i18n="cta.start">Proje başlat</span><i aria-hidden="true">↗</i></a>
+              <a class="btn btn--ghost" href="/work" data-magnetic data-i18n="cta.see">Çalışmaları gör</a>
+            </div>
+          </div>
+          <div class="console" data-console aria-hidden="true" dir="ltr">
+            <div class="console__bar"><span><i></i>erst-agent</span><span data-console-state>running</span></div>
+            <ol class="console__log" data-console-log></ol>
+          </div>
+        </div>
+      </div>
+      <div class="wrap hero__foot mono" aria-hidden="true">
+        <span data-i18n="hero.scroll">Kaydırın</span>
+        <span class="hero__line"><i></i></span>
+        <span>İstanbul · UTC+3</span>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>AI agents</span><b>✦</b><span>Mobile apps</span><b>✦</b><span>CRM</span><b>✦</b><span>ERP</span><b>✦</b><span>Automation</span><b>✦</b><span>Linux</span><b>✦</b><span>cPanel</span><b>✦</b><span>Cloudflare</span><b>✦</b><span>Company email</span><b>✦</b>
+        <span>AI agents</span><b>✦</b><span>Mobile apps</span><b>✦</b><span>CRM</span><b>✦</b><span>ERP</span><b>✦</b><span>Automation</span><b>✦</b><span>Linux</span><b>✦</b><span>cPanel</span><b>✦</b><span>Cloudflare</span><b>✦</b><span>Company email</span><b>✦</b>
+      </div>
+    </div>
+
+    <section class="manifesto" data-manifesto>
       <div class="wrap">
-        <p class="kicker" data-i18n="hero.kicker">Yazılım stüdyosu</p>
-        <h1 data-i18n="hero.title">Ürünü de yazarız, sitesini de.</h1>
-        <p class="lede" data-i18n="hero.lede">ERST, yazılımı ve onu satan yüzeyi aynı masada kurar. Şu an pazardaki iş FX Guard: işletmenin WhatsApp masası, personel paneli ve fxguard.io.</p>
-        <div class="actions">
-          <a class="btn btn--primary" href="./work.html" data-i18n="cta.work">İşi aç</a>
-          <a class="btn btn--ghost" href="./products.html" data-i18n="cta.products">Ürünler</a>
+        <p class="kicker"><span class="mono">01 /</span> <span data-i18n="man.kicker">Yaklaşım</span></p>
+        <p class="manifesto__text" data-words data-i18n="man.text">Hız ajanlardan, karar insandan gelir. Ajanlar planlar, kod yazar ve test eder. Mühendisler mimariyi kurar, onay verir ve sonucun sorumluluğunu taşır. Sonuç: daha kısa sürede yayına çıkan yazılım.</p>
+      </div>
+    </section>
+
+    <section class="section caps">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="kicker"><span class="mono">02 /</span> <span data-i18n="caps.kicker">Uzmanlık alanlarımız</span></p>
+          <h2 data-split data-i18n="caps.title">Yazılımdan sunucuya.</h2>
+        </div>
+        <div class="caps__grid">
+          <article class="cap" data-reveal data-glow>
+            <div class="cap__viz viz-agent" aria-hidden="true">
+              <svg viewBox="0 0 240 140">
+                <path class="viz-agent__wire" d="M40 70 C80 20, 120 20, 120 70 S160 120, 200 70" />
+                <path class="viz-agent__wire" d="M40 70 C80 120, 120 120, 120 70 S160 20, 200 70" />
+                <path class="viz-agent__pulse" d="M40 70 C80 20, 120 20, 120 70 S160 120, 200 70" />
+                <path class="viz-agent__pulse viz-agent__pulse--b" d="M40 70 C80 120, 120 120, 120 70 S160 20, 200 70" />
+                <circle cx="40" cy="70" r="7" /><circle cx="120" cy="70" r="11" class="core" /><circle cx="200" cy="70" r="7" />
+              </svg>
+            </div>
+            <span class="cap__no mono">A</span>
+            <h3><a class="cap__link" href="/services#ai" data-i18n="caps.ai.title">AI ajanları</a></h3>
+            <p data-i18n="caps.ai.text">Satış, destek, randevu ve operasyon ajanları. WhatsApp, CRM ve iç sistemle çalışır; kritik adımda işi bir insana devreder.</p>
+          </article>
+          <article class="cap" data-reveal data-glow>
+            <div class="cap__viz viz-code" aria-hidden="true">
+              <i style="--w:62%"></i><i style="--w:38%;--d:.2s"></i><i style="--w:80%;--d:.4s"></i><i style="--w:54%;--d:.6s"></i><i style="--w:70%;--d:.8s"></i><i style="--w:30%;--d:1s"></i>
+            </div>
+            <span class="cap__no mono">B</span>
+            <h3><a class="cap__link" href="/services#prod" data-i18n="caps.prod.title">Kurumsal uygulama</a></h3>
+            <p data-i18n="caps.prod.text">Şirket uygulamaları, paneller, CRM ve ERP. Rol, API ve veri modeli. Bir kez sağlam kurulur, yıllarca kullanılır.</p>
+          </article>
+          <article class="cap" data-reveal data-glow>
+            <div class="cap__viz viz-web" aria-hidden="true">
+              <b></b><b></b><b></b><b></b>
+            </div>
+            <span class="cap__no mono">C</span>
+            <h3><a class="cap__link" href="/services#web" data-i18n="caps.web.title">Web ve arayüz</a></h3>
+            <p data-i18n="caps.web.text">Yeni site ve yayındaki sitenin geliştirilmesi. Hızlı, çok dilli, arama motorlarının okuduğu vitrin.</p>
+          </article>
+        </div>
+        <nav class="offer" data-i18n-aria="svc.index" aria-label="Hizmet listesi">
+          <a href="/services#ai" data-i18n="offer.ai">AI ajanları</a>
+          <a href="/services#prod" data-i18n="offer.prod">Kurumsal uygulama</a>
+          <a href="/services#web" data-i18n="offer.web">Web sitesi</a>
+          <a href="/services#mobile" data-i18n="offer.mobile">Mobil uygulama</a>
+          <a href="/services#auto" data-i18n="offer.auto">Otomasyon</a>
+          <a href="/services#crm" data-i18n="offer.crm">CRM</a>
+          <a href="/services#erp" data-i18n="offer.erp">ERP</a>
+          <a href="/services#server" data-i18n="offer.server">Sunucu ve panel</a>
+          <a href="/services#net" data-i18n="offer.net">DNS ve e-posta</a>
+          <a href="/services#care" data-i18n="offer.care">Güncelleme ve hata</a>
+        </nav>
+        <div class="actions caps__more" data-fade>
+          <a class="btn btn--ghost" href="/services" data-magnetic><span data-i18n="caps.more">Tüm hizmetler</span><i aria-hidden="true">→</i></a>
         </div>
       </div>
     </section>
-    <section class="section" style="padding-top:12px">
+
+    <section class="pipeline" data-pipeline>
+      <div class="pipeline__pin">
+        <div class="wrap pipeline__head">
+          <p class="kicker"><span class="mono">03 /</span> <span data-i18n="pipe.kicker">Süreç</span></p>
+          <h2 data-i18n="pipe.title">Fikirden yayına altı adım.</h2>
+        </div>
+        <div class="pipeline__viewport">
+          <ol class="pipeline__track" data-track>
+            <li class="step"><span class="step__no mono">01</span><h3 data-i18n="pipe.1.t">Keşif</h3><dl><dt data-i18n="pipe.agent">Ajan</dt><dd data-i18n="pipe.1.a">Görüşmeleri ve dokümanları özetler, açık soruları listeler.</dd><dt data-i18n="pipe.human">Mühendis</dt><dd data-i18n="pipe.1.h">Kapsamı ve başarı ölçütünü belirler.</dd></dl></li>
+            <li class="step"><span class="step__no mono">02</span><h3 data-i18n="pipe.2.t">Plan</h3><dl><dt data-i18n="pipe.agent">Ajan</dt><dd data-i18n="pipe.2.a">İşi görevlere böler, aralarındaki bağımlılıkları çıkarır.</dd><dt data-i18n="pipe.human">Mühendis</dt><dd data-i18n="pipe.2.h">Mimariyi seçer, planı onaylar.</dd></dl></li>
+            <li class="step"><span class="step__no mono">03</span><h3 data-i18n="pipe.3.t">Geliştirme</h3><dl><dt data-i18n="pipe.agent">Ajan</dt><dd data-i18n="pipe.3.a">Kodu, testleri ve veri taşıma betiklerini yazar.</dd><dt data-i18n="pipe.human">Mühendis</dt><dd data-i18n="pipe.3.h">Kritik bölümleri kendisi yazar, her değişikliği inceler.</dd></dl></li>
+            <li class="step"><span class="step__no mono">04</span><h3 data-i18n="pipe.4.t">Doğrulama</h3><dl><dt data-i18n="pipe.agent">Ajan</dt><dd data-i18n="pipe.4.a">Uçtan uca senaryoları çalıştırır, hataları raporlar.</dd><dt data-i18n="pipe.human">Mühendis</dt><dd data-i18n="pipe.4.h">Gerçek cihazlarda ve gerçek verilerle dener.</dd></dl></li>
+            <li class="step"><span class="step__no mono">05</span><h3 data-i18n="pipe.5.t">Yayın</h3><dl><dt data-i18n="pipe.agent">Ajan</dt><dd data-i18n="pipe.5.a">Sürüm notlarını ve geri alma adımlarını hazırlar.</dd><dt data-i18n="pipe.human">Mühendis</dt><dd data-i18n="pipe.5.h">Yayına alır.</dd></dl></li>
+            <li class="step"><span class="step__no mono">06</span><h3 data-i18n="pipe.6.t">İzleme ve destek</h3><dl><dt data-i18n="pipe.agent">Ajan</dt><dd data-i18n="pipe.6.a">Kayıtları izler, olağandışı durumları haber verir.</dd><dt data-i18n="pipe.human">Mühendis</dt><dd data-i18n="pipe.6.h">Müşteriyle görüşür, sıradaki işi belirler.</dd></dl></li>
+          </ol>
+        </div>
+        <div class="wrap"><div class="pipeline__bar"><i data-progress></i></div></div>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="wrap">
-        <a class="case" href="https://fxguard.io/" target="_blank" rel="noopener noreferrer">
-          <div class="case__top">
-            <span data-i18n="case.index">01 — Seçili iş</span>
-            <span>fxguard.io</span>
+        <div class="section__head">
+          <p class="kicker"><span class="mono">04 /</span> <span data-i18n="case.kicker">Kendi ürünümüz</span></p>
+        </div>
+        <a class="case" href="/contact" data-reveal data-glow>
+          <div class="case__copy">
+            <h2 class="case__title" data-i18n="case.title">Medra</h2>
+            <p data-i18n="case.text">Hasta WhatsApp’tan yazar. Ajan uygun saati bulur, randevuyu ayırır ve hatırlatma gönderir. Tıbbi kararlar ve son onay hastanede kalır.</p>
+            <ul class="case__tags mono">
+              <li data-i18n="case.t1">Randevu ajanı</li>
+              <li data-i18n="case.t2">Hasta kaydı</li>
+              <li data-i18n="case.t3">Hatırlatma</li>
+            </ul>
+            <span class="case__open"><span data-i18n="case.open">Demo isteyin</span> <i aria-hidden="true">→</i></span>
           </div>
-          <h2 data-i18n="case.title">FX Guard</h2>
-          <p data-i18n="case.text">Müşteri WhatsApp’ta yazar. Defter şirkette kalır. Site beş dilde anlatır; panel masayı tutar.</p>
-          <div class="screen" aria-hidden="true">
-            <div class="screen__bar"><i></i><i></i><i></i></div>
-            <div class="screen__side">
-              <span data-i18n="screen.inbox">Gelen kutusu</span>
-              <span data-i18n="screen.customers">Müşteriler</span>
-              <span data-i18n="screen.rates">Kurlar</span>
+          <div class="device" data-device aria-hidden="true">
+            <div class="device__side">
+              <b>Medra</b>
+              <span class="on" data-i18n="screen.inbox">Gelen kutusu</span>
+              <span data-i18n="screen.patients">Hastalar</span>
+              <span data-i18n="screen.appts">Randevular</span>
               <span data-i18n="screen.roles">Roller</span>
             </div>
-            <div class="screen__main">
-              <div class="chips">
-                <b data-i18n="chip.chats">Açık sohbet</b>
-                <b data-i18n="chip.rates">Alış / satış</b>
-                <b data-i18n="chip.staff">2FA</b>
-              </div>
+            <div class="device__chat">
+              <p class="msg in" data-i18n="demo.q">Yarın kardiyolojide boş randevu var mı?</p>
+              <p class="msg bot"><em>agent</em> <span data-i18n="demo.a">Yarın 10:30 ve 14:00 boş. Hangisini ayırayım?</span></p>
+              <p class="msg in" data-i18n="demo.r">10:30 olsun, lütfen.</p>
+              <p class="msg sys" data-i18n="demo.s">→ Kardiyoloji · sekreter onayı bekleniyor</p>
             </div>
           </div>
-          <div class="case__foot"><span data-i18n="case.open">Canlı siteyi aç</span><span>app.fxguard.io</span></div>
         </a>
       </div>
     </section>
+
     <section class="section" style="padding-top:0">
       <div class="wrap">
         <div class="section__head">
-          <p class="kicker" data-i18n="products.kicker">Ürün ailesi</p>
-          <h2 data-i18n="products.title">Aynı işin üç yüzü.</h2>
+          <p class="kicker"><span class="mono">05 /</span> <span data-i18n="products.kicker">Hazır ürünler</span></p>
+          <h2 data-split data-i18n="products.title">Satıştaki üç ürünümüz.</h2>
+          <p data-fade data-i18n="products.lede">Kendi geliştirdiğimiz hazır yazılımlar. Ayrı ayrı ya da birlikte kurulabilir; fiyatları Ürünler sayfasında bulabilirsiniz.</p>
         </div>
         <div class="cards">
-          <a class="card" href="https://fxguard.io/" target="_blank" rel="noopener noreferrer">
-            <div class="index" data-i18n="prod.crm.k">Yayında</div>
+          <article class="card" data-reveal data-glow>
+            <div class="index" data-i18n="prod.crm.k">Hazır ürün</div>
             <h3 data-i18n="prod.crm.title">WhatsApp CRM</h3>
-            <p data-i18n="prod.crm.text">Ortak gelen kutusu, müşteri defteri, roller, şubeler ve 2FA. Döviz masası için kur modülü Business planında.</p>
-          </a>
-          <a class="card" href="https://fxguard.io/" target="_blank" rel="noopener noreferrer">
-            <div class="index" data-i18n="prod.books.k">Yayında</div>
+            <p data-i18n="fam.crm">Şirketin WhatsApp hattına bütün ekip birlikte cevap verir: ortak gelen kutusu, müşteri kayıtları, roller ve şubeler.</p>
+          </article>
+          <article class="card" data-reveal data-glow>
+            <div class="index" data-i18n="prod.books.k">Hazır ürün</div>
             <h3 data-i18n="prod.books.title">Muhasebe</h3>
-            <p data-i18n="prod.books.text">Tahsilat, ödeme, kur ve havale için defter. Açık demo CRM’den ayrıdır ve sıfırlanır.</p>
-          </a>
-          <a class="card" href="https://exchange.fxguard.io/" target="_blank" rel="noopener noreferrer">
-            <div class="index" data-i18n="prod.web.k">Ayrıca teklif</div>
-            <h3 data-i18n="prod.web.title">Döviz siteleri</h3>
-            <p data-i18n="prod.web.text">Kur, sipariş ve takip taşıyan markalı site. Canlı örnek exchange.fxguard.io. CRM’den ayrı fiyatlanır.</p>
-          </a>
+            <p data-i18n="fam.books">Tahsilat, ödeme, döviz kuru ve havaleyi tek bir şirket defterinde tutar.</p>
+          </article>
+          <article class="card" data-reveal data-glow>
+            <div class="index" data-i18n="prod.web.k">Markanıza özel</div>
+            <h3 data-i18n="prod.web.title">Döviz bürosu sitesi</h3>
+            <p data-i18n="fam.web">Döviz bürolarına özel web sitesi: güncel kurlar, online sipariş ve sipariş takibi. Markanıza göre tasarlanır.</p>
+          </article>
+        </div>
+        <div class="actions caps__more" data-fade>
+          <a class="btn btn--ghost" href="/products" data-magnetic data-i18n="cta.products">Ürünler</a>
+          <a class="btn btn--ghost" href="/work" data-magnetic data-i18n="cta.see">Çalışmaları gör</a>
         </div>
       </div>
     </section>
+
     <section class="section" style="padding-top:0">
       <div class="wrap">
         <div class="section__head">
-          <p class="kicker" data-i18n="blog.kicker">Notlar</p>
-          <h2 data-i18n="blog.title">Masada öğrendiğimiz şeyler.</h2>
-          <p data-i18n="blog.lede">Üç not. Hepsi yayındaki işten.</p>
+          <p class="kicker"><span class="mono">06 /</span> <span data-i18n="blog.kicker">Blog</span></p>
+          <h2 data-split data-i18n="blog.title">Sahada öğrendiklerimiz.</h2>
         </div>
         <div class="posts posts--row">
-          <a class="post" href="./blog-whatsapp.html">
+          <a class="post" href="/blog-whatsapp" data-reveal>
             <time datetime="2026-10-18" data-i18n="post.wa.date">18 Ekim 2026</time>
-            <h3 data-i18n="post.wa.title">Müşteri yazıyor. Masa dağılmasın.</h3>
-            <p data-i18n="post.wa.excerpt">WhatsApp bir kişide kalırsa şirket defteri dağılır.</p>
-            <span class="more" data-i18n="blog.read">Notu oku</span>
+            <h3 data-i18n="post.wa.title">WhatsApp tek telefonda kalmasın.</h3>
+            <p data-i18n="post.wa.excerpt">WhatsApp tek bir çalışanın telefonunda kalırsa müşteri yazışmaları dağılır. Ortak gelen kutusu bu sorunu çözer.</p>
+            <span class="more" data-i18n="blog.read">Devamını oku</span>
           </a>
-          <a class="post" href="./blog-qr.html">
+          <a class="post" href="/blog-qr" data-reveal>
             <time datetime="2026-10-18" data-i18n="post.qr.date">18 Ekim 2026</time>
-            <h3 data-i18n="post.qr.title">QR hızlıdır. Toplu mesaj başka yoldur.</h3>
-            <p data-i18n="post.qr.excerpt">Oturum açmak ile doğrulanmış hattan göndermek aynı iş değildir.</p>
-            <span class="more" data-i18n="blog.read">Notu oku</span>
+            <h3 data-i18n="post.qr.title">QR hızlı başlar; toplu mesajın yolu başkadır.</h3>
+            <p data-i18n="post.qr.excerpt">WhatsApp’a QR ile bağlanmak ile Meta onaylı hattan mesaj göndermek aynı şey değildir.</p>
+            <span class="more" data-i18n="blog.read">Devamını oku</span>
           </a>
-          <a class="post" href="./blog-exchange.html">
+          <a class="post" href="/blog-exchange" data-reveal>
             <time datetime="2026-10-18" data-i18n="post.ex.date">18 Ekim 2026</time>
-            <h3 data-i18n="post.ex.title">Panel başka, döviz sitesi başka.</h3>
-            <p data-i18n="post.ex.excerpt">Kur, sipariş ve takip taşıyan site, CRM’nin içinde bir sekme değildir.</p>
-            <span class="more" data-i18n="blog.read">Notu oku</span>
+            <h3 data-i18n="post.ex.title">Döviz bürosu sitesi panelden ayrı bir üründür.</h3>
+            <p data-i18n="post.ex.excerpt">Kurları, siparişleri ve sipariş takibini gösteren site, CRM içindeki bir sekme değildir.</p>
+            <span class="more" data-i18n="blog.read">Devamını oku</span>
           </a>
         </div>
-        <p class="note"><a href="./blog.html" data-i18n="nav.blog">Notlar</a></p>
+        <div class="actions caps__more" data-fade>
+          <a class="btn btn--ghost" href="/blog" data-magnetic data-i18n="nav.blog">Blog</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="end">
+      <div class="end__glow" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="kicker"><span class="mono">07 /</span> <span data-i18n="end.kicker">Başlayalım</span></p>
+        <h2 class="end__title" data-split data-i18n="end.title">Sıradaki ajanınızı birlikte kuralım.</h2>
+        <p class="lede" data-fade data-i18n="end.text">Ne iş yaptığınızı ve nerede zorlandığınızı yazın; ilk planı birlikte çıkaralım.</p>
+        <div class="actions" data-fade>
+          <a class="btn btn--ion btn--xl" href="/contact" data-magnetic><span data-i18n="cta.start">Proje başlat</span><i aria-hidden="true">↗</i></a>
+          <a class="btn btn--ghost btn--xl" href="mailto:info@erstitsolutions.com" data-magnetic>info@erstitsolutions.com</a>
+        </div>
       </div>
     </section>
   </main>
   <footer class="site-footer">
     <div class="wrap footer-grid">
-      <div>
-        <a class="brand" href="./index.html"><img class="brand__logo" src="/assets/mark-on-dark.svg" alt="" width="28" height="28" /><span class="brand__name">ERST <span class="brand__it">IT</span></span></a>
-        <p style="margin-top:14px">ERST IT Solutions Bilişim Teknolojileri Sanayi ve Ticaret Ltd. Şti.</p>
-        <p>Gökevler Mah. 2312. Sk. Burç İstanbul, Esenyurt / İstanbul</p>
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="ERST IT"><img class="brand__logo" src="/assets/logo.svg" alt="" width="101" height="20" /></a>
+        <p>ERST IT Solutions Bilişim Teknolojileri Sanayi ve Ticaret Ltd. Şti.</p>
+        <address><a href="https://www.google.com/maps/search/?api=1&amp;query=41.0213,28.631" target="_blank" rel="noopener">Gökevler Mah. 2312. Sk. Burç İstanbul No: 18 J, 34522 Esenyurt / İstanbul</a></address>
       </div>
       <div>
         <h2 data-i18n="footer.pages">Sayfalar</h2>
         <ul>
-          <li><a href="./work.html" data-i18n="nav.work">İş</a></li>
-          <li><a href="./products.html" data-i18n="nav.products">Ürünler</a></li>
-          <li><a href="./blog.html" data-i18n="nav.blog">Notlar</a></li>
-          <li><a href="./about.html" data-i18n="nav.about">Şirket</a></li>
-          <li><a href="./contact.html" data-i18n="nav.contact">İletişim</a></li>
+          <li><a href="/services" data-i18n="nav.services">Hizmetler</a></li>
+          <li><a href="/work" data-i18n="nav.work">Çalışmalar</a></li>
+          <li><a href="/products" data-i18n="nav.products">Ürünler</a></li>
+          <li><a href="/blog" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="/about" data-i18n="nav.about">Hakkımızda</a></li>
+          <li><a href="/contact" data-i18n="nav.contact">İletişim</a></li>
         </ul>
       </div>
       <div>
-        <h2 data-i18n="footer.outside">Dışarıda</h2>
+        <h2><a href="/blog" data-i18n="nav.blog">Blog</a></h2>
         <ul>
-          <li><a href="https://fxguard.io/" target="_blank" rel="noopener noreferrer">fxguard.io</a></li>
-          <li><a href="https://app.fxguard.io/" target="_blank" rel="noopener noreferrer">app.fxguard.io</a></li>
-          <li><a href="https://exchange.fxguard.io/" target="_blank" rel="noopener noreferrer">exchange.fxguard.io</a></li>
+          <li><a href="/blog-whatsapp" data-i18n="post.wa.title">WhatsApp tek telefonda kalmasın.</a></li>
+          <li><a href="/blog-qr" data-i18n="post.qr.title">QR hızlı başlar; toplu mesajın yolu başkadır.</a></li>
+          <li><a href="/blog-exchange" data-i18n="post.ex.title">Döviz bürosu sitesi panelden ayrı bir üründür.</a></li>
         </ul>
       </div>
       <div>
         <h2 data-i18n="nav.contact">İletişim</h2>
         <ul>
-          <li><a href="tel:+902125160983">+90 212 516 09 83</a></li>
+          <li><a href="tel:+902125160983" dir="ltr">+90 212 516 09 83</a></li>
           <li><a href="mailto:info@erstitsolutions.com">info@erstitsolutions.com</a></li>
-          <li><a href="mailto:sales@fxguard.io">sales@fxguard.io</a></li>
-          <li><a href="https://wa.me/905010676486" target="_blank" rel="noopener noreferrer">+90 501 067 64 86</a></li>
+          <li><a href="https://wa.me/905010676486" target="_blank" rel="noopener"><span dir="ltr">WhatsApp +90 501 067 64 86</span></a></li>
         </ul>
       </div>
     </div>
     <div class="wrap legal-line">
       <p>MERSİS 0370043020200001 · Sicil 129956-5 · VKN 3700430202</p>
-      <p class="fine" data-i18n="footer.privacy">Form sunucuda saklanmaz.</p>
+      <p class="fine" data-i18n="footer.privacy">Form verileri sunucuda saklanmaz; düğme e-posta programınızı açar. Dil tercihiniz yalnızca bu cihazda kaydedilir.</p>
       <p class="fine">© <span data-year>2026</span> ERST. <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
     </div>
+    <div class="footer-word" aria-hidden="true">ERST<span>_</span></div>
   </footer>
   <script type="module" src="/src/main.js"></script>
 </body>

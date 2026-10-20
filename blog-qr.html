@@ -3,18 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>QR ve Cloud API | ERST</title>
-  <meta name="description" content="QR oturumu hızlıdır. Ciddi toplu gönderim Meta Cloud API hattındadır. Toplu mesaj QR’da numara riskini artırır." data-i18n-content="meta.qrDesc" />
-  <link rel="canonical" href="https://erstitsolutions.com/blog-qr.html" />
-  <meta property="og:type" content="article" />
-  <meta property="og:site_name" content="ERST IT Solutions" />
-  <meta property="og:locale" content="tr_TR" />
-  <meta property="og:title" content="QR ve Cloud API | ERST" />
-  <meta property="og:description" content="QR oturumu hızlıdır. Ciddi toplu gönderim Meta Cloud API hattındadır." />
-  <meta property="og:url" content="https://erstitsolutions.com/blog-qr.html" />
-  <meta property="og:image" content="https://erstitsolutions.com/assets/android-chrome-512x512.png" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="theme-color" content="#141414" />
+  <title>WhatsApp QR mı, Meta Cloud API mı? | ERST</title>
+  <meta name="description" content="QR ile WhatsApp bağlantısı hızlı kurulur, ancak toplu mesajda numaranın kapanma riskini artırır. Düzenli toplu gönderim için doğru yol Meta Cloud API’dir." data-i18n-content="meta.qrDesc" />
+  <!--seo-->
+  <meta name="theme-color" content="#05060a" />
+  <meta name="color-scheme" content="dark" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/favicon.ico" sizes="32x32" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
@@ -23,141 +16,146 @@
   <link rel="manifest" href="/assets/site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Syne:wght@600;700&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Space+Grotesk:wght@300..700&family=Geist+Mono:wght@400;500&family=Unbounded:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/src/styles.css" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "QR hızlıdır. Toplu mesaj başka yoldur.",
-    "datePublished": "2026-10-18",
-    "inLanguage": "tr",
-    "mainEntityOfPage": "https://erstitsolutions.com/blog-qr.html",
-    "author": { "@type": "Organization", "name": "ERST IT Solutions", "url": "https://erstitsolutions.com/" },
-    "publisher": { "@type": "Organization", "name": "ERST IT Solutions", "url": "https://erstitsolutions.com/" }
-  }
-  </script>
   <script>
     try {
-      var l = localStorage.getItem("erst-lang");
-      if (l === "fa") { document.documentElement.lang = "fa"; document.documentElement.dir = "rtl"; }
-      if (l === "en" || l === "fa") document.documentElement.classList.add("i18n-pending");
+      var s = localStorage.getItem("erst-lang"), p = location.pathname, inside = document.referrer.indexOf(location.origin + "/") === 0;
+      if (s === "tr" || s === "en" || s === "fa") document.cookie = "erst-lang=" + s + "; Path=/; Max-Age=31536000; SameSite=Lax";
+      if (!inside && (s === "en" || s === "fa") && !/^\/(en|fa)(\/|$)/.test(p)) location.replace("/" + s + (p === "/" ? "/" : p) + location.search + location.hash);
     } catch (e) {}
   </script>
 </head>
 <body data-page="blog" data-title-key="meta.qrTitle">
   <a class="skip" href="#main" data-i18n="skip">İçeriğe geç</a>
   <header class="site-header">
-    <a class="brand" href="./index.html"><img class="brand__logo" src="/assets/mark.svg" alt="" width="28" height="28" /><span class="brand__name">ERST <span class="brand__it">IT</span></span></a>
+    <a class="brand" href="/" aria-label="ERST IT"><img class="brand__logo" src="/assets/logo.svg" alt="ERST IT" width="101" height="20" /></a>
     <nav class="nav" data-i18n-aria="nav.primary" aria-label="Ana menü">
-      <a href="./work.html" data-nav="work" data-i18n="nav.work">İş</a>
-      <a href="./products.html" data-nav="products" data-i18n="nav.products">Ürünler</a>
-      <a href="./blog.html" data-nav="blog" data-i18n="nav.blog">Notlar</a>
-      <a href="./about.html" data-nav="about" data-i18n="nav.about">Şirket</a>
-      <a href="./contact.html" data-nav="contact" data-i18n="nav.contact">İletişim</a>
+      <a href="/services" data-nav="services" data-i18n="nav.services">Hizmetler</a>
+      <a href="/work" data-nav="work" data-i18n="nav.work">Çalışmalar</a>
+      <a href="/products" data-nav="products" data-i18n="nav.products">Ürünler</a>
+      <a href="/blog" data-nav="blog" data-i18n="nav.blog">Blog</a>
+      <a href="/about" data-nav="about" data-i18n="nav.about">Hakkımızda</a>
+      <a href="/contact" data-nav="contact" data-i18n="nav.contact">İletişim</a>
     </nav>
     <div class="tools">
-      <div class="langs" role="group" aria-label="Language">
-        <button type="button" data-lang="tr" aria-pressed="true">TR</button>
-        <button type="button" data-lang="en">EN</button>
-        <button type="button" data-lang="fa">فا</button>
-      </div>
-      <a class="btn btn--primary btn--small" href="https://fxguard.io/" target="_blank" rel="noopener noreferrer">fxguard.io</a>
+      <details class="langs">
+        <summary class="langs__btn">
+          <span class="sr-only">Dil · Language · زبان</span>
+          <span data-lang-current lang="tr">TR</span>
+          <span class="langs__chev" aria-hidden="true"></span>
+        </summary>
+        <div class="langs__panel">
+          <nav class="langs__list" aria-label="Dil · Language · زبان">
+          <a href="/blog-qr" hreflang="tr" lang="tr" data-lang="tr" aria-current="true">TR</a>
+          <a href="/en/blog-qr" hreflang="en" lang="en" data-lang="en">EN</a>
+          <a href="/fa/blog-qr" hreflang="fa" lang="fa" data-lang="fa">فا</a>
+          </nav>
+        </div>
+      </details>
+      <a class="btn btn--ion btn--small" href="/contact" data-i18n="cta.start">Proje başlat</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="menu-toggle__bars" aria-hidden="true"></span><span class="sr-only" data-i18n="nav.menu">Menü</span></button>
     </div>
   </header>
-  <div class="mobile-nav" id="mobile-nav" hidden>
-    <a href="./work.html" data-nav="work" data-i18n="nav.work">İş</a>
-    <a href="./products.html" data-nav="products" data-i18n="nav.products">Ürünler</a>
-    <a href="./blog.html" data-nav="blog" data-i18n="nav.blog">Notlar</a>
-    <a href="./about.html" data-nav="about" data-i18n="nav.about">Şirket</a>
-    <a href="./contact.html" data-nav="contact" data-i18n="nav.contact">İletişim</a>
+  <div class="mobile-nav" id="mobile-nav" data-lenis-prevent hidden>
+    <a href="/services" data-nav="services" data-i18n="nav.services">Hizmetler</a>
+    <a href="/work" data-nav="work" data-i18n="nav.work">Çalışmalar</a>
+    <a href="/products" data-nav="products" data-i18n="nav.products">Ürünler</a>
+    <a href="/blog" data-nav="blog" data-i18n="nav.blog">Blog</a>
+    <a href="/about" data-nav="about" data-i18n="nav.about">Hakkımızda</a>
+    <a href="/contact" data-nav="contact" data-i18n="nav.contact">İletişim</a>
   </div>
   <main id="main">
     <article class="page-hero">
       <div class="wrap">
-        <nav class="crumbs" data-i18n-aria="crumbs.label" aria-label="Konum">
-          <a href="./index.html" data-i18n="crumbs.home">Ana sayfa</a>
+        <nav class="crumbs" data-i18n-aria="crumbs.label" aria-label="Sayfa yolu">
+          <a href="/" data-i18n="crumbs.home">Ana sayfa</a>
           <span aria-hidden="true">/</span>
-          <a href="./blog.html" data-i18n="nav.blog">Notlar</a>
+          <a href="/blog" data-i18n="nav.blog">Blog</a>
           <span aria-hidden="true">/</span>
-          <span aria-current="page" data-i18n="post.qr.title">QR hızlıdır. Toplu mesaj başka yoldur.</span>
+          <span aria-current="page" data-i18n="post.qr.title">QR hızlı başlar; toplu mesajın yolu başkadır.</span>
         </nav>
         <time datetime="2026-10-18" data-i18n="post.qr.date">18 Ekim 2026</time>
-        <h1 data-i18n="post.qr.title">QR hızlıdır. Toplu mesaj başka yoldur.</h1>
-        <p class="lede" data-i18n="post.qr.excerpt">Oturum açmak ile doğrulanmış hattan göndermek aynı iş değildir.</p>
+        <h1 data-i18n="post.qr.title" data-split>QR hızlı başlar; toplu mesajın yolu başkadır.</h1>
+        <p class="lede" data-i18n="post.qr.excerpt" data-fade>WhatsApp’a QR ile bağlanmak ile Meta onaylı hattan mesaj göndermek aynı şey değildir.</p>
         <div class="prose" data-prose="tr">
-          <p>WhatsApp’ı masaya bağlamanın iki yolu vardır. İkisi de “bağlandık” der. İkisi aynı işi taşımaz.</p>
-          <h2>QR</h2>
-          <p>QR oturumu hızlıdır. Telefonu okutursunuz, masa açılır. Günlük yazışma için bu yol yeter. Toplu mesaj bu yolda numaranın kapanma riskini büyütür. Bunu küçük yazmak, sonra açıklamak zorunda kalmaktır. <a href="./work.html">İş sayfası</a> bu riski açık bırakır.</p>
-          <h2>Cloud API</h2>
-          <p>Meta Cloud API doğrulanmış hattır. Ciddi toplu gönderim buradan gider. Kurulumu QR kadar çabuk değildir. Karşılığında hat, şirketin kendi adına durur.</p>
-          <p>Hangisini seçeceğiniz hacme bağlıdır. Güncel koşullar <a href="https://fxguard.io/" target="_blank" rel="noopener noreferrer">fxguard.io</a> üzerinde durur. Masa düzeninin kendisi ise <a href="./blog-whatsapp.html">ortak gelen kutusu</a> notundadır.</p>
+          <p>WhatsApp’ı şirket hesabınıza bağlamanın iki yolu vardır. İkisinde de bağlantı kurulur, ama ikisi aynı işe uygun değildir.</p>
+          <h2>QR ile bağlantı</h2>
+          <p>QR oturumu hızlıdır: kodu telefonunuzla okutursunuz, gelen kutusu açılır. Günlük yazışmalar için bu yol yeterlidir. Ancak bu yolla toplu mesaj göndermek numaranın kapanma riskini artırır. Kurallar <a href="https://business.whatsapp.com/policy" target="_blank" rel="noopener">WhatsApp Business mesajlaşma politikasında</a> açıkça yazılıdır. Bu riski küçük harflerle geçiştirmek, sonradan açıklama yapmak zorunda kalmak demektir; bu yüzden <a href="/work">vaka çalışması</a> sayfamızda da açıkça belirtiyoruz.</p>
+          <h2>Meta Cloud API</h2>
+          <p><a href="https://developers.facebook.com/docs/whatsapp/cloud-api/" target="_blank" rel="noopener">Meta Cloud API</a>, Meta tarafından doğrulanmış resmi hattır. Düzenli toplu gönderim bu yoldan yapılmalıdır. Kurulumu QR kadar hızlı değildir; buna karşılık hat doğrudan şirketinizin adına kayıtlı olur.</p>
+          <p>Hangi yolu seçeceğiniz mesaj hacminize bağlıdır. Güncel koşullar <a href="/products">Ürünler</a> sayfasındadır. Ekibin tek bir WhatsApp hattını birlikte nasıl kullandığını ise <a href="/blog-whatsapp">ortak gelen kutusu</a> yazımızda anlattık.</p>
         </div>
         <div class="prose" data-prose="en" hidden>
-          <p>There are two ways to connect WhatsApp to the desk. Both can say “we are connected.” They do not carry the same job.</p>
-          <h2>QR</h2>
-          <p>A QR session is fast. You scan the phone and the desk opens. For day-to-day replies, that path is enough. Bulk messages on this path raise the chance that the number gets banned. Writing that in small type only means explaining it later. The <a href="./work.html">work page</a> leaves the risk in the open.</p>
-          <h2>Cloud API</h2>
-          <p>The Meta Cloud API is the verified line. Serious bulk sending goes from there. Setup is not as quick as a QR scan. In return, the line stands in the company’s own name.</p>
-          <p>Which one you pick depends on volume. Current terms stay on <a href="https://fxguard.io/" target="_blank" rel="noopener noreferrer">fxguard.io</a>. The shape of the desk itself is in the <a href="./blog-whatsapp.html">shared inbox</a> note.</p>
+          <p>There are two ways to connect WhatsApp to your company account. Both get you connected, but they are not suited to the same job.</p>
+          <h2>QR connection</h2>
+          <p>A QR session is fast: you scan the code with your phone and the inbox opens. For everyday conversations, that is enough. Bulk messaging this way, however, raises the risk of the number being banned. The rules are set out in the <a href="https://business.whatsapp.com/policy" target="_blank" rel="noopener">WhatsApp Business Messaging Policy</a>. Hiding that risk in the small print only means explaining it later, which is why our <a href="/work">case study</a> states it openly.</p>
+          <h2>Meta Cloud API</h2>
+          <p>The <a href="https://developers.facebook.com/docs/whatsapp/cloud-api/" target="_blank" rel="noopener">Meta Cloud API</a> is the official line verified by Meta. Regular bulk sending should go through it. Setup takes longer than a QR scan; in return, the line is registered in your company’s own name.</p>
+          <p>Which route you choose depends on your message volume. Current terms are on the <a href="/products">Products</a> page. How a team shares one WhatsApp line is covered in our <a href="/blog-whatsapp">shared inbox</a> post.</p>
         </div>
         <div class="prose" data-prose="fa" hidden>
-          <p>واتساپ را دو جور می‌شود به میز وصل کرد. هر دو می‌گویند «وصل شد». هر دو یک کار را برنمی‌دارند.</p>
-          <h2>QR</h2>
-          <p>نشست QR سریع است. گوشی را نشان می‌دهید و میز باز می‌شود. برای جواب روزمره همین راه بس است. پیام انبوه در این راه احتمال مسدود شدن شماره را بالا می‌برد. این را ریز نوشتن یعنی بعداً مجبور به توضیح شدن. <a href="./work.html">صفحهٔ کار</a> این خطر را باز می‌گذارد.</p>
-          <h2>Cloud API</h2>
-          <p>Meta Cloud API خط تأییدشده است. ارسال جدی انبوه از اینجا می‌رود. راه‌اندازی‌اش به تندی QR نیست. در عوض خط به نام خود شرکت می‌ایستد.</p>
-          <p>انتخاب به حجم کار بستگی دارد. شرط روز روی <a href="https://fxguard.io/" target="_blank" rel="noopener noreferrer">fxguard.io</a> می‌ماند. خودِ شکل میز در یادداشت <a href="./blog-whatsapp.html">صندوق مشترک</a> است.</p>
+          <p>برای وصل کردن واتساپ به حساب شرکت دو راه وجود دارد. با هر دو راه اتصال برقرار می‌شود، اما هر دو برای یک کار مناسب نیستند.</p>
+          <h2>اتصال با QR</h2>
+          <p>اتصال QR سریع است: کد را با گوشی اسکن می‌کنید و صندوق پیام باز می‌شود. برای گفتگوهای روزمره همین کافی است. اما ارسال پیام انبوه از این راه خطر مسدود شدن شماره را بالا می‌برد. قوانین آن در <a href="https://business.whatsapp.com/policy" target="_blank" rel="noopener">سیاست پیام‌رسانی WhatsApp Business</a> آمده است. پنهان کردن این خطر در متن ریز، فقط توضیح دادن را به بعد موکول می‌کند؛ برای همین در صفحهٔ <a href="/work">نمونه‌کار</a> هم آن را شفاف نوشته‌ایم.</p>
+          <h2>Meta Cloud API</h2>
+          <p><a href="https://developers.facebook.com/docs/whatsapp/cloud-api/" target="_blank" rel="noopener">Meta Cloud API</a> خط رسمی و تأییدشده توسط Meta است. ارسال انبوه منظم باید از این راه انجام شود. راه‌اندازی آن به سرعت QR نیست، اما در عوض خط به نام خود شرکت شما ثبت می‌شود.</p>
+          <p>انتخاب راه به حجم پیام‌های شما بستگی دارد. شرایط فعلی در صفحهٔ <a href="/products">محصولات</a> آمده است. اینکه یک تیم چطور با هم از یک خط واتساپ استفاده می‌کند، در یادداشت <a href="/blog-whatsapp">صندوق پیام مشترک</a> توضیح داده شده است.</p>
         </div>
         <div class="related">
-          <p data-i18n="post.more">Sıradaki not</p>
-          <a href="./blog-whatsapp.html" data-i18n="post.wa.title">Müşteri yazıyor. Masa dağılmasın.</a>
-          <a href="./blog-exchange.html" data-i18n="post.ex.title">Panel başka, döviz sitesi başka.</a>
+          <p data-i18n="post.more">Diğer yazılar</p>
+          <a href="/blog-whatsapp" data-i18n="post.wa.title">WhatsApp tek telefonda kalmasın.</a>
+          <a href="/blog-exchange" data-i18n="post.ex.title">Döviz bürosu sitesi panelden ayrı bir üründür.</a>
+          <a href="/services" data-i18n="svc.title">Ajan, site, sunucu.</a>
+        </div>
+        <div class="actions">
+          <a class="btn btn--ion" href="/contact" data-magnetic><span data-i18n="cta.start">Proje başlat</span><i aria-hidden="true">↗</i></a>
+          <a class="btn btn--ghost" href="/blog" data-magnetic data-i18n="nav.blog">Blog</a>
         </div>
       </div>
     </article>
   </main>
   <footer class="site-footer">
     <div class="wrap footer-grid">
-      <div>
-        <a class="brand" href="./index.html"><img class="brand__logo" src="/assets/mark-on-dark.svg" alt="" width="28" height="28" /><span class="brand__name">ERST <span class="brand__it">IT</span></span></a>
-        <p style="margin-top:14px">ERST IT Solutions Bilişim Teknolojileri Sanayi ve Ticaret Ltd. Şti.</p>
-        <p>Gökevler Mah. 2312. Sk. Burç İstanbul, Esenyurt / İstanbul</p>
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="ERST IT"><img class="brand__logo" src="/assets/logo.svg" alt="" width="101" height="20" /></a>
+        <p>ERST IT Solutions Bilişim Teknolojileri Sanayi ve Ticaret Ltd. Şti.</p>
+        <address><a href="https://www.google.com/maps/search/?api=1&amp;query=41.0213,28.631" target="_blank" rel="noopener">Gökevler Mah. 2312. Sk. Burç İstanbul No: 18 J, 34522 Esenyurt / İstanbul</a></address>
       </div>
       <div>
         <h2 data-i18n="footer.pages">Sayfalar</h2>
         <ul>
-          <li><a href="./work.html" data-i18n="nav.work">İş</a></li>
-          <li><a href="./products.html" data-i18n="nav.products">Ürünler</a></li>
-          <li><a href="./blog.html" data-i18n="nav.blog">Notlar</a></li>
-          <li><a href="./about.html" data-i18n="nav.about">Şirket</a></li>
-          <li><a href="./contact.html" data-i18n="nav.contact">İletişim</a></li>
+          <li><a href="/services" data-i18n="nav.services">Hizmetler</a></li>
+          <li><a href="/work" data-i18n="nav.work">Çalışmalar</a></li>
+          <li><a href="/products" data-i18n="nav.products">Ürünler</a></li>
+          <li><a href="/blog" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="/about" data-i18n="nav.about">Hakkımızda</a></li>
+          <li><a href="/contact" data-i18n="nav.contact">İletişim</a></li>
         </ul>
       </div>
       <div>
-        <h2 data-i18n="footer.outside">Dışarıda</h2>
+        <h2><a href="/blog" data-i18n="nav.blog">Blog</a></h2>
         <ul>
-          <li><a href="https://fxguard.io/" target="_blank" rel="noopener noreferrer">fxguard.io</a></li>
-          <li><a href="https://app.fxguard.io/" target="_blank" rel="noopener noreferrer">app.fxguard.io</a></li>
-          <li><a href="https://exchange.fxguard.io/" target="_blank" rel="noopener noreferrer">exchange.fxguard.io</a></li>
+          <li><a href="/blog-whatsapp" data-i18n="post.wa.title">WhatsApp tek telefonda kalmasın.</a></li>
+          <li><a href="/blog-qr" data-i18n="post.qr.title">QR hızlı başlar; toplu mesajın yolu başkadır.</a></li>
+          <li><a href="/blog-exchange" data-i18n="post.ex.title">Döviz bürosu sitesi panelden ayrı bir üründür.</a></li>
         </ul>
       </div>
       <div>
         <h2 data-i18n="nav.contact">İletişim</h2>
         <ul>
-          <li><a href="tel:+902125160983">+90 212 516 09 83</a></li>
+          <li><a href="tel:+902125160983" dir="ltr">+90 212 516 09 83</a></li>
           <li><a href="mailto:info@erstitsolutions.com">info@erstitsolutions.com</a></li>
-          <li><a href="mailto:sales@fxguard.io">sales@fxguard.io</a></li>
-          <li><a href="https://wa.me/905010676486" target="_blank" rel="noopener noreferrer">+90 501 067 64 86</a></li>
+          <li><a href="https://wa.me/905010676486" target="_blank" rel="noopener"><span dir="ltr">WhatsApp +90 501 067 64 86</span></a></li>
         </ul>
       </div>
     </div>
     <div class="wrap legal-line">
       <p>MERSİS 0370043020200001 · Sicil 129956-5 · VKN 3700430202</p>
-      <p class="fine" data-i18n="footer.privacy">Form sunucuda saklanmaz.</p>
+      <p class="fine" data-i18n="footer.privacy">Form verileri sunucuda saklanmaz; düğme e-posta programınızı açar. Dil tercihiniz yalnızca bu cihazda kaydedilir.</p>
       <p class="fine">© <span data-year>2026</span> ERST. <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
     </div>
+    <div class="footer-word" aria-hidden="true">ERST<span>_</span></div>
   </footer>
   <script type="module" src="/src/main.js"></script>
 </body>

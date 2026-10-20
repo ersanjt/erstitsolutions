@@ -3,18 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Döviz sitesi | ERST</title>
-  <meta name="description" content="Döviz sitesi FX Guard panelinden ayrı fiyatlanır. Canlı örnek exchange.fxguard.io." data-i18n-content="meta.exDesc" />
-  <link rel="canonical" href="https://erstitsolutions.com/blog-exchange.html" />
-  <meta property="og:type" content="article" />
-  <meta property="og:site_name" content="ERST IT Solutions" />
-  <meta property="og:locale" content="tr_TR" />
-  <meta property="og:title" content="Döviz sitesi | ERST" />
-  <meta property="og:description" content="Döviz sitesi FX Guard panelinden ayrı fiyatlanır. Canlı örnek exchange.fxguard.io." />
-  <meta property="og:url" content="https://erstitsolutions.com/blog-exchange.html" />
-  <meta property="og:image" content="https://erstitsolutions.com/assets/android-chrome-512x512.png" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="theme-color" content="#141414" />
+  <title>Döviz bürosu sitesi neden panelden ayrıdır? | ERST</title>
+  <meta name="description" content="Kurları, siparişleri ve takibi gösteren döviz bürosu sitesi, CRM içindeki bir sekme değildir. Markanıza özel site ayrı kurulur ve ayrı fiyatlandırılır." data-i18n-content="meta.exDesc" />
+  <!--seo-->
+  <meta name="theme-color" content="#05060a" />
+  <meta name="color-scheme" content="dark" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/favicon.ico" sizes="32x32" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
@@ -23,139 +16,144 @@
   <link rel="manifest" href="/assets/site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Syne:wght@600;700&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Space+Grotesk:wght@300..700&family=Geist+Mono:wght@400;500&family=Unbounded:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/src/styles.css" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Panel başka, döviz sitesi başka.",
-    "datePublished": "2026-10-18",
-    "inLanguage": "tr",
-    "mainEntityOfPage": "https://erstitsolutions.com/blog-exchange.html",
-    "author": { "@type": "Organization", "name": "ERST IT Solutions", "url": "https://erstitsolutions.com/" },
-    "publisher": { "@type": "Organization", "name": "ERST IT Solutions", "url": "https://erstitsolutions.com/" }
-  }
-  </script>
   <script>
     try {
-      var l = localStorage.getItem("erst-lang");
-      if (l === "fa") { document.documentElement.lang = "fa"; document.documentElement.dir = "rtl"; }
-      if (l === "en" || l === "fa") document.documentElement.classList.add("i18n-pending");
+      var s = localStorage.getItem("erst-lang"), p = location.pathname, inside = document.referrer.indexOf(location.origin + "/") === 0;
+      if (s === "tr" || s === "en" || s === "fa") document.cookie = "erst-lang=" + s + "; Path=/; Max-Age=31536000; SameSite=Lax";
+      if (!inside && (s === "en" || s === "fa") && !/^\/(en|fa)(\/|$)/.test(p)) location.replace("/" + s + (p === "/" ? "/" : p) + location.search + location.hash);
     } catch (e) {}
   </script>
 </head>
 <body data-page="blog" data-title-key="meta.exTitle">
   <a class="skip" href="#main" data-i18n="skip">İçeriğe geç</a>
   <header class="site-header">
-    <a class="brand" href="./index.html"><img class="brand__logo" src="/assets/mark.svg" alt="" width="28" height="28" /><span class="brand__name">ERST <span class="brand__it">IT</span></span></a>
+    <a class="brand" href="/" aria-label="ERST IT"><img class="brand__logo" src="/assets/logo.svg" alt="ERST IT" width="101" height="20" /></a>
     <nav class="nav" data-i18n-aria="nav.primary" aria-label="Ana menü">
-      <a href="./work.html" data-nav="work" data-i18n="nav.work">İş</a>
-      <a href="./products.html" data-nav="products" data-i18n="nav.products">Ürünler</a>
-      <a href="./blog.html" data-nav="blog" data-i18n="nav.blog">Notlar</a>
-      <a href="./about.html" data-nav="about" data-i18n="nav.about">Şirket</a>
-      <a href="./contact.html" data-nav="contact" data-i18n="nav.contact">İletişim</a>
+      <a href="/services" data-nav="services" data-i18n="nav.services">Hizmetler</a>
+      <a href="/work" data-nav="work" data-i18n="nav.work">Çalışmalar</a>
+      <a href="/products" data-nav="products" data-i18n="nav.products">Ürünler</a>
+      <a href="/blog" data-nav="blog" data-i18n="nav.blog">Blog</a>
+      <a href="/about" data-nav="about" data-i18n="nav.about">Hakkımızda</a>
+      <a href="/contact" data-nav="contact" data-i18n="nav.contact">İletişim</a>
     </nav>
     <div class="tools">
-      <div class="langs" role="group" aria-label="Language">
-        <button type="button" data-lang="tr" aria-pressed="true">TR</button>
-        <button type="button" data-lang="en">EN</button>
-        <button type="button" data-lang="fa">فا</button>
-      </div>
-      <a class="btn btn--primary btn--small" href="https://fxguard.io/" target="_blank" rel="noopener noreferrer">fxguard.io</a>
+      <details class="langs">
+        <summary class="langs__btn">
+          <span class="sr-only">Dil · Language · زبان</span>
+          <span data-lang-current lang="tr">TR</span>
+          <span class="langs__chev" aria-hidden="true"></span>
+        </summary>
+        <div class="langs__panel">
+          <nav class="langs__list" aria-label="Dil · Language · زبان">
+          <a href="/blog-exchange" hreflang="tr" lang="tr" data-lang="tr" aria-current="true">TR</a>
+          <a href="/en/blog-exchange" hreflang="en" lang="en" data-lang="en">EN</a>
+          <a href="/fa/blog-exchange" hreflang="fa" lang="fa" data-lang="fa">فا</a>
+          </nav>
+        </div>
+      </details>
+      <a class="btn btn--ion btn--small" href="/contact" data-i18n="cta.start">Proje başlat</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="menu-toggle__bars" aria-hidden="true"></span><span class="sr-only" data-i18n="nav.menu">Menü</span></button>
     </div>
   </header>
-  <div class="mobile-nav" id="mobile-nav" hidden>
-    <a href="./work.html" data-nav="work" data-i18n="nav.work">İş</a>
-    <a href="./products.html" data-nav="products" data-i18n="nav.products">Ürünler</a>
-    <a href="./blog.html" data-nav="blog" data-i18n="nav.blog">Notlar</a>
-    <a href="./about.html" data-nav="about" data-i18n="nav.about">Şirket</a>
-    <a href="./contact.html" data-nav="contact" data-i18n="nav.contact">İletişim</a>
+  <div class="mobile-nav" id="mobile-nav" data-lenis-prevent hidden>
+    <a href="/services" data-nav="services" data-i18n="nav.services">Hizmetler</a>
+    <a href="/work" data-nav="work" data-i18n="nav.work">Çalışmalar</a>
+    <a href="/products" data-nav="products" data-i18n="nav.products">Ürünler</a>
+    <a href="/blog" data-nav="blog" data-i18n="nav.blog">Blog</a>
+    <a href="/about" data-nav="about" data-i18n="nav.about">Hakkımızda</a>
+    <a href="/contact" data-nav="contact" data-i18n="nav.contact">İletişim</a>
   </div>
   <main id="main">
     <article class="page-hero">
       <div class="wrap">
-        <nav class="crumbs" data-i18n-aria="crumbs.label" aria-label="Konum">
-          <a href="./index.html" data-i18n="crumbs.home">Ana sayfa</a>
+        <nav class="crumbs" data-i18n-aria="crumbs.label" aria-label="Sayfa yolu">
+          <a href="/" data-i18n="crumbs.home">Ana sayfa</a>
           <span aria-hidden="true">/</span>
-          <a href="./blog.html" data-i18n="nav.blog">Notlar</a>
+          <a href="/blog" data-i18n="nav.blog">Blog</a>
           <span aria-hidden="true">/</span>
-          <span aria-current="page" data-i18n="post.ex.title">Panel başka, döviz sitesi başka.</span>
+          <span aria-current="page" data-i18n="post.ex.title">Döviz bürosu sitesi panelden ayrı bir üründür.</span>
         </nav>
         <time datetime="2026-10-18" data-i18n="post.ex.date">18 Ekim 2026</time>
-        <h1 data-i18n="post.ex.title">Panel başka, döviz sitesi başka.</h1>
-        <p class="lede" data-i18n="post.ex.excerpt">Kur, sipariş ve takip taşıyan site, CRM’nin içinde bir sekme değildir.</p>
+        <h1 data-i18n="post.ex.title" data-split>Döviz bürosu sitesi panelden ayrı bir üründür.</h1>
+        <p class="lede" data-i18n="post.ex.excerpt" data-fade>Kurları, siparişleri ve sipariş takibini gösteren site, CRM içindeki bir sekme değildir.</p>
         <div class="prose" data-prose="tr">
-          <p>Personel paneli, müşteriyle yazışmayı tutar. Gelen kutu, defter, rol ve şube oradadır. Döviz sitesi ise dışarıya bakar: kur, sipariş ve takip. Ziyaretçi panele girmez. Müşteri, büronun kendi yüzünü görür.</p>
-          <p>Bu yüzden ikisi aynı fiyata yazılmaz. CRM’yi almak, markalı bir döviz sitesi aldığınız anlamına gelmez. Site ayrıca teklif edilir. Canlı örnek <a href="https://exchange.fxguard.io/" target="_blank" rel="noopener noreferrer">exchange.fxguard.io</a> adresindedir.</p>
-          <h2>Kur, sitede de panelde de durabilir</h2>
-          <p>Paneldeki kur modülü Business planındadır ve masanın içindedir. Sitedeki kur, ziyaretçiye gösterilen fiyattır. Biri personel içindir, biri vitrin. İkisini tek ekran sanmak, teklifi eksik okumaktır. Ayrım <a href="./products.html">ürünler</a> sayfasında da durur.</p>
-          <p>Muhasebe de üçüncü yüzdür: tahsilat, ödeme, kur ve havale. Açık demosu CRM’den ayrıdır ve sıfırlanır. Üçünü birden “panel” diye kısaltmak, satın alınan şeyi belirsiz bırakır.</p>
+          <p>Personel paneli, ekibinizin müşterilerle yazıştığı yerdir: gelen kutusu, müşteri kayıtları, roller ve şubeler oradadır. Döviz bürosu sitesi ise dışa dönüktür: kurları müşteriye gösterir, sipariş alır ve siparişin takibini sağlar. Ziyaretçi panele hiç girmez; karşısında büronuzun kendi markasını görür.</p>
+          <p>Bu yüzden ikisi aynı fiyata satılmaz. CRM satın almak, markanıza özel bir döviz sitesi almak anlamına gelmez; site için ayrıca teklif hazırlanır. Örnek görmek için <a href="/contact">demo isteyin</a>.</p>
+          <h2>Kur hem sitede hem panelde olabilir</h2>
+          <p>Paneldeki kur modülü Business planında yer alır ve ekibin iç kullanımı içindir. Sitedeki kur ise ziyaretçiye gösterilen fiyattır. Biri personel için, diğeri vitrin içindir. İkisini tek bir ekran sanmak, teklifi eksik değerlendirmek olur. Bu ayrım <a href="/products">Ürünler</a> sayfasında da yer alır.</p>
+          <p>Muhasebe ise üçüncü üründür: tahsilat, ödeme, döviz kuru ve havale. Herkese açık demosu CRM’den ayrıdır ve düzenli olarak sıfırlanır. Üçünü birden “panel” diye anmak, neyin satın alındığını belirsiz bırakır.</p>
         </div>
         <div class="prose" data-prose="en" hidden>
-          <p>The staff panel holds the conversation with the customer. The inbox, the book, roles and branches are there. An exchange website faces outward: rates, orders and tracking. A visitor does not enter the panel. The customer sees the bureau’s own face.</p>
-          <p>That is why the two are not written at the same price. Buying the CRM does not mean you bought a branded exchange site. The site is quoted apart. The live example is <a href="https://exchange.fxguard.io/" target="_blank" rel="noopener noreferrer">exchange.fxguard.io</a>.</p>
-          <h2>Rates can sit on the site and in the panel</h2>
-          <p>The rates module in the panel is on the Business plan, and it stays inside the desk. The rate on the site is the price a visitor is shown. One is for staff. One is the window. Treating them as a single screen is reading the quote short. The split is also on the <a href="./products.html">products</a> page.</p>
-          <p>Accounting is the third face: receipts, payments, rates and remittance. Its public demo is separate from the CRM and it resets. Shortening all three to “the panel” leaves what was bought unclear.</p>
+          <p>The staff panel is where your team talks to customers: the inbox, customer records, roles and branches live there. An exchange office website faces outward: it shows customers your rates, takes orders and lets them track those orders. Visitors never enter the panel; they see your office’s own brand.</p>
+          <p>That is why the two are not sold at the same price. Buying the CRM does not include a branded exchange website; the site is quoted separately. To see an example, <a href="/contact">request a demo</a>.</p>
+          <h2>Rates can appear on the site and in the panel</h2>
+          <p>The rates module in the panel comes with the Business plan and is for your team’s internal use. The rate on the website is the price visitors see. One is for staff; the other is your shopfront. Treating them as one screen means misreading the quote. The distinction is also shown on the <a href="/products">Products</a> page.</p>
+          <p>Accounting is the third product: receipts, payments, exchange rates and remittances. Its public demo is separate from the CRM and is reset regularly. Calling all three “the panel” leaves it unclear what was actually bought.</p>
         </div>
         <div class="prose" data-prose="fa" hidden>
-          <p>پنل کارکنان گفتگو با مشتری را نگه می‌دارد. صندوق، دفتر، نقش و شعبه آنجاست. سایت صرافی رو به بیرون است: نرخ، سفارش و پیگیری. بازدیدکننده وارد پنل نمی‌شود. مشتری چهرهٔ خودِ دفتر را می‌بیند.</p>
-          <p>برای همین این دو به یک قیمت نوشته نمی‌شوند. خریدن CRM یعنی خریدن یک سایت صرافیِ برنددار نیست. سایت جدا پیشنهاد می‌شود. نمونهٔ زنده <a href="https://exchange.fxguard.io/" target="_blank" rel="noopener noreferrer">exchange.fxguard.io</a> است.</p>
-          <h2>نرخ هم در سایت می‌تواند باشد هم در پنل</h2>
-          <p>ماژول نرخ داخل پنل در طرح Business است و پشت میز می‌ماند. نرخ روی سایت قیمتی است که بازدیدکننده می‌بیند. یکی برای کارکنان است، یکی ویترین. یکی دانستنشان یعنی پیشنهاد را کوتاه خواندن. این جدایی در صفحهٔ <a href="./products.html">محصول‌ها</a> هم هست.</p>
-          <p>حسابداری روی سوم است: دریافت، پرداخت، نرخ و حواله. دموی عمومی‌اش از CRM جداست و صفر می‌شود. هر سه را «پنل» گفتن، چیزی را که خریده شده مبهم می‌کند.</p>
+          <p>پنل کارکنان جایی است که تیم شما با مشتری‌ها گفتگو می‌کند: صندوق پیام، پروندهٔ مشتری، نقش‌ها و شعبه‌ها آنجاست. اما سایت صرافی رو به بیرون است: نرخ‌ها را به مشتری نشان می‌دهد، سفارش می‌گیرد و امکان پیگیری سفارش را فراهم می‌کند. بازدیدکننده هیچ‌وقت وارد پنل نمی‌شود؛ او برند خود صرافی شما را می‌بیند.</p>
+          <p>برای همین این دو با یک قیمت فروخته نمی‌شوند. خرید CRM به معنای داشتن سایت صرافی با برند شما نیست؛ برای سایت، پیشنهاد قیمت جداگانه داده می‌شود. برای دیدن نمونه، <a href="/contact">درخواست دمو</a> بدهید.</p>
+          <h2>نرخ ارز هم در سایت می‌تواند باشد و هم در پنل</h2>
+          <p>ماژول نرخ ارز در پنل، در طرح Business ارائه می‌شود و برای استفادهٔ داخلی تیم است. نرخی که روی سایت می‌آید، قیمتی است که بازدیدکننده می‌بیند. یکی برای کارکنان است و دیگری ویترین شما. اگر این دو را یکی بدانید، پیشنهاد قیمت را ناقص خوانده‌اید. این تفاوت در صفحهٔ <a href="/products">محصولات</a> هم آمده است.</p>
+          <p>حسابداری محصول سوم است: دریافت، پرداخت، نرخ ارز و حواله. دموی عمومی آن از CRM جداست و به‌طور منظم بازنشانی می‌شود. اگر هر سه را «پنل» بنامیم، معلوم نیست دقیقاً چه چیزی خریداری شده است.</p>
         </div>
         <div class="related">
-          <p data-i18n="post.more">Sıradaki not</p>
-          <a href="./blog-whatsapp.html" data-i18n="post.wa.title">Müşteri yazıyor. Masa dağılmasın.</a>
-          <a href="./blog-qr.html" data-i18n="post.qr.title">QR hızlıdır. Toplu mesaj başka yoldur.</a>
-          <a href="https://exchange.fxguard.io/" target="_blank" rel="noopener noreferrer">exchange.fxguard.io</a>
+          <p data-i18n="post.more">Diğer yazılar</p>
+          <a href="/blog-whatsapp" data-i18n="post.wa.title">WhatsApp tek telefonda kalmasın.</a>
+          <a href="/blog-qr" data-i18n="post.qr.title">QR hızlı başlar; toplu mesajın yolu başkadır.</a>
+          <a href="/services#web" data-i18n="svc.web.title">Web tasarım ve geliştirme</a>
+          <a href="/products#sites" data-i18n="prod.web.title">Döviz bürosu sitesi</a>
+        </div>
+        <div class="actions">
+          <a class="btn btn--ion" href="/contact" data-magnetic><span data-i18n="cta.start">Proje başlat</span><i aria-hidden="true">↗</i></a>
+          <a class="btn btn--ghost" href="/blog" data-magnetic data-i18n="nav.blog">Blog</a>
         </div>
       </div>
     </article>
   </main>
   <footer class="site-footer">
     <div class="wrap footer-grid">
-      <div>
-        <a class="brand" href="./index.html"><img class="brand__logo" src="/assets/mark-on-dark.svg" alt="" width="28" height="28" /><span class="brand__name">ERST <span class="brand__it">IT</span></span></a>
-        <p style="margin-top:14px">ERST IT Solutions Bilişim Teknolojileri Sanayi ve Ticaret Ltd. Şti.</p>
-        <p>Gökevler Mah. 2312. Sk. Burç İstanbul, Esenyurt / İstanbul</p>
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="ERST IT"><img class="brand__logo" src="/assets/logo.svg" alt="" width="101" height="20" /></a>
+        <p>ERST IT Solutions Bilişim Teknolojileri Sanayi ve Ticaret Ltd. Şti.</p>
+        <address><a href="https://www.google.com/maps/search/?api=1&amp;query=41.0213,28.631" target="_blank" rel="noopener">Gökevler Mah. 2312. Sk. Burç İstanbul No: 18 J, 34522 Esenyurt / İstanbul</a></address>
       </div>
       <div>
         <h2 data-i18n="footer.pages">Sayfalar</h2>
         <ul>
-          <li><a href="./work.html" data-i18n="nav.work">İş</a></li>
-          <li><a href="./products.html" data-i18n="nav.products">Ürünler</a></li>
-          <li><a href="./blog.html" data-i18n="nav.blog">Notlar</a></li>
-          <li><a href="./about.html" data-i18n="nav.about">Şirket</a></li>
-          <li><a href="./contact.html" data-i18n="nav.contact">İletişim</a></li>
+          <li><a href="/services" data-i18n="nav.services">Hizmetler</a></li>
+          <li><a href="/work" data-i18n="nav.work">Çalışmalar</a></li>
+          <li><a href="/products" data-i18n="nav.products">Ürünler</a></li>
+          <li><a href="/blog" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="/about" data-i18n="nav.about">Hakkımızda</a></li>
+          <li><a href="/contact" data-i18n="nav.contact">İletişim</a></li>
         </ul>
       </div>
       <div>
-        <h2 data-i18n="footer.outside">Dışarıda</h2>
+        <h2><a href="/blog" data-i18n="nav.blog">Blog</a></h2>
         <ul>
-          <li><a href="https://fxguard.io/" target="_blank" rel="noopener noreferrer">fxguard.io</a></li>
-          <li><a href="https://app.fxguard.io/" target="_blank" rel="noopener noreferrer">app.fxguard.io</a></li>
-          <li><a href="https://exchange.fxguard.io/" target="_blank" rel="noopener noreferrer">exchange.fxguard.io</a></li>
+          <li><a href="/blog-whatsapp" data-i18n="post.wa.title">WhatsApp tek telefonda kalmasın.</a></li>
+          <li><a href="/blog-qr" data-i18n="post.qr.title">QR hızlı başlar; toplu mesajın yolu başkadır.</a></li>
+          <li><a href="/blog-exchange" data-i18n="post.ex.title">Döviz bürosu sitesi panelden ayrı bir üründür.</a></li>
         </ul>
       </div>
       <div>
         <h2 data-i18n="nav.contact">İletişim</h2>
         <ul>
-          <li><a href="tel:+902125160983">+90 212 516 09 83</a></li>
+          <li><a href="tel:+902125160983" dir="ltr">+90 212 516 09 83</a></li>
           <li><a href="mailto:info@erstitsolutions.com">info@erstitsolutions.com</a></li>
-          <li><a href="mailto:sales@fxguard.io">sales@fxguard.io</a></li>
-          <li><a href="https://wa.me/905010676486" target="_blank" rel="noopener noreferrer">+90 501 067 64 86</a></li>
+          <li><a href="https://wa.me/905010676486" target="_blank" rel="noopener"><span dir="ltr">WhatsApp +90 501 067 64 86</span></a></li>
         </ul>
       </div>
     </div>
     <div class="wrap legal-line">
       <p>MERSİS 0370043020200001 · Sicil 129956-5 · VKN 3700430202</p>
-      <p class="fine" data-i18n="footer.privacy">Form sunucuda saklanmaz.</p>
+      <p class="fine" data-i18n="footer.privacy">Form verileri sunucuda saklanmaz; düğme e-posta programınızı açar. Dil tercihiniz yalnızca bu cihazda kaydedilir.</p>
       <p class="fine">© <span data-year>2026</span> ERST. <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
     </div>
+    <div class="footer-word" aria-hidden="true">ERST<span>_</span></div>
   </footer>
   <script type="module" src="/src/main.js"></script>
 </body>

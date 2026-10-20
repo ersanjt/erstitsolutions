@@ -3,18 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>İletişim | ERST</title>
-  <meta name="description" content="Esenyurt ofisi ve FX Guard satışı." data-i18n-content="meta.contactDesc" />
-  <link rel="canonical" href="https://erstitsolutions.com/contact.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="ERST IT Solutions" />
-  <meta property="og:locale" content="tr_TR" />
-  <meta property="og:title" content="İletişim | ERST" />
-  <meta property="og:description" content="Esenyurt ofisi ve FX Guard satışı." />
-  <meta property="og:url" content="https://erstitsolutions.com/contact.html" />
-  <meta property="og:image" content="https://erstitsolutions.com/assets/android-chrome-512x512.png" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="theme-color" content="#141414" />
+  <title>İletişim: Esenyurt, İstanbul yazılım stüdyosu | ERST</title>
+  <meta name="description" content="ERST IT iletişim: +90 212 516 09 83, info@erstitsolutions.com. Burç İstanbul, Esenyurt. AI ajan, yazılım, web projeleri ve ürün satışı için bize yazın." data-i18n-content="meta.contactDesc" />
+  <!--seo-->
+  <meta name="theme-color" content="#05060a" />
+  <meta name="color-scheme" content="dark" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/assets/favicon.ico" sizes="32x32" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
@@ -23,129 +16,163 @@
   <link rel="manifest" href="/assets/site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Syne:wght@600;700&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Space+Grotesk:wght@300..700&family=Geist+Mono:wght@400;500&family=Unbounded:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/src/styles.css" />
   <script>
     try {
-      var l = localStorage.getItem("erst-lang");
-      if (l === "fa") { document.documentElement.lang = "fa"; document.documentElement.dir = "rtl"; }
-      if (l === "en" || l === "fa") document.documentElement.classList.add("i18n-pending");
+      var s = localStorage.getItem("erst-lang"), p = location.pathname, inside = document.referrer.indexOf(location.origin + "/") === 0;
+      if (s === "tr" || s === "en" || s === "fa") document.cookie = "erst-lang=" + s + "; Path=/; Max-Age=31536000; SameSite=Lax";
+      if (!inside && (s === "en" || s === "fa") && !/^\/(en|fa)(\/|$)/.test(p)) location.replace("/" + s + (p === "/" ? "/" : p) + location.search + location.hash);
     } catch (e) {}
   </script>
 </head>
 <body data-page="contact" data-title-key="meta.contactTitle">
   <a class="skip" href="#main" data-i18n="skip">İçeriğe geç</a>
   <header class="site-header">
-    <a class="brand" href="./index.html"><img class="brand__logo" src="/assets/mark.svg" alt="" width="28" height="28" /><span class="brand__name">ERST <span class="brand__it">IT</span></span></a>
+    <a class="brand" href="/" aria-label="ERST IT"><img class="brand__logo" src="/assets/logo.svg" alt="ERST IT" width="101" height="20" /></a>
     <nav class="nav" data-i18n-aria="nav.primary" aria-label="Ana menü">
-      <a href="./work.html" data-nav="work" data-i18n="nav.work">İş</a>
-      <a href="./products.html" data-nav="products" data-i18n="nav.products">Ürünler</a>
-      <a href="./blog.html" data-nav="blog" data-i18n="nav.blog">Notlar</a>
-      <a href="./about.html" data-nav="about" data-i18n="nav.about">Şirket</a>
-      <a href="./contact.html" data-nav="contact" data-i18n="nav.contact">İletişim</a>
+      <a href="/services" data-nav="services" data-i18n="nav.services">Hizmetler</a>
+      <a href="/work" data-nav="work" data-i18n="nav.work">Çalışmalar</a>
+      <a href="/products" data-nav="products" data-i18n="nav.products">Ürünler</a>
+      <a href="/blog" data-nav="blog" data-i18n="nav.blog">Blog</a>
+      <a href="/about" data-nav="about" data-i18n="nav.about">Hakkımızda</a>
+      <a href="/contact" data-nav="contact" data-i18n="nav.contact">İletişim</a>
     </nav>
     <div class="tools">
-      <div class="langs" role="group" aria-label="Language">
-        <button type="button" data-lang="tr" aria-pressed="true">TR</button>
-        <button type="button" data-lang="en">EN</button>
-        <button type="button" data-lang="fa">فا</button>
-      </div>
-      <a class="btn btn--primary btn--small" href="https://fxguard.io/" target="_blank" rel="noopener noreferrer">fxguard.io</a>
+      <details class="langs">
+        <summary class="langs__btn">
+          <span class="sr-only">Dil · Language · زبان</span>
+          <span data-lang-current lang="tr">TR</span>
+          <span class="langs__chev" aria-hidden="true"></span>
+        </summary>
+        <div class="langs__panel">
+          <nav class="langs__list" aria-label="Dil · Language · زبان">
+          <a href="/contact" hreflang="tr" lang="tr" data-lang="tr" aria-current="true">TR</a>
+          <a href="/en/contact" hreflang="en" lang="en" data-lang="en">EN</a>
+          <a href="/fa/contact" hreflang="fa" lang="fa" data-lang="fa">فا</a>
+          </nav>
+        </div>
+      </details>
+      <a class="btn btn--ion btn--small" href="/contact" data-i18n="cta.start">Proje başlat</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="menu-toggle__bars" aria-hidden="true"></span><span class="sr-only" data-i18n="nav.menu">Menü</span></button>
     </div>
   </header>
-  <div class="mobile-nav" id="mobile-nav" hidden>
-    <a href="./work.html" data-nav="work" data-i18n="nav.work">İş</a>
-    <a href="./products.html" data-nav="products" data-i18n="nav.products">Ürünler</a>
-    <a href="./blog.html" data-nav="blog" data-i18n="nav.blog">Notlar</a>
-    <a href="./about.html" data-nav="about" data-i18n="nav.about">Şirket</a>
-    <a href="./contact.html" data-nav="contact" data-i18n="nav.contact">İletişim</a>
+  <div class="mobile-nav" id="mobile-nav" data-lenis-prevent hidden>
+    <a href="/services" data-nav="services" data-i18n="nav.services">Hizmetler</a>
+    <a href="/work" data-nav="work" data-i18n="nav.work">Çalışmalar</a>
+    <a href="/products" data-nav="products" data-i18n="nav.products">Ürünler</a>
+    <a href="/blog" data-nav="blog" data-i18n="nav.blog">Blog</a>
+    <a href="/about" data-nav="about" data-i18n="nav.about">Hakkımızda</a>
+    <a href="/contact" data-nav="contact" data-i18n="nav.contact">İletişim</a>
   </div>
   <main id="main">
     <section class="page-hero">
       <div class="wrap">
+        <nav class="crumbs" data-i18n-aria="crumbs.label" aria-label="Sayfa yolu">
+          <a href="/" data-i18n="crumbs.home">Ana sayfa</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page" data-i18n="nav.contact">İletişim</span>
+        </nav>
         <p class="kicker" data-i18n="contact.kicker">İletişim</p>
-        <h1 data-i18n="contact.title">İşi veya ürünü yazın.</h1>
-        <p class="lede" data-i18n="contact.lede">Stüdyo için Esenyurt hattı. FX Guard satışı için ürün sitesindeki hat.</p>
+        <h1 data-i18n="contact.title" data-split>Projenizi veya ihtiyacınızı yazın.</h1>
+        <p class="lede" data-i18n="contact.lede" data-fade>Projeler için stüdyomuzun Esenyurt hattını, ürün satışı için WhatsApp hattımızı kullanabilirsiniz.</p>
       </div>
     </section>
     <section class="section">
       <div class="wrap contact-grid">
-        <article class="card">
-          <h2 data-i18n="contact.formTitle">E-posta</h2>
+        <article class="card" data-reveal data-glow>
+          <h2 data-i18n="contact.formTitle">E-posta ile yazın</h2>
           <form data-contact-form>
-            <label><span data-i18n="contact.name">Ad</span><input name="name" required autocomplete="name" data-i18n-placeholder="contact.namePh" placeholder="Adınız" /></label>
+            <label><span data-i18n="contact.name">Ad soyad</span><input name="name" required autocomplete="name" data-i18n-placeholder="contact.namePh" placeholder="Adınız" /></label>
             <label><span data-i18n="contact.phoneField">Telefon</span><input name="phone" autocomplete="tel" data-i18n-placeholder="contact.phonePh" placeholder="+90 …" /></label>
             <label>
               <span data-i18n="contact.interest">Konu</span>
               <select name="interest">
-                <option value="opt.site" data-i18n="opt.site">FX Guard sitesi</option>
+                <option value="opt.ai" data-i18n="opt.ai">AI ajan projesi</option>
+                <option value="opt.software" data-i18n="opt.software">Yazılım / SaaS projesi</option>
+                <option value="opt.website" data-i18n="opt.website">Web sitesi</option>
+                <option value="opt.mobile" data-i18n="opt.mobile">Mobil uygulama</option>
+                <option value="opt.auto" data-i18n="opt.auto">Otomasyon</option>
+                <option value="opt.crm" data-i18n="opt.crm">CRM</option>
+                <option value="opt.erp" data-i18n="opt.erp">ERP</option>
+                <option value="opt.server" data-i18n="opt.server">Sunucu ve panel</option>
+                <option value="opt.mail" data-i18n="opt.mail">E-posta, DNS, Cloudflare</option>
+                <option value="opt.care" data-i18n="opt.care">Mevcut site / hata ayıklama</option>
+                <option value="opt.site" data-i18n="opt.site">Ürün demosu</option>
                 <option value="opt.panel" data-i18n="opt.panel">WhatsApp paneli</option>
                 <option value="opt.books" data-i18n="opt.books">Muhasebe</option>
-                <option value="opt.web" data-i18n="opt.web">Döviz sitesi</option>
-                <option value="opt.studio" data-i18n="opt.studio">Yeni iş</option>
+                <option value="opt.web" data-i18n="opt.web">Döviz bürosu sitesi</option>
+                <option value="opt.studio" data-i18n="opt.studio">Yeni proje</option>
               </select>
             </label>
-            <label><span data-i18n="contact.message">Mesaj</span><textarea name="message" required data-i18n-placeholder="contact.messagePh" placeholder="Site, panel veya teklif"></textarea></label>
+            <label><span data-i18n="contact.message">Mesaj</span><textarea name="message" required data-i18n-placeholder="contact.messagePh" placeholder="Örn. web sitesi, panel veya fiyat teklifi"></textarea></label>
             <p class="form-error" role="alert"></p>
-            <button class="btn btn--primary" type="submit" data-i18n="contact.submit">E-postayı aç</button>
-            <p class="note" data-i18n="contact.hint">Mesaj bu sitede kaydedilmez.</p>
+            <button class="btn btn--primary" type="submit" data-i18n="contact.submit">E-posta ile gönder</button>
+            <p class="note" data-i18n="contact.hint">Mesajınız bu sitede kaydedilmez.</p>
+            <p class="note"><span data-i18n="contact.kvkk">Adınız, telefonunuz ve mesajınız yalnızca size yanıt vermek için kullanılır. Bu sitede kayıt tutulmaz; düğme e-posta programınızı açar. Veri sorumlusu ERST IT Solutions Ltd. Şti.’dir.</span> <a href="https://www.kvkk.gov.tr/" target="_blank" rel="noopener">KVKK ↗</a></p>
           </form>
         </article>
-        <article class="card">
+        <article class="card" data-reveal data-glow>
           <ul class="contact-list">
             <li><span data-i18n="contact.address">Adres</span>Gökevler Mah. 2312. Sk. Burç İstanbul 18 Blok No: 18 J İç Kapı No: 199, Esenyurt / İstanbul</li>
-            <li><span data-i18n="contact.phone">Stüdyo</span><a href="tel:+902125160983">+90 212 516 09 83</a></li>
+            <li><span data-i18n="contact.phone">Stüdyo telefonu</span><a href="tel:+902125160983">+90 212 516 09 83</a></li>
             <li><span data-i18n="contact.email">E-posta</span><a href="mailto:info@erstitsolutions.com">info@erstitsolutions.com</a></li>
-            <li><span data-i18n="contact.fx">FX Guard satış</span><a href="mailto:sales@fxguard.io">sales@fxguard.io</a><br /><a href="https://wa.me/905010676486">+90 501 067 64 86</a></li>
+            <li><span data-i18n="contact.fx">Ürün satışı</span><a href="https://wa.me/905010676486" target="_blank" rel="noopener" dir="ltr">WhatsApp +90 501 067 64 86</a></li>
           </ul>
           <div class="actions">
-            <a class="btn btn--ghost" href="https://maps.google.com/?q=Gokevler+Mahallesi+2312.+Sokak+Burc+Istanbul+Esenyurt" target="_blank" rel="noopener noreferrer" data-i18n="contact.map">Haritada aç</a>
+            <a class="btn btn--ghost" href="https://www.google.com/maps/search/?api=1&amp;query=41.0213,28.631" target="_blank" rel="noopener" data-i18n="contact.map">Haritada aç</a>
           </div>
+          <nav class="next" aria-labelledby="next-contact">
+            <p class="kicker" id="next-contact" data-i18n="next.title">Sıradaki adım</p>
+            <a href="/services" data-i18n="svc.title">Ajan, site, sunucu.</a>
+            <a href="/work" data-i18n="work.title">Kendi ürünümüzü baştan sona biz geliştirdik.</a>
+            <a href="/about" data-i18n="about.title">Kayıtlı ve şeffaf bir şirket.</a>
+          </nav>
         </article>
       </div>
     </section>
   </main>
   <footer class="site-footer">
     <div class="wrap footer-grid">
-      <div>
-        <a class="brand" href="./index.html"><img class="brand__logo" src="/assets/mark-on-dark.svg" alt="" width="28" height="28" /><span class="brand__name">ERST <span class="brand__it">IT</span></span></a>
-        <p style="margin-top:14px">ERST IT Solutions Bilişim Teknolojileri Sanayi ve Ticaret Ltd. Şti.</p>
-        <p>Gökevler Mah. 2312. Sk. Burç İstanbul, Esenyurt / İstanbul</p>
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="ERST IT"><img class="brand__logo" src="/assets/logo.svg" alt="" width="101" height="20" /></a>
+        <p>ERST IT Solutions Bilişim Teknolojileri Sanayi ve Ticaret Ltd. Şti.</p>
+        <address><a href="https://www.google.com/maps/search/?api=1&amp;query=41.0213,28.631" target="_blank" rel="noopener">Gökevler Mah. 2312. Sk. Burç İstanbul No: 18 J, 34522 Esenyurt / İstanbul</a></address>
       </div>
       <div>
         <h2 data-i18n="footer.pages">Sayfalar</h2>
         <ul>
-          <li><a href="./work.html" data-i18n="nav.work">İş</a></li>
-          <li><a href="./products.html" data-i18n="nav.products">Ürünler</a></li>
-          <li><a href="./blog.html" data-i18n="nav.blog">Notlar</a></li>
-          <li><a href="./about.html" data-i18n="nav.about">Şirket</a></li>
-          <li><a href="./contact.html" data-i18n="nav.contact">İletişim</a></li>
+          <li><a href="/services" data-i18n="nav.services">Hizmetler</a></li>
+          <li><a href="/work" data-i18n="nav.work">Çalışmalar</a></li>
+          <li><a href="/products" data-i18n="nav.products">Ürünler</a></li>
+          <li><a href="/blog" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="/about" data-i18n="nav.about">Hakkımızda</a></li>
+          <li><a href="/contact" data-i18n="nav.contact">İletişim</a></li>
         </ul>
       </div>
       <div>
-        <h2 data-i18n="footer.outside">Dışarıda</h2>
+        <h2><a href="/blog" data-i18n="nav.blog">Blog</a></h2>
         <ul>
-          <li><a href="https://fxguard.io/" target="_blank" rel="noopener noreferrer">fxguard.io</a></li>
-          <li><a href="https://app.fxguard.io/" target="_blank" rel="noopener noreferrer">app.fxguard.io</a></li>
-          <li><a href="https://exchange.fxguard.io/" target="_blank" rel="noopener noreferrer">exchange.fxguard.io</a></li>
+          <li><a href="/blog-whatsapp" data-i18n="post.wa.title">WhatsApp tek telefonda kalmasın.</a></li>
+          <li><a href="/blog-qr" data-i18n="post.qr.title">QR hızlı başlar; toplu mesajın yolu başkadır.</a></li>
+          <li><a href="/blog-exchange" data-i18n="post.ex.title">Döviz bürosu sitesi panelden ayrı bir üründür.</a></li>
         </ul>
       </div>
       <div>
         <h2 data-i18n="nav.contact">İletişim</h2>
         <ul>
-          <li><a href="tel:+902125160983">+90 212 516 09 83</a></li>
+          <li><a href="tel:+902125160983" dir="ltr">+90 212 516 09 83</a></li>
           <li><a href="mailto:info@erstitsolutions.com">info@erstitsolutions.com</a></li>
-          <li><a href="mailto:sales@fxguard.io">sales@fxguard.io</a></li>
-          <li><a href="https://wa.me/905010676486" target="_blank" rel="noopener noreferrer">+90 501 067 64 86</a></li>
+          <li><a href="https://wa.me/905010676486" target="_blank" rel="noopener"><span dir="ltr">WhatsApp +90 501 067 64 86</span></a></li>
         </ul>
       </div>
     </div>
     <div class="wrap legal-line">
       <p>MERSİS 0370043020200001 · Sicil 129956-5 · VKN 3700430202</p>
-      <p class="fine" data-i18n="footer.privacy">Form sunucuda saklanmaz.</p>
+      <p class="fine" data-i18n="footer.privacy">Form verileri sunucuda saklanmaz; düğme e-posta programınızı açar. Dil tercihiniz yalnızca bu cihazda kaydedilir.</p>
       <p class="fine">© <span data-year>2026</span> ERST. <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
     </div>
+    <div class="footer-word" aria-hidden="true">ERST<span>_</span></div>
   </footer>
   <script type="module" src="/src/main.js"></script>
 </body>

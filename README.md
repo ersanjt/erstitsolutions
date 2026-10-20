@@ -1,6 +1,6 @@
 # ERST
 
-Software studio site for ERST IT Solutions. The selected work and the product family are FX Guard: [fxguard.io](https://fxguard.io/), the staff panel, accounting, and exchange websites.
+AI-native software studio site for ERST IT Solutions, in Turkish (`/`), English (`/en/`) and Persian (`/fa/`). Products: a WhatsApp CRM with a shared inbox, accounting software, and branded exchange office websites.
 
 ```bash
 npm install
