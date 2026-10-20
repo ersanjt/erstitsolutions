@@ -1,4 +1,4 @@
-import { LANGS, STORAGE_KEY, site } from "./config.js";
+import { LANGS, STORAGE_KEY } from "./config.js";
 import { t } from "./i18n.js";
 
 const page = document.body.dataset.page || "home";
@@ -89,29 +89,46 @@ function bindFilters() {
 function bindForm() {
   const form = document.querySelector("[data-contact-form]");
   if (!form) return;
-  const error = form.querySelector(".form-error");
-  form.addEventListener("submit", (event) => {
+  const status = form.querySelector(".form-error");
+  const button = form.querySelector('button[type="submit"]');
+  const errors = { required: "contact.err", contact: "contact.errContact", email: "contact.errEmail", rate: "contact.errRate" };
+  const show = (key, ok) => {
+    status.textContent = t(lang, key);
+    status.classList.toggle("is-ok", Boolean(ok));
+  };
+  const done = () => {
+    form.reset();
+    show("contact.sent", true);
+    status.focus();
+  };
+  form.elements.lang.value = lang;
+  form.elements.t.value = String(Date.now());
+  status.tabIndex = -1;
+
+  const params = new URLSearchParams(location.search);
+  if (params.get("sent") === "1") show("contact.sent", true);
+  else if (params.get("error")) show(errors[params.get("error")] || "contact.fail");
+
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const data = new FormData(form);
-    const name = String(data.get("name") || "").trim();
-    const phone = String(data.get("phone") || "").trim();
-    const interest = String(data.get("interest") || "").trim();
-    const message = String(data.get("message") || "").trim();
-    if (!name || !message) {
-      error.textContent = t(lang, "contact.err");
-      return;
+    const value = (key) => String(data.get(key) || "").trim();
+    if (!value("name") || !value("message")) return show("contact.err");
+    if (!value("email") && !value("phone")) return show("contact.errContact");
+    if (value("email") && !form.elements.email.checkValidity()) return show("contact.errEmail");
+
+    button.disabled = true;
+    show("contact.sending");
+    try {
+      const response = await fetch(form.action, { method: "POST", body: data, headers: { Accept: "application/json" } });
+      const result = await response.json().catch(() => ({}));
+      if (response.ok && result.ok) done();
+      else show(errors[result.error] || "contact.fail");
+    } catch {
+      show("contact.fail");
+    } finally {
+      button.disabled = false;
     }
-    error.textContent = "";
-    const interestLabel = t(lang, interest);
-    const text = [
-      site.legalName,
-      `${name}${phone ? " · " + phone : ""}`,
-      interestLabel,
-      message,
-    ].join("\n");
-    const subject = encodeURIComponent(site.legalName);
-    const body = encodeURIComponent(text);
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
   });
 }
 

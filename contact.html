@@ -81,10 +81,14 @@
     <section class="section">
       <div class="wrap contact-grid">
         <article class="card" data-reveal data-glow>
-          <h2 data-i18n="contact.formTitle">E-posta ile yazın</h2>
-          <form data-contact-form>
-            <label><span data-i18n="contact.name">Ad soyad</span><input name="name" required autocomplete="name" data-i18n-placeholder="contact.namePh" placeholder="Adınız" /></label>
-            <label><span data-i18n="contact.phoneField">Telefon</span><input name="phone" autocomplete="tel" data-i18n-placeholder="contact.phonePh" placeholder="+90 …" /></label>
+          <h2 data-i18n="contact.formTitle">Bize yazın</h2>
+          <form id="form" action="/api/contact.php" method="post" data-contact-form>
+            <label><span data-i18n="contact.name">Ad soyad</span><input name="name" required maxlength="100" autocomplete="name" data-i18n-placeholder="contact.namePh" placeholder="Adınız" /></label>
+            <label><span data-i18n="contact.email">E-posta</span><input name="email" type="email" maxlength="160" autocomplete="email" inputmode="email" data-i18n-placeholder="contact.emailPh" placeholder="ornek@firma.com" /></label>
+            <label><span data-i18n="contact.phoneField">Telefon</span><input name="phone" type="tel" maxlength="40" autocomplete="tel" data-i18n-placeholder="contact.phonePh" placeholder="+90 …" /></label>
+            <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off" /></label></div>
+            <input type="hidden" name="lang" value="tr" />
+            <input type="hidden" name="t" value="" />
             <label>
               <span data-i18n="contact.interest">Konu</span>
               <select name="interest">
@@ -105,11 +109,11 @@
                 <option value="opt.studio" data-i18n="opt.studio">Yeni proje</option>
               </select>
             </label>
-            <label><span data-i18n="contact.message">Mesaj</span><textarea name="message" required data-i18n-placeholder="contact.messagePh" placeholder="Örn. web sitesi, panel veya fiyat teklifi"></textarea></label>
-            <p class="form-error" role="alert"></p>
-            <button class="btn btn--primary" type="submit" data-i18n="contact.submit">E-posta ile gönder</button>
-            <p class="note" data-i18n="contact.hint">Mesajınız bu sitede kaydedilmez.</p>
-            <p class="note"><span data-i18n="contact.kvkk">Adınız, telefonunuz ve mesajınız yalnızca size yanıt vermek için kullanılır. Bu sitede kayıt tutulmaz; düğme e-posta programınızı açar. Veri sorumlusu ERST IT Solutions Ltd. Şti.’dir.</span> <a href="https://www.kvkk.gov.tr/" target="_blank" rel="noopener">KVKK ↗</a></p>
+            <label><span data-i18n="contact.message">Mesaj</span><textarea name="message" required maxlength="5000" data-i18n-placeholder="contact.messagePh" placeholder="Örn. web sitesi, panel veya fiyat teklifi"></textarea></label>
+            <p class="form-error" role="alert" aria-live="polite"></p>
+            <button class="btn btn--primary" type="submit" data-i18n="contact.submit">Mesajı gönder</button>
+            <p class="note" data-i18n="contact.hint">Mesajınız doğrudan ekibimizin e-posta kutusuna gelir.</p>
+            <p class="note"><span data-i18n="contact.kvkk">Adınız, iletişim bilgileriniz ve mesajınız yalnızca size yanıt vermek için kullanılır ve e-posta kutumuza iletilir; sitede ayrıca kayıt tutulmaz. Veri sorumlusu ERST IT Solutions Ltd. Şti.’dir.</span> <a href="https://www.kvkk.gov.tr/" target="_blank" rel="noopener">KVKK ↗</a></p>
           </form>
         </article>
         <article class="card" data-reveal data-glow>
@@ -136,7 +140,7 @@
     <div class="wrap footer-grid">
       <div class="footer-brand">
         <a class="brand" href="/" aria-label="ERST IT"><img class="brand__logo" src="/assets/logo.svg" alt="" width="101" height="20" /></a>
-        <p>ERST IT Solutions Bilişim Teknolojileri Sanayi ve Ticaret Ltd. Şti.</p>
+        <p>ERST IT Solutions Bilişim Teknolojileri Sanayi ve Ticaret Ltd. Şti.&lrm;</p>
         <address><a href="https://www.google.com/maps/search/?api=1&amp;query=41.0213,28.631" target="_blank" rel="noopener">Gökevler Mah. 2312. Sk. Burç İstanbul No: 18 J, 34522 Esenyurt / İstanbul</a></address>
       </div>
       <div>
@@ -169,7 +173,7 @@
     </div>
     <div class="wrap legal-line">
       <p>MERSİS 0370043020200001 · Sicil 129956-5 · VKN 3700430202</p>
-      <p class="fine" data-i18n="footer.privacy">Form verileri sunucuda saklanmaz; düğme e-posta programınızı açar. Dil tercihiniz yalnızca bu cihazda kaydedilir.</p>
+      <p class="fine" data-i18n="footer.privacy">İletişim formu mesajınızı yalnızca e-posta kutumuza iletir; sitede kayıt tutulmaz. Dil tercihiniz yalnızca bu cihazda kaydedilir.</p>
       <p class="fine">© <span data-year>2026</span> ERST. <span data-i18n="footer.rights">Tüm hakları saklıdır.</span></p>
     </div>
     <div class="footer-word" aria-hidden="true">ERST<span>_</span></div>

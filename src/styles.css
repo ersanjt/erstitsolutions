@@ -1013,6 +1013,10 @@ select option { background: var(--void-2); }
 textarea { min-height: 8.75rem; resize: vertical; }
 input:focus, select:focus, textarea:focus { outline: none; border-color: var(--ion); box-shadow: 0 0 0 0.1875rem rgba(198, 255, 58, 0.15); }
 .form-error { color: #ff8a7a; min-height: 1.2em; font-size: 0.875rem; }
+.form-error.is-ok { color: var(--ion); }
+.form-error:focus { outline: none; }
+.hp { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+button[disabled] { opacity: 0.6; cursor: progress; }
 .contact-list { list-style: none; margin: 0.875rem 0 0; padding: 0; }
 .contact-list li { padding: 0.875rem 0; border-bottom: 1px solid var(--line); }
 .contact-list span { display: block; color: var(--muted); font-size: 0.75rem; font-family: var(--mono); }
