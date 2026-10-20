@@ -29,7 +29,7 @@ export function translate(doc, lang) {
 
   doc.querySelectorAll("[data-prose]").forEach((el) => {
     if (el.getAttribute("data-prose") === lang) el.removeAttribute("hidden");
-    else el.setAttribute("hidden", "");
+    else el.remove();
   });
 
   doc.querySelectorAll("[data-lang]").forEach((el) => {

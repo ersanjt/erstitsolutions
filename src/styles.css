@@ -982,9 +982,10 @@ html[dir="rtl"] .offer a::after { content: "←"; }
 
 .legal { display: grid; grid-template-columns: 16.25rem 1fr; gap: 2rem; }
 .identity { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line-2); margin: 0; }
-.identity div { padding: 1rem 0.875rem 1rem 0; border-bottom: 1px solid var(--line); }
+.identity div { padding-block: 1rem; padding-inline: 0 0.875rem; border-bottom: 1px solid var(--line); }
 .identity dt { color: var(--muted); font-size: 0.75rem; font-family: var(--mono); letter-spacing: 0.06em; }
 .identity dd { margin: 0.375rem 0 0; }
+html[dir="rtl"] .identity dd { text-align: right; }
 .note { margin-top: 1.125rem; color: var(--muted); }
 .note a { color: var(--text); }
 .manager {

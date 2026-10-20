@@ -470,6 +470,11 @@ export function seo() {
           fs.mkdirSync(path.join(outDir, lang), { recursive: true });
           fs.writeFileSync(path.join(outDir, lang, file), html);
         }
+        if (source.includes("data-prose")) {
+          const { document } = parseHTML(source);
+          document.querySelectorAll('[data-prose]:not([data-prose="tr"])').forEach((el) => el.remove());
+          fs.writeFileSync(path.join(outDir, file), document.toString());
+        }
       }
       fs.writeFileSync(path.join(outDir, "sitemap.xml"), sitemap());
     },
