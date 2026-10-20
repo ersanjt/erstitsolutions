@@ -584,12 +584,12 @@ html[lang="fa"] .hero__title {
 .manifesto { padding: 22vh 0 14vh; }
 .manifesto__text {
   font-family: var(--display);
-  font-size: clamp(1.7rem, 4vw, 3.7rem);
+  font-size: clamp(1.6rem, 3.2vw, 3rem);
   line-height: 1.16;
   letter-spacing: -0.03em;
   max-width: 22ch;
 }
-html[lang="fa"] .manifesto__text { line-height: 1.6; letter-spacing: 0; font-weight: 700; max-width: 26ch; }
+html[lang="fa"] .manifesto__text { font-size: clamp(1.45rem, 2.7vw, 2.5rem); line-height: 1.6; letter-spacing: 0; font-weight: 700; max-width: 24ch; }
 .manifesto__text .mw { opacity: 0.4; transition: opacity 0.2s; }
 
 /* Sections */
