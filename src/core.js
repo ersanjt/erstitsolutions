@@ -183,7 +183,13 @@ function compile(gl, type, source) {
 }
 
 export function initCore(canvas, { still = false } = {}) {
-  const gl = canvas.getContext("webgl", { alpha: true, antialias: false, depth: false, premultipliedAlpha: true, powerPreference: "high-performance" });
+  const attrs = { alpha: true, antialias: false, depth: false, premultipliedAlpha: true, powerPreference: "high-performance" };
+  let gl = canvas.getContext("webgl", { ...attrs, failIfMajorPerformanceCaveat: true });
+  if (!gl) {
+    // Software WebGL renders every frame on the main thread; draw one still frame instead.
+    gl = canvas.getContext("webgl", attrs);
+    still = true;
+  }
   if (!gl) return null;
 
   const program = gl.createProgram();
