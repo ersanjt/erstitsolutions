@@ -115,7 +115,7 @@ $body = implode("\n", [
     'Telefon: ' . ($phone ?: '-'),
     "Konu: $topic",
     "Dil: $langName",
-    'Tarih: ' . date('Y-m-d H:i'),
+    'Tarih: ' . (new DateTime('now', new DateTimeZone('Europe/Istanbul')))->format('Y-m-d H:i'),
     '',
     $message,
     '',
