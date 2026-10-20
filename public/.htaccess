@@ -27,6 +27,8 @@ AddType font/woff2 .woff2
 
   # Geo IP chooses the language URL. 302 only, and never for crawlers:
   # a 301 or a bot redirect would collapse the three indexable versions.
+  # These redirects depend on the visitor, so they carry NO_STORE: the
+  # cPanel NGINX proxy cache would otherwise serve one visitor's redirect to all.
   # Türkiye stays on /, Iran and Afghanistan go to /fa/, every other
   # resolved country goes to /en/. A saved erst-lang choice wins.
   # Keep this map in sync with geoLang() in scripts/seo.mjs.
@@ -38,38 +40,38 @@ AddType font/woff2 .woff2
 
   RewriteCond %{ENV:SKIP_GEO} !^1$
   RewriteCond %{HTTP_COOKIE} erst-lang=en [NC]
-  RewriteRule ^(.*)$ /en/$1 [R=302,L,QSA]
+  RewriteRule ^(.*)$ /en/$1 [R=302,L,QSA,E=NO_STORE:1]
   RewriteCond %{ENV:SKIP_GEO} !^1$
   RewriteCond %{HTTP_COOKIE} erst-lang=fa [NC]
-  RewriteRule ^(.*)$ /fa/$1 [R=302,L,QSA]
+  RewriteRule ^(.*)$ /fa/$1 [R=302,L,QSA,E=NO_STORE:1]
   RewriteCond %{HTTP_COOKIE} erst-lang=(tr|en|fa) [NC]
   RewriteRule ^ - [E=SKIP_GEO:1]
 
   RewriteCond %{ENV:SKIP_GEO} !^1$
   RewriteCond %{HTTP:CF-IPCountry} ^(IR|AF)$ [NC]
-  RewriteRule ^(.*)$ /fa/$1 [R=302,L,QSA]
+  RewriteRule ^(.*)$ /fa/$1 [R=302,L,QSA,E=NO_STORE:1]
   RewriteCond %{ENV:SKIP_GEO} !^1$
   RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^(IR|AF)$ [NC]
-  RewriteRule ^(.*)$ /fa/$1 [R=302,L,QSA]
+  RewriteRule ^(.*)$ /fa/$1 [R=302,L,QSA,E=NO_STORE:1]
   RewriteCond %{ENV:SKIP_GEO} !^1$
   RewriteCond %{ENV:MM_COUNTRY_CODE} ^(IR|AF)$ [NC]
-  RewriteRule ^(.*)$ /fa/$1 [R=302,L,QSA]
+  RewriteRule ^(.*)$ /fa/$1 [R=302,L,QSA,E=NO_STORE:1]
 
   RewriteCond %{ENV:SKIP_GEO} !^1$
   RewriteCond %{HTTP:CF-IPCountry} ^[A-Z]{2}$
   RewriteCond %{HTTP:CF-IPCountry} !^(TR|XX|T1)$ [NC]
-  RewriteRule ^(.*)$ /en/$1 [R=302,L,QSA]
+  RewriteRule ^(.*)$ /en/$1 [R=302,L,QSA,E=NO_STORE:1]
   RewriteCond %{ENV:SKIP_GEO} !^1$
   RewriteCond %{HTTP:CF-IPCountry} ^$
   RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^[A-Z]{2}$
   RewriteCond %{ENV:GEOIP_COUNTRY_CODE} !^(TR)$ [NC]
-  RewriteRule ^(.*)$ /en/$1 [R=302,L,QSA]
+  RewriteRule ^(.*)$ /en/$1 [R=302,L,QSA,E=NO_STORE:1]
   RewriteCond %{ENV:SKIP_GEO} !^1$
   RewriteCond %{HTTP:CF-IPCountry} ^$
   RewriteCond %{ENV:GEOIP_COUNTRY_CODE} ^$
   RewriteCond %{ENV:MM_COUNTRY_CODE} ^[A-Z]{2}$
   RewriteCond %{ENV:MM_COUNTRY_CODE} !^(TR)$ [NC]
-  RewriteRule ^(.*)$ /en/$1 [R=302,L,QSA]
+  RewriteRule ^(.*)$ /en/$1 [R=302,L,QSA,E=NO_STORE:1]
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
@@ -106,6 +108,8 @@ AddType font/woff2 .woff2
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  Header always set Cache-Control "private, no-store" env=NO_STORE
+  Header always merge Vary "Cookie" env=NO_STORE
   <FilesMatch "-[A-Za-z0-9_-]{8}\.(js|css)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
