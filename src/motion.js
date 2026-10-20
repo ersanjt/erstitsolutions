@@ -106,10 +106,21 @@ const CONSOLE = [
   ["ship", "production · v1.0", "ok"],
 ];
 
-function consoleLog() {
+function consoleLog(still) {
   const list = document.querySelector("[data-console-log]");
   const state = document.querySelector("[data-console-state]");
   if (!list) return;
+  if (still) {
+    CONSOLE.forEach(([tag, text, cls]) => {
+      const li = document.createElement("li");
+      if (cls) li.className = cls;
+      li.innerHTML = `<b>${tag}</b><span></span>`;
+      li.querySelector("span").textContent = text;
+      list.appendChild(li);
+    });
+    if (state) state.textContent = "done";
+    return;
+  }
   let visible = true;
   new IntersectionObserver(([entry]) => (visible = entry.isIntersecting)).observe(list);
   const wait = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -156,7 +167,7 @@ function boot(onDone) {
   const state = { n: 0 };
   gsap.to(state, {
     n: 100,
-    duration: 1.2,
+    duration: 0.6,
     ease: "power2.inOut",
     onUpdate: () => {
       if (count) count.textContent = String(Math.round(state.n)).padStart(3, "0");
@@ -200,6 +211,7 @@ function headings() {
 
 function reveals() {
   const items = gsap.utils.toArray("[data-reveal]");
+  if (!items.length) return;
   gsap.set(items, { opacity: 0, y: 50 });
   ScrollTrigger.batch(items, {
     start: "top 88%",
@@ -226,7 +238,7 @@ function pipeline() {
   if (!section || !track) return;
   const mm = gsap.matchMedia();
   mm.add("(min-width: 981px)", () => {
-    const distance = () => Math.max(0, track.scrollWidth - window.innerWidth);
+    const distance = () => Math.max(0, track.scrollWidth - document.documentElement.clientWidth);
     const dir = () => (document.documentElement.dir === "rtl" ? 1 : -1);
     const tween = gsap.to(track, {
       x: () => dir() * distance(),
@@ -252,13 +264,13 @@ function device() {
   ScrollTrigger.create({ trigger: el, start: "top 75%", once: true, onEnter: () => el.classList.add("is-in") });
 }
 
-async function core() {
+async function core(still) {
   const canvas = document.querySelector("[data-core]");
   if (!canvas) return;
   try {
     const { initCore } = await import("./core.js");
-    const scene = initCore(canvas);
-    if (!scene) return;
+    const scene = initCore(canvas, { still });
+    if (!scene || still) return;
     ScrollTrigger.create({
       trigger: ".hero",
       start: "top top",
@@ -276,6 +288,8 @@ header();
 if (reduce) {
   document.querySelector("[data-boot]")?.remove();
   document.querySelector("[data-device]")?.classList.add("is-in");
+  consoleLog(true);
+  if (isHome) core(true);
 } else {
   smooth();
   cursor();
