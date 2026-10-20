@@ -1,17 +1,3 @@
-import {
-  AdditiveBlending,
-  BufferAttribute,
-  BufferGeometry,
-  Color,
-  Group,
-  PerspectiveCamera,
-  Points,
-  Scene,
-  ShaderMaterial,
-  Vector2,
-  WebGLRenderer,
-} from "three";
-
 const NOISE = /* glsl */ `
 vec3 mod289(vec3 x){return x-floor(x*(1.0/289.0))*289.0;}
 vec4 mod289(vec4 x){return x-floor(x*(1.0/289.0))*289.0;}
@@ -59,13 +45,18 @@ float snoise(vec3 v){
 `;
 
 const vertex = /* glsl */ `
+precision highp float;
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
 uniform float uTime;
 uniform float uScroll;
 uniform vec2 uMouse;
 uniform float uPixel;
+attribute vec3 position;
 attribute float aSeed;
 varying float vGlow;
 varying float vDepth;
+varying float vFade;
 ${NOISE}
 void main(){
   vec3 p = position;
@@ -81,18 +72,24 @@ void main(){
   gl_Position = projectionMatrix * mv;
   float size = (1.2 + aSeed * 1.6 + max(wave, 0.0) * 2.2) * uPixel;
   gl_PointSize = size * (7.5 / -mv.z);
-  vGlow = smoothstep(-0.2, 0.9, wave) ;
+  vGlow = smoothstep(-0.2, 0.9, wave);
   vDepth = smoothstep(-3.0, 2.5, mv.z + 9.0);
+  vFade = 1.0 - uScroll * 0.7;
 }
 `;
 
 const fragment = /* glsl */ `
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
+precision mediump float;
+#endif
 uniform vec3 uIon;
 uniform vec3 uBlue;
 uniform vec3 uWhite;
-uniform float uScroll;
 varying float vGlow;
 varying float vDepth;
+varying float vFade;
 void main(){
   vec2 c = gl_PointCoord - 0.5;
   float d = length(c);
@@ -100,10 +97,19 @@ void main(){
   float a = smoothstep(0.5, 0.0, d);
   vec3 col = mix(uBlue, uIon, vGlow);
   col = mix(col, uWhite, pow(vGlow, 6.0) * 0.6);
-  float alpha = a * (0.38 + vGlow * 0.8) * (0.4 + vDepth * 0.6) * (1.0 - uScroll * 0.7);
+  float alpha = a * (0.38 + vGlow * 0.8) * (0.4 + vDepth * 0.6) * vFade;
   gl_FragColor = vec4(col, alpha);
 }
 `;
+
+// Shader colours are written to the canvas as-is, so pass them in linear sRGB.
+function linear(hex) {
+  const n = parseInt(hex.slice(1), 16);
+  return [16, 8, 0].map((shift) => {
+    const c = ((n >> shift) & 255) / 255;
+    return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+  });
+}
 
 function sphere(count, radius) {
   const pos = new Float32Array(count * 3);
@@ -119,10 +125,7 @@ function sphere(count, radius) {
     pos[i * 3 + 2] = Math.sin(th) * r * radius * jitter;
     seed[i] = Math.random();
   }
-  const g = new BufferGeometry();
-  g.setAttribute("position", new BufferAttribute(pos, 3));
-  g.setAttribute("aSeed", new BufferAttribute(seed, 1));
-  return g;
+  return { pos, seed, count };
 }
 
 function ring(count, radius) {
@@ -136,70 +139,150 @@ function ring(count, radius) {
     pos[i * 3 + 2] = Math.sin(a) * (radius + spread);
     seed[i] = Math.random() * 0.5;
   }
-  const g = new BufferGeometry();
-  g.setAttribute("position", new BufferAttribute(pos, 3));
-  g.setAttribute("aSeed", new BufferAttribute(seed, 1));
-  return g;
+  return { pos, seed, count };
 }
 
-export function initCore(canvas) {
-  let renderer;
-  try {
-    renderer = new WebGLRenderer({ canvas, antialias: false, alpha: true, powerPreference: "high-performance" });
-  } catch {
-    return null;
+// Column-major 4x4 matrices, same conventions as three.js (Euler order XYZ).
+function compose(px, py, pz, rx, ry, rz, s) {
+  const a = Math.cos(rx), b = Math.sin(rx);
+  const c = Math.cos(ry), d = Math.sin(ry);
+  const e = Math.cos(rz), f = Math.sin(rz);
+  const ae = a * e, af = a * f, be = b * e, bf = b * f;
+  return new Float32Array([
+    c * e * s, (af + be * d) * s, (bf - ae * d) * s, 0,
+    -c * f * s, (ae - bf * d) * s, (be + af * d) * s, 0,
+    d * s, -b * c * s, a * c * s, 0,
+    px, py, pz, 1,
+  ]);
+}
+
+function multiply(a, b) {
+  const out = new Float32Array(16);
+  for (let col = 0; col < 4; col++) {
+    for (let row = 0; row < 4; row++) {
+      let sum = 0;
+      for (let k = 0; k < 4; k++) sum += a[k * 4 + row] * b[col * 4 + k];
+      out[col * 4 + row] = sum;
+    }
   }
-  const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
-  renderer.setPixelRatio(dpr);
-  renderer.setClearColor(0x000000, 0);
+  return out;
+}
 
-  const scene = new Scene();
-  const camera = new PerspectiveCamera(35, 1, 0.1, 100);
-  camera.position.set(0, 0, 9);
+function perspective(fov, aspect, near, far) {
+  const f = 1 / Math.tan((fov * Math.PI) / 360);
+  const nf = 1 / (near - far);
+  return new Float32Array([f / aspect, 0, 0, 0, 0, f, 0, 0, 0, 0, (far + near) * nf, -1, 0, 0, 2 * far * near * nf, 0]);
+}
 
-  const uniforms = {
-    uTime: { value: 0 },
-    uScroll: { value: 0 },
-    uMouse: { value: new Vector2(0, 0) },
-    uPixel: { value: dpr },
-    uIon: { value: new Color("#c6ff3a") },
-    uBlue: { value: new Color("#4d6bff") },
-    uWhite: { value: new Color("#ffffff") },
+function compile(gl, type, source) {
+  const shader = gl.createShader(type);
+  gl.shaderSource(shader, source);
+  gl.compileShader(shader);
+  if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(shader) || "shader");
+  return shader;
+}
+
+export function initCore(canvas, { still = false } = {}) {
+  const gl = canvas.getContext("webgl", { alpha: true, antialias: false, depth: false, premultipliedAlpha: true, powerPreference: "high-performance" });
+  if (!gl) return null;
+
+  const program = gl.createProgram();
+  gl.attachShader(program, compile(gl, gl.VERTEX_SHADER, vertex));
+  gl.attachShader(program, compile(gl, gl.FRAGMENT_SHADER, fragment));
+  gl.linkProgram(program);
+  if (!gl.getProgramParameter(program, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(program) || "program");
+  gl.useProgram(program);
+
+  const u = {};
+  ["modelViewMatrix", "projectionMatrix", "uTime", "uScroll", "uMouse", "uPixel", "uIon", "uBlue", "uWhite"].forEach((name) => {
+    u[name] = gl.getUniformLocation(program, name);
+  });
+  const aPosition = gl.getAttribLocation(program, "position");
+  const aSeed = gl.getAttribLocation(program, "aSeed");
+
+  const buffer = (data) => {
+    const b = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, b);
+    gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW);
+    return b;
   };
-  const material = new ShaderMaterial({
-    uniforms,
-    vertexShader: vertex,
-    fragmentShader: fragment,
-    transparent: true,
-    depthWrite: false,
-    blending: AdditiveBlending,
-  });
+  const upload = ({ pos, seed, count }) => ({ pos: buffer(pos), seed: buffer(seed), count });
 
+  const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
   const small = window.innerWidth < 760;
-  const group = new Group();
-  const core = new Points(sphere(small ? 9000 : 24000, 2.15), material);
-  const orbit = new Points(ring(small ? 900 : 1800, 3.3), material);
-  orbit.rotation.x = 1.15;
-  orbit.rotation.z = 0.35;
-  group.add(core, orbit);
-  scene.add(group);
+  const core = upload(sphere(small ? 9000 : 24000, 2.15));
+  const orbit = upload(ring(small ? 900 : 1800, 3.3));
 
-  const target = new Vector2(0, 0);
-  window.addEventListener("pointermove", (e) => {
-    target.set((e.clientX / window.innerWidth) * 2 - 1, -(e.clientY / window.innerHeight) * 2 + 1);
-  });
+  gl.uniform1f(u.uPixel, dpr);
+  gl.uniform3fv(u.uIon, linear("#c6ff3a"));
+  gl.uniform3fv(u.uBlue, linear("#4d6bff"));
+  gl.uniform3fv(u.uWhite, [1, 1, 1]);
+  gl.enableVertexAttribArray(aPosition);
+  gl.enableVertexAttribArray(aSeed);
+  gl.disable(gl.DEPTH_TEST);
+  gl.enable(gl.BLEND);
+  gl.blendEquation(gl.FUNC_ADD);
+  gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE, gl.ONE, gl.ONE);
+  gl.clearColor(0, 0, 0, 0);
+
+  const view = compose(0, 0, -9, 0, 0, 0, 1);
+  const group = { x: 0, y: 0, scale: 1, rx: 0, rz: 0 };
+  let coreY = 0;
+  let orbitY = 0;
+  let time = 0;
+  let scroll = 0;
+  const mouse = [0, 0];
+  const target = [0, 0];
+
+  if (!still) {
+    window.addEventListener("pointermove", (e) => {
+      target[0] = (e.clientX / window.innerWidth) * 2 - 1;
+      target[1] = -(e.clientY / window.innerHeight) * 2 + 1;
+    });
+  }
 
   const resize = () => {
     const w = canvas.clientWidth;
     const h = canvas.clientHeight;
-    renderer.setSize(w, h, false);
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
+    if (!w || !h) return;
+    canvas.width = Math.floor(w * dpr);
+    canvas.height = Math.floor(h * dpr);
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.uniformMatrix4fv(u.projectionMatrix, false, perspective(35, w / h, 0.1, 100));
     const narrow = w < 980;
     const rtl = document.documentElement.dir === "rtl";
-    group.position.set(narrow ? 0 : (rtl ? -1 : 1) * 2.1, narrow ? 1.4 : 0.25, 0);
-    group.scale.setScalar(narrow ? 0.82 : 1);
+    group.x = narrow ? 0 : (rtl ? -1 : 1) * 2.1;
+    group.y = narrow ? 1.4 : 0.25;
+    group.scale = narrow ? 0.82 : 1;
+    if (still) frame();
   };
+
+  let lost = false;
+  canvas.addEventListener("webglcontextlost", (e) => {
+    e.preventDefault();
+    lost = true;
+  });
+
+  const draw = (mesh, model) => {
+    gl.uniformMatrix4fv(u.modelViewMatrix, false, multiply(view, model));
+    gl.bindBuffer(gl.ARRAY_BUFFER, mesh.pos);
+    gl.vertexAttribPointer(aPosition, 3, gl.FLOAT, false, 0, 0);
+    gl.bindBuffer(gl.ARRAY_BUFFER, mesh.seed);
+    gl.vertexAttribPointer(aSeed, 1, gl.FLOAT, false, 0, 0);
+    gl.drawArrays(gl.POINTS, 0, mesh.count);
+  };
+
+  function frame() {
+    if (lost) return;
+    gl.uniform1f(u.uTime, time);
+    gl.uniform1f(u.uScroll, scroll);
+    gl.uniform2f(u.uMouse, mouse[0], mouse[1]);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    const world = compose(group.x, group.y, 0, group.rx, 0, group.rz, group.scale);
+    draw(core, multiply(world, compose(0, 0, 0, 0, coreY, 0, 1)));
+    draw(orbit, multiply(world, compose(0, 0, 0, 1.15, orbitY, 0.35, 1)));
+  }
+
   new ResizeObserver(resize).observe(canvas);
   document.addEventListener("erst:lang", resize);
   resize();
@@ -209,6 +292,7 @@ export function initCore(canvas) {
 
   let last = performance.now();
   const tick = (now) => {
+    if (lost) return;
     requestAnimationFrame(tick);
     if (!visible || document.hidden) {
       last = now;
@@ -216,19 +300,20 @@ export function initCore(canvas) {
     }
     const dt = Math.min((now - last) / 1000, 0.05);
     last = now;
-    uniforms.uTime.value += dt;
-    uniforms.uMouse.value.lerp(target, 0.05);
-    core.rotation.y += dt * 0.08;
-    orbit.rotation.y -= dt * 0.12;
-    group.rotation.x += (target.y * 0.18 - group.rotation.x) * 0.04;
-    group.rotation.z += (-target.x * 0.08 - group.rotation.z) * 0.04;
-    renderer.render(scene, camera);
+    time += dt;
+    mouse[0] += (target[0] - mouse[0]) * 0.05;
+    mouse[1] += (target[1] - mouse[1]) * 0.05;
+    coreY += dt * 0.08;
+    orbitY -= dt * 0.12;
+    group.rx += (target[1] * 0.18 - group.rx) * 0.04;
+    group.rz += (-target[0] * 0.08 - group.rz) * 0.04;
+    frame();
   };
-  requestAnimationFrame(tick);
+  if (!still) requestAnimationFrame(tick);
 
   return {
     setScroll(p) {
-      uniforms.uScroll.value = p;
+      scroll = p;
     },
   };
 }

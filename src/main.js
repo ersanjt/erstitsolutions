@@ -1,5 +1,4 @@
 import { LANGS, STORAGE_KEY } from "./config.js";
-import { t } from "./i18n.js";
 
 const page = document.body.dataset.page || "home";
 const lang = LANGS.includes(document.documentElement.lang) ? document.documentElement.lang : "tr";
@@ -86,9 +85,10 @@ function bindFilters() {
   buttons.forEach((btn) => btn.addEventListener("click", () => run(btn.dataset.filter)));
 }
 
-function bindForm() {
+async function bindForm() {
   const form = document.querySelector("[data-contact-form]");
   if (!form) return;
+  const { t } = await import("./i18n.js");
   const status = form.querySelector(".form-error");
   const button = form.querySelector('button[type="submit"]');
   const errors = { required: "contact.err", contact: "contact.errContact", email: "contact.errEmail", rate: "contact.errRate" };
