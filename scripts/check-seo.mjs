@@ -1,4 +1,5 @@
 // Audits dist/: meta lengths, canonical/hreflang, JSON-LD, h1, internal links, missing translations.
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -27,6 +28,15 @@ const report = (file, msg) => {
   console.log(`✗ ${path.relative(dist, file)}: ${msg}`);
 };
 const external = new Set();
+
+// Every inline script must be allowed by a hash in the CSP of public/.htaccess.
+const htaccess = fs.readFileSync(path.resolve(dist, "../public/.htaccess"), "utf8");
+const csp = /Content-Security-Policy "([^"]+)"/.exec(htaccess)?.[1] || "";
+if (!csp) {
+  problems++;
+  console.log("✗ .htaccess: no Content-Security-Policy");
+}
+const allowed = new Set(csp.match(/'sha256-[^']+'/g) || []);
 
 for (const file of files) {
   const { document } = parseHTML(fs.readFileSync(file, "utf8"));
@@ -92,6 +102,19 @@ for (const file of files) {
   document.querySelectorAll("img").forEach((img) => {
     if (!img.hasAttribute("alt")) report(file, `img without alt ${img.getAttribute("src")}`);
   });
+
+  document.querySelectorAll("script:not([src])").forEach((script) => {
+    if (script.getAttribute("type") === "application/ld+json") return;
+    const hash = `'sha256-${crypto.createHash("sha256").update(script.textContent).digest("base64")}'`;
+    if (!allowed.has(hash)) report(file, `inline script not in CSP: ${hash}`);
+  });
+  document.querySelectorAll("*").forEach((el) => {
+    for (const { name } of el.attributes) if (/^on/i.test(name)) report(file, `inline handler ${name} is blocked by CSP`);
+  });
+  document.querySelectorAll("script[src], link[href], img[src]").forEach((el) => {
+    const url = el.getAttribute("src") || el.getAttribute("href");
+    if (/^(https?:)?\/\//.test(url) && !(el.tagName === "LINK" && /alternate|canonical/.test(el.getAttribute("rel")))) report(file, `external resource ${url}`);
+  });
 }
 
 const xml = fs.readFileSync(path.join(dist, "sitemap.xml"), "utf8");
@@ -129,4 +152,5 @@ for (const [input, want] of geoCases) {
 }
 
 console.log(`\n${files.length} pages, ${problems} problems`);
+if (problems) process.exitCode = 1;
 console.log(`external links:\n  ${[...external].sort().join("\n  ")}`);

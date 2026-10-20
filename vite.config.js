@@ -4,24 +4,36 @@ import { defineConfig } from "vite";
 import { seo } from "./scripts/seo.mjs";
 
 function cleanUrls() {
-  const rewrite = (base) => (req, _res, next) => {
+  const rewrite = (base, notFound) => (req, res, next) => {
     const raw = req.url || "/";
     const q = raw.includes("?") ? raw.slice(raw.indexOf("?")) : "";
     const path = raw.split("?")[0];
-    if (path.length > 1 && !path.includes(".")) {
+    if (path.length > 1 && !path.includes(".") && !/^\/(@|__|node_modules\/)/.test(path)) {
       const clean = path.replace(/\/$/, "");
       if (fs.existsSync(resolve(base, `.${clean}.html`))) req.url = `${clean}.html${q}`;
       else if (fs.existsSync(resolve(base, `.${clean}/index.html`))) req.url = `${clean}/index.html${q}`;
+      else {
+        notFound(req.url)
+          .then((html) => {
+            res.statusCode = 404;
+            res.setHeader("Content-Type", "text/html; charset=utf-8");
+            res.end(html);
+          })
+          .catch(next);
+        return;
+      }
     }
     next();
   };
   return {
     name: "clean-urls",
     configureServer(server) {
-      server.middlewares.use(rewrite(__dirname));
+      const page = resolve(__dirname, "404.html");
+      server.middlewares.use(rewrite(__dirname, (url) => server.transformIndexHtml(url, fs.readFileSync(page, "utf8"))));
     },
     configurePreviewServer(server) {
-      server.middlewares.use(rewrite(resolve(__dirname, "dist")));
+      const dist = resolve(__dirname, "dist");
+      server.middlewares.use(rewrite(dist, async () => fs.readFileSync(resolve(dist, "404.html"), "utf8")));
     },
   };
 }
@@ -29,6 +41,8 @@ function cleanUrls() {
 export default defineConfig({
   plugins: [seo(), cleanUrls()],
   build: {
+    // Inlined fonts would ship inside the render-blocking CSS and need font-src data: in the CSP.
+    assetsInlineLimit: (file) => (/\.woff2?$/.test(file) ? false : undefined),
     target: ["es2018", "chrome64", "safari12", "firefox68", "edge79"],
     cssTarget: ["chrome64", "safari12", "firefox68", "edge79"],
     rollupOptions: {

@@ -19,8 +19,6 @@ const NAV = [
 ];
 const CRUMB = { services: "nav.services", work: "nav.work", products: "nav.products", about: "nav.about", contact: "nav.contact" };
 
-const FONTS = "https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Space+Grotesk:wght@300..700&family=Geist+Mono:wght@400;500&family=Unbounded:wght@400;500;700&display=swap";
-
 const REDIRECT = `<script>
     try {
       var s = localStorage.getItem("erst-lang"), p = location.pathname, inside = document.referrer.indexOf(location.origin + "/") === 0;
@@ -44,9 +42,6 @@ function head(cfg) {
     `<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />`,
     `<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />`,
     `<link rel="manifest" href="/assets/site.webmanifest" />`,
-    `<link rel="preconnect" href="https://fonts.googleapis.com" />`,
-    `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />`,
-    `<link href="${FONTS}" rel="stylesheet" />`,
     `<link rel="stylesheet" href="/src/styles.css" />`,
   ];
   if (cfg.slug !== null) lines.push(REDIRECT);

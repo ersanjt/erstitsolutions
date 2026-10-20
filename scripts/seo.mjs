@@ -353,6 +353,21 @@ export function renderHead(file, lang) {
   return `<!--seo-->\n  ${tags.join("\n  ")}\n  <!--/seo-->`;
 }
 
+// Headings use Unbounded 500; Turkish also needs the latin-ext subset (ı, ş, ğ). Persian headings use Estedad.
+const HEADING_SUBSETS = { tr: ["latin", "latin-ext"], en: ["latin"], fa: [] };
+
+function headingFonts(assetsDir) {
+  const files = fs.existsSync(assetsDir) ? fs.readdirSync(assetsDir) : [];
+  const find = (subset) => files.find((f) => new RegExp(`^unbounded-${subset}-500-normal-[\\w-]+\\.woff2$`).test(f));
+  return (head, lang) => {
+    const links = HEADING_SUBSETS[lang]
+      .map(find)
+      .filter(Boolean)
+      .map((f) => `<link rel="preload" href="/assets/${f}" as="font" type="font/woff2" crossorigin />`);
+    return links.length ? head.replace("<!--/seo-->", `${links.join("\n  ")}\n  <!--/seo-->`) : head;
+  };
+}
+
 function localizeLinks(document, lang) {
   if (lang === "tr") return;
   document.querySelectorAll('a[href^="/"]:not([data-lang])').forEach((a) => {
@@ -459,22 +474,24 @@ export function seo() {
     },
     closeBundle() {
       if (!fs.existsSync(path.join(outDir, "index.html"))) return;
+      const preload = headingFonts(path.join(outDir, "assets"));
       for (const [file, cfg] of Object.entries(PAGES)) {
         if (cfg.slug === null) continue;
-        const source = fs.readFileSync(path.join(outDir, file), "utf8");
+        let source = fs.readFileSync(path.join(outDir, file), "utf8");
         for (const lang of ["en", "fa"]) {
           const { document } = parseHTML(source);
           translate(document, lang);
           localizeLinks(document, lang);
-          const html = document.toString().replace(/<!--seo-->[\s\S]*?<!--\/seo-->/, renderHead(file, lang));
+          const html = document.toString().replace(/<!--seo-->[\s\S]*?<!--\/seo-->/, preload(renderHead(file, lang), lang));
           fs.mkdirSync(path.join(outDir, lang), { recursive: true });
           fs.writeFileSync(path.join(outDir, lang, file), html);
         }
         if (source.includes("data-prose")) {
           const { document } = parseHTML(source);
           document.querySelectorAll('[data-prose]:not([data-prose="tr"])').forEach((el) => el.remove());
-          fs.writeFileSync(path.join(outDir, file), document.toString());
+          source = document.toString();
         }
+        fs.writeFileSync(path.join(outDir, file), source.replace(/<!--seo-->[\s\S]*?<!--\/seo-->/, (head) => preload(head, "tr")));
       }
       fs.writeFileSync(path.join(outDir, "sitemap.xml"), sitemap());
     },
