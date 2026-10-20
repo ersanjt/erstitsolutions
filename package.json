@@ -8,9 +8,21 @@
     "build": "vite build",
     "preview": "vite preview",
     "shell": "node scripts/shell.mjs",
-    "check": "vite build && node scripts/check-seo.mjs"
+    "check": "vite build && node scripts/check-seo.mjs",
+    "lint": "biome lint",
+    "validate": "html-validate \"dist/**/*.html\"",
+    "test": "playwright test",
+    "test:a11y": "playwright test tests/a11y.spec.js",
+    "test:visual": "playwright test tests/visual.spec.js",
+    "test:update": "playwright test tests/visual.spec.js --update-snapshots",
+    "lighthouse": "npx -y @lhci/cli@0.15.1 autorun",
+    "deploy": "node --env-file-if-exists=.env.deploy scripts/deploy.mjs"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@biomejs/biome": "^2.5.15",
+    "@playwright/test": "^1.64.1",
+    "html-validate": "^11.17.0",
     "linkedom": "^0.18.13",
     "opentype.js": "^2.0.0",
     "sharp": "^0.35.5",

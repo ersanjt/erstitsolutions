@@ -5,3 +5,8 @@ dist
 .env
 .env.*
 _extract.txt
+test-results
+playwright-report
+.lighthouseci
+tests/__screenshots__/**/*-win32.png
+tests/__screenshots__/**/*-darwin.png
