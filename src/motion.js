@@ -271,6 +271,27 @@ function manifesto() {
     .from(flow.querySelector(".flow__ship"), { opacity: 0, y: 12, duration: 0.4 });
 }
 
+function nextSteps(still) {
+  const box = document.querySelector("[data-steps]");
+  if (!box) return;
+  const items = [...box.querySelectorAll("li")];
+  if (still) {
+    items.forEach((li) => {
+      li.classList.add("is-on");
+      li.style.setProperty("--p", 1);
+    });
+    return;
+  }
+  box.classList.add("is-armed");
+  const at = (i) => 0.02 + (0.96 * i) / (items.length - 1);
+  const update = ({ progress }) =>
+    items.forEach((li, i) => {
+      li.classList.toggle("is-on", progress >= at(i));
+      if (i < items.length - 1) li.style.setProperty("--p", gsap.utils.clamp(0, 1, (progress - at(i)) / (at(i + 1) - at(i))));
+    });
+  ScrollTrigger.create({ trigger: box, start: "top 80%", end: "bottom 60%", onUpdate: update, onRefresh: update });
+}
+
 function pipeline() {
   const section = document.querySelector("[data-pipeline]");
   const track = document.querySelector("[data-track]");
@@ -330,6 +351,7 @@ if (reduce) {
   document.querySelector("[data-device]")?.classList.add("is-in");
   const m = document.querySelector("[data-words]");
   if (m) splitManifesto(m);
+  nextSteps(true);
   consoleLog(true);
   if (isHome) core(true);
 } else {
@@ -345,6 +367,7 @@ if (reduce) {
   reveals();
   manifesto();
   pipeline();
+  nextSteps();
   device();
   if (isHome) core();
 }
