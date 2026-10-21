@@ -102,9 +102,44 @@
     </div>
 
     <section class="manifesto" data-manifesto>
-      <div class="wrap">
-        <p class="kicker"><span class="mono">01 /</span> <span data-i18n="man.kicker">Yaklaşım</span></p>
-        <p class="manifesto__text" data-words data-i18n="man.text">Hız ajanlardan, karar insandan gelir. Sonuç: daha kısa sürede yayına çıkan yazılım.</p>
+      <div class="wrap manifesto__grid">
+        <div>
+          <p class="kicker"><span class="mono">01 /</span> <span data-i18n="man.kicker">Yaklaşım</span></p>
+          <p class="manifesto__text" data-words data-i18n="man.text">Hız ajanlardan, karar insandan gelir. Sonuç: daha kısa sürede yayına çıkan yazılım.</p>
+        </div>
+        <svg class="flow" data-flow viewBox="0 0 360 410" aria-hidden="true" focusable="false">
+          <text class="flow__label" x="180" y="14" text-anchor="middle">agents · parallel</text>
+          <g class="flow__agents">
+            <rect x="44" y="30" width="32" height="32" rx="9" /><circle class="flow__blink" cx="60" cy="46" r="3" />
+            <rect x="124" y="30" width="32" height="32" rx="9" /><circle class="flow__blink" cx="140" cy="46" r="3" />
+            <rect x="204" y="30" width="32" height="32" rx="9" /><circle class="flow__blink" cx="220" cy="46" r="3" />
+            <rect x="284" y="30" width="32" height="32" rx="9" /><circle class="flow__blink" cx="300" cy="46" r="3" />
+          </g>
+          <path id="flow-a1" class="flow__line" d="M60 62 C60 136 180 124 180 194" />
+          <path id="flow-a2" class="flow__line" d="M140 62 C140 136 180 124 180 194" />
+          <path id="flow-a3" class="flow__line" d="M220 62 C220 136 180 124 180 194" />
+          <path id="flow-a4" class="flow__line" d="M300 62 C300 136 180 124 180 194" />
+          <path id="flow-o" class="flow__line flow__line--out" d="M180 246 L180 352" />
+          <g class="flow__gate">
+            <circle class="flow__ring" cx="180" cy="220" r="26" />
+            <circle class="flow__core" cx="180" cy="220" r="26" />
+            <path class="flow__check" d="M169 220 l7 7 l14 -15" />
+          </g>
+          <text class="flow__label" x="216" y="216">engineer</text>
+          <text class="flow__label flow__label--ion" x="216" y="232">approve</text>
+          <text class="flow__label" x="168" y="302" text-anchor="end">tests ✓</text>
+          <g class="flow__ship">
+            <rect x="112" y="352" width="136" height="38" rx="19" />
+            <text x="180" y="376" text-anchor="middle">release · v1.0</text>
+          </g>
+          <g class="flow__packets">
+            <circle r="3"><animateMotion dur="1.8s" begin="0s" repeatCount="indefinite"><mpath href="#flow-a1" /></animateMotion></circle>
+            <circle r="3"><animateMotion dur="1.8s" begin="0.45s" repeatCount="indefinite"><mpath href="#flow-a2" /></animateMotion></circle>
+            <circle r="3"><animateMotion dur="1.8s" begin="0.9s" repeatCount="indefinite"><mpath href="#flow-a3" /></animateMotion></circle>
+            <circle r="3"><animateMotion dur="1.8s" begin="1.35s" repeatCount="indefinite"><mpath href="#flow-a4" /></animateMotion></circle>
+            <circle class="flow__pkt-out" r="4"><animateMotion dur="1.8s" begin="0.9s" repeatCount="indefinite"><mpath href="#flow-o" /></animateMotion></circle>
+          </g>
+        </svg>
       </div>
     </section>
 

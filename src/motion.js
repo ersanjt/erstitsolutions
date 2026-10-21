@@ -21,12 +21,33 @@ function splitWords(el) {
 }
 
 function splitManifesto(el) {
-  const text = el.textContent.trim();
-  el.innerHTML = text
+  let out = false;
+  el.innerHTML = el.textContent
+    .trim()
     .split(/\s+/)
-    .map((w) => `<span class="mw">${escapeHtml(w)}</span>`)
+    .map((w) => {
+      const span = `<span class="mw${out ? " mw--out" : ""}">${escapeHtml(w)}</span>`;
+      if (w.endsWith(":")) out = true;
+      return span;
+    })
     .join(" ");
   return [...el.querySelectorAll(".mw")];
+}
+
+function revealManifesto(el) {
+  const words = splitManifesto(el);
+  gsap.fromTo(
+    words,
+    { opacity: 0.12, filter: "blur(8px)", yPercent: 18 },
+    {
+      opacity: 1,
+      filter: "blur(0px)",
+      yPercent: 0,
+      stagger: 0.12,
+      ease: "power1.out",
+      scrollTrigger: { trigger: el, start: "top 85%", end: "bottom 60%", scrub: 0.4 },
+    },
+  );
 }
 
 function header() {
@@ -221,14 +242,33 @@ function reveals() {
 
 function manifesto() {
   const el = document.querySelector("[data-words]");
-  if (!el) return;
-  const words = splitManifesto(el);
-  gsap.to(words, {
-    opacity: 1,
-    stagger: 0.1,
-    ease: "none",
-    scrollTrigger: { trigger: el, start: "top 78%", end: "bottom 45%", scrub: true },
-  });
+  if (el) revealManifesto(el);
+  const flow = document.querySelector("[data-flow]");
+  if (!flow) return;
+  const draw = (paths) =>
+    paths.forEach((p) => {
+      const length = p.getTotalLength();
+      gsap.set(p, { strokeDasharray: length, strokeDashoffset: length });
+    });
+  const lines = gsap.utils.toArray(".flow__line:not(.flow__line--out)", flow);
+  const out = flow.querySelector(".flow__line--out");
+  draw([...lines, out]);
+  gsap
+    .timeline({
+      defaults: { ease: "none" },
+      scrollTrigger: {
+        trigger: flow,
+        start: "top 90%",
+        end: "center 60%",
+        scrub: 0.5,
+        onUpdate: (self) => flow.classList.toggle("is-live", self.progress > 0.97),
+      },
+    })
+    .from(flow.querySelectorAll(".flow__agents rect, .flow__blink, .flow__label"), { opacity: 0, stagger: 0.04, duration: 0.4 })
+    .to(lines, { strokeDashoffset: 0, stagger: 0.08, duration: 1 }, 0.2)
+    .from(flow.querySelector(".flow__gate"), { scale: 0.3, opacity: 0, transformOrigin: "50% 50%", duration: 0.4, ease: "back.out(2)" })
+    .to(out, { strokeDashoffset: 0, duration: 0.6 })
+    .from(flow.querySelector(".flow__ship"), { opacity: 0, y: 12, duration: 0.4 });
 }
 
 function pipeline() {
@@ -288,6 +328,8 @@ header();
 if (reduce) {
   document.querySelector("[data-boot]")?.remove();
   document.querySelector("[data-device]")?.classList.add("is-in");
+  const m = document.querySelector("[data-words]");
+  if (m) splitManifesto(m);
   consoleLog(true);
   if (isHome) core(true);
 } else {
@@ -314,14 +356,8 @@ document.addEventListener("erst:lang", () => {
   });
   const m = document.querySelector("[data-words]");
   if (m) {
-    const words = splitManifesto(m);
     ScrollTrigger.getAll().forEach((st) => st.vars.trigger === m && st.kill());
-    gsap.to(words, {
-      opacity: 1,
-      stagger: 0.1,
-      ease: "none",
-      scrollTrigger: { trigger: m, start: "top 78%", end: "bottom 45%", scrub: true },
-    });
+    revealManifesto(m);
   }
   ScrollTrigger.refresh();
 });

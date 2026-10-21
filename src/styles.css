@@ -612,7 +612,36 @@ html[lang="fa"] .hero__title { max-width: 13ch; line-height: 1.3; }
   max-width: 24ch;
 }
 html[lang="fa"] .manifesto__text { font-size: clamp(1.45rem, 2.7vw, 2.5rem); line-height: 1.6; letter-spacing: 0; font-weight: 600; max-width: 24ch; }
-.manifesto__text .mw { opacity: 0.4; transition: opacity 0.2s; }
+.manifesto__text .mw { display: inline-block; opacity: 0.4; }
+.manifesto__text .mw--out { color: var(--ion); }
+.manifesto__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 25rem);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.flow { display: block; width: 100%; height: auto; overflow: visible; direction: ltr; }
+.flow__label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; fill: var(--muted); }
+.flow__label--ion { fill: var(--ion); }
+.flow__agents rect, .flow__ship rect { fill: var(--void-2); stroke: var(--line-2); }
+.flow__blink { fill: var(--ion); animation: flow-blink 1.8s ease-in-out infinite; }
+.flow__blink:nth-of-type(2) { animation-delay: 0.45s; }
+.flow__blink:nth-of-type(3) { animation-delay: 0.9s; }
+.flow__blink:nth-of-type(4) { animation-delay: 1.35s; }
+.flow__line { fill: none; stroke: var(--line-2); stroke-width: 1.25; }
+.flow__line--out { stroke: rgba(198, 255, 58, 0.45); }
+.flow__core { fill: var(--void); stroke: var(--ion); stroke-width: 1.5; }
+.flow__ring { fill: none; stroke: var(--ion); opacity: 0; transform-box: fill-box; transform-origin: center; }
+.flow__check { fill: none; stroke: var(--ion); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.flow__ship rect { stroke: rgba(198, 255, 58, 0.5); }
+.flow__ship text { font-family: var(--mono); font-size: 12px; fill: var(--text); }
+.flow__packets circle { fill: var(--ion); opacity: 0; transition: opacity 0.6s; }
+.flow__packets .flow__pkt-out { fill: var(--text); }
+.flow.is-live .flow__packets circle { opacity: 1; }
+.flow.is-live .flow__ring { animation: flow-ring 1.8s ease-out infinite; }
+@keyframes flow-blink { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+@keyframes flow-ring { 0% { opacity: 0.7; transform: scale(1); } 100% { opacity: 0; transform: scale(1.7); } }
 
 /* Sections */
 
@@ -1195,6 +1224,8 @@ html[lang="fa"] .prose h2 { line-height: 1.5; }
   .offer { grid-template-columns: 1fr 1fr; }
   .eng__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .eng__ci { grid-template-columns: 1fr; }
+  .manifesto__grid { grid-template-columns: 1fr; }
+  .flow { max-width: 20rem; }
 }
 
 @media (max-width: 680px) {
@@ -1253,5 +1284,7 @@ html[lang="fa"] .prose h2 { line-height: 1.5; }
   .boot { display: none; }
   .ticker__track, .hero__line i, .end__glow, .viz-agent__pulse, .viz-code i, .viz-web b, .pulse, .viz-agent circle.core { animation: none; }
   .manifesto__text .mw { opacity: 1; }
+  .flow__blink { animation: none; opacity: 1; }
+  .flow__packets { display: none; }
   .device.is-armed .msg { opacity: 1; transform: none; }
 }
