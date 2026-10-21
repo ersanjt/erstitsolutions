@@ -164,10 +164,45 @@
       </div>
     </section>
 
+    <section class="section eng">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="kicker"><span class="mono">03 /</span> <span data-i18n="eng.kicker">Mühendislik</span></p>
+          <h2 data-split data-i18n="eng.title">Her sürümün arkasındaki mühendislik.</h2>
+          <p data-fade data-i18n="eng.lede">Ajanlar işi hızlandırır. Neyin yayına çıkacağına bu altı kural karar verir.</p>
+        </div>
+        <ol class="eng__grid">
+          <li data-reveal><span class="index">01</span><h3 data-i18n="eng.1.t">Önce mimari, sonra kod</h3><p data-i18n="eng.1.p">İlk satır yazılmadan önce mimariyi, API’yi ve veri modelini bir mühendis seçer.</p><p class="eng__tags" dir="ltr">API design · data model · migrations</p></li>
+          <li data-reveal><span class="index">02</span><h3 data-i18n="eng.2.t">Her değişiklik incelenir ve test edilir</h3><p data-i18n="eng.2.p">Kritik bölümleri mühendisler kendisi yazar. Hiçbir değişiklik kod incelemesi ve test olmadan yayına çıkmaz.</p><p class="eng__tags" dir="ltr">code review · tests · end-to-end</p></li>
+          <li data-reveal><span class="index">03</span><h3 data-i18n="eng.3.t">Güvenlik ilk sürümde</h3><p data-i18n="eng.3.p">Roller, iki adımlı giriş, yetkiler ve denetim kayıtları sonradan eklenmez; ilk günden vardır.</p><p class="eng__tags" dir="ltr">2FA · RBAC · audit log</p></li>
+          <li data-reveal><span class="index">04</span><h3 data-i18n="eng.4.t">Sınırları belli ajanlar</h3><p data-i18n="eng.4.p">Ajanlar yalnızca yetkileri içinde çalışır. Kritik adımlar bir insanın onayını bekler, her işlem kayda geçer.</p><p class="eng__tags" dir="ltr">human-in-the-loop · permissions · logs</p></li>
+          <li data-reveal><span class="index">05</span><h3 data-i18n="eng.5.t">Altyapıyı kendimiz kurarız</h3><p data-i18n="eng.5.p">Linux sunucu, Cloudflare, DNS ve e-posta: sertifika, yedek ve SPF, DKIM, DMARC kurulur ve kontrol edilir.</p><p class="eng__tags" dir="ltr">Linux · Cloudflare · SPF / DKIM / DMARC</p></li>
+          <li data-reveal><span class="index">06</span><h3 data-i18n="eng.6.t">Yayından sonra da izlenir</h3><p data-i18n="eng.6.p">Yayından sonra kayıtlar ve izleme sürer. Her sürüm geri alma adımlarıyla gelir.</p><p class="eng__tags" dir="ltr">monitoring · logs · rollback</p></li>
+        </ol>
+        <div class="eng__ci" data-reveal>
+          <div class="eng__ci-copy">
+            <h3 data-i18n="eng.ci.t">Bu site de aynı kurallarla yayına çıkar.</h3>
+            <p data-i18n="eng.ci.p">Her değişiklik canlıya çıkmadan önce otomatik kontrollerden geçer. Biri başarısız olursa yayın durur.</p>
+          </div>
+          <div class="term" dir="ltr">
+            <div class="term__bar"><i></i><i></i><i></i><span>release · erstitsolutions.com</span></div>
+            <ol class="term__log">
+              <li><b>✓</b> lint · build · html validation</li>
+              <li><b>✓</b> visual regression · desktop + mobile</li>
+              <li><b>✓</b> accessibility · WCAG 2.2 AA · 30 pages</li>
+              <li><b>✓</b> security headers · CSP · HSTS</li>
+              <li><b>✓</b> lighthouse · SEO 100</li>
+              <li class="term__done"><b>→</b> deployed</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="pipeline" data-pipeline>
       <div class="pipeline__pin">
         <div class="wrap pipeline__head">
-          <p class="kicker"><span class="mono">03 /</span> <span data-i18n="pipe.kicker">Süreç</span></p>
+          <p class="kicker"><span class="mono">04 /</span> <span data-i18n="pipe.kicker">Süreç</span></p>
           <h2 data-i18n="pipe.title">Fikirden yayına altı adım.</h2>
         </div>
         <div class="pipeline__viewport">
@@ -187,7 +222,7 @@
     <section class="section">
       <div class="wrap">
         <div class="section__head">
-          <p class="kicker"><span class="mono">04 /</span> <span data-i18n="case.kicker">Kendi ürünümüz</span></p>
+          <p class="kicker"><span class="mono">05 /</span> <span data-i18n="case.kicker">Kendi ürünümüz</span></p>
         </div>
         <a class="case" href="/contact" data-reveal data-glow>
           <div class="case__copy">
@@ -222,7 +257,7 @@
     <section class="section" style="padding-top:0">
       <div class="wrap">
         <div class="section__head">
-          <p class="kicker"><span class="mono">05 /</span> <span data-i18n="products.kicker">Hazır ürünler</span></p>
+          <p class="kicker"><span class="mono">06 /</span> <span data-i18n="products.kicker">Hazır ürünler</span></p>
           <h2 data-split data-i18n="products.title">Satıştaki üç ürünümüz.</h2>
           <p data-fade data-i18n="products.lede">Kendi geliştirdiğimiz hazır yazılımlar. Ayrı ayrı ya da birlikte kurulabilir; fiyatları Ürünler sayfasında bulabilirsiniz.</p>
         </div>
@@ -253,7 +288,7 @@
     <section class="section" style="padding-top:0">
       <div class="wrap">
         <div class="section__head">
-          <p class="kicker"><span class="mono">06 /</span> <span data-i18n="blog.kicker">Blog</span></p>
+          <p class="kicker"><span class="mono">07 /</span> <span data-i18n="blog.kicker">Blog</span></p>
           <h2 data-split data-i18n="blog.title">Sahada öğrendiklerimiz.</h2>
         </div>
         <div class="posts posts--row">
@@ -285,7 +320,7 @@
     <section class="end">
       <div class="end__glow" aria-hidden="true"></div>
       <div class="wrap">
-        <p class="kicker"><span class="mono">07 /</span> <span data-i18n="end.kicker">Başlayalım</span></p>
+        <p class="kicker"><span class="mono">08 /</span> <span data-i18n="end.kicker">Başlayalım</span></p>
         <h2 class="end__title" data-split data-i18n="end.title">Sıradaki ajanınızı birlikte kuralım.</h2>
         <p class="lede" data-fade data-i18n="end.text">Ne iş yaptığınızı ve nerede zorlandığınızı yazın; ilk planı birlikte çıkaralım.</p>
         <div class="actions" data-fade>

@@ -349,18 +349,21 @@ export function renderHead(file, lang) {
     meta("name", "ICBM", `${GEO.lat}, ${GEO.lng}`),
     `<script type="application/ld+json">${JSON.stringify(graph(file, lang)).replace(/</g, "\\u003c")}</script>`,
   );
-  if (lang === "fa") tags.push(`<link rel="preload" href="/fonts/estedad.woff2" as="font" type="font/woff2" crossorigin />`);
   return `<!--seo-->\n  ${tags.join("\n  ")}\n  <!--/seo-->`;
 }
 
-// Headings use Unbounded 500; Turkish also needs the latin-ext subset (ı, ş, ğ). Persian headings use Estedad.
-const HEADING_SUBSETS = { tr: ["latin", "latin-ext"], en: ["latin"], fa: [] };
+// Geist carries headings and text; Turkish also needs the latin-ext subset (ı, ş, ğ).
+const FIRST_PAINT_FONTS = {
+  tr: ["geist-latin-wght-normal", "geist-latin-ext-wght-normal"],
+  en: ["geist-latin-wght-normal"],
+  fa: ["vazirmatn-arabic-wght-normal"],
+};
 
 function headingFonts(assetsDir) {
   const files = fs.existsSync(assetsDir) ? fs.readdirSync(assetsDir) : [];
-  const find = (subset) => files.find((f) => new RegExp(`^unbounded-${subset}-500-normal-[\\w-]+\\.woff2$`).test(f));
+  const find = (name) => files.find((f) => new RegExp(`^${name}-[\\w-]+\\.woff2$`).test(f));
   return (head, lang) => {
-    const links = HEADING_SUBSETS[lang]
+    const links = FIRST_PAINT_FONTS[lang]
       .map(find)
       .filter(Boolean)
       .map((f) => `<link rel="preload" href="/assets/${f}" as="font" type="font/woff2" crossorigin />`);
