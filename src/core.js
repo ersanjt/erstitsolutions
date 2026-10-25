@@ -255,11 +255,12 @@ export function initCore(canvas, { still = false } = {}) {
     canvas.height = Math.floor(h * dpr);
     gl.viewport(0, 0, canvas.width, canvas.height);
     gl.uniformMatrix4fv(u.projectionMatrix, false, perspective(35, w / h, 0.1, 100));
-    const narrow = w < 980;
+    // On narrow or portrait canvases a side-offset sphere falls outside the frustum, so stack it above the copy.
+    const stacked = w < 980 || w / h < 1.1;
     const rtl = document.documentElement.dir === "rtl";
-    group.x = narrow ? 0 : (rtl ? -1 : 1) * 2.1;
-    group.y = narrow ? 1.4 : 0.25;
-    group.scale = narrow ? 0.82 : 1;
+    group.x = stacked ? 0 : (rtl ? -1 : 1) * 2.1;
+    group.y = stacked ? 1.4 : 0.25;
+    group.scale = stacked ? 0.82 : 1;
     if (still) frame();
   };
 
