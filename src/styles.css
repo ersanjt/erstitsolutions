@@ -1315,6 +1315,13 @@ html[lang="fa"] .prose h2 { line-height: 1.5; }
   .hero { min-height: min(100svh, 75rem); }
 }
 
+@media (min-width: 981px) and (max-aspect-ratio: 1/1) {
+  .pipeline__pin { min-height: 0; padding: 7.5rem 0; }
+  .pipeline__track { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: auto; }
+  .step { width: auto; }
+  .pipeline__bar { display: none; }
+}
+
 @media (max-height: 520px) and (orientation: landscape) {
   .hero__inner { padding-top: calc(var(--header) + 1.5rem); }
   .hero__title { font-size: clamp(2.2rem, 7vw, 3.4rem); }

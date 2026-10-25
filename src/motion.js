@@ -289,7 +289,7 @@ function nextSteps(still) {
       li.classList.toggle("is-on", progress >= at(i));
       if (i < items.length - 1) li.style.setProperty("--p", gsap.utils.clamp(0, 1, (progress - at(i)) / (at(i + 1) - at(i))));
     });
-  ScrollTrigger.create({ trigger: box, start: "top 80%", end: "bottom 60%", onUpdate: update, onRefresh: update });
+  ScrollTrigger.create({ trigger: box, start: "clamp(top 80%)", end: "clamp(bottom 60%)", onUpdate: update, onRefresh: update });
 }
 
 function pipeline() {
@@ -298,7 +298,7 @@ function pipeline() {
   const bar = document.querySelector("[data-progress]");
   if (!section || !track) return;
   const mm = gsap.matchMedia();
-  mm.add("(min-width: 981px)", () => {
+  mm.add("(min-width: 981px) and (min-aspect-ratio: 1001/1000)", () => {
     const distance = () => Math.max(0, track.scrollWidth - document.documentElement.clientWidth);
     const dir = () => (document.documentElement.dir === "rtl" ? 1 : -1);
     const tween = gsap.to(track, {
